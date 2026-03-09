@@ -659,7 +659,23 @@
                     <h3 class="text-xl font-bold text-white mb-2">Want Us To Reach Out To You?</h3>
                     <p class="text-gray-500 text-sm mb-6">Fill in the form and we'll get back to you.</p>
 
-                    <form action="#" method="POST" class="space-y-4">
+                    @if(session('success'))
+                        <div class="mb-4 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if($errors->any())
+                        <div class="mb-4 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
+                            <ul class="list-disc list-inside space-y-1">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('contact.send') }}" method="POST" class="space-y-4">
                         @csrf
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
