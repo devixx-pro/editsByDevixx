@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which composer && composer --version)",
+      "Bash(composer create-project laravel/laravel /Users/diwakar/Sites/editsByDevixx --prefer-dist 2>&1)",
+      "Bash(composer create-project laravel/laravel /tmp/laravel-temp --prefer-dist 2>&1)",
+      "Bash(cp -a /tmp/laravel-temp/. /Users/diwakar/Sites/editsByDevixx/ && rm -rf /tmp/laravel-temp)",
+      "Bash(npm install 2>&1)",
+      "Bash(npm run build 2>&1)",
+      "Bash(php /Users/diwakar/Sites/editsByDevixx/artisan serve --host=127.0.0.1 --port=8000 2>&1)",
+      "Bash(php /Users/diwakar/Sites/editsByDevixx/artisan serve --host=127.0.0.1 --port=8001 2>&1)",
+      "Bash(php /Users/diwakar/Sites/editsByDevixx/artisan serve --host=127.0.0.1 --port=8080 2>&1)",
+      "Bash(git init && git branch -M main)",
+      "Bash(git add -A && git status --short | head -30)"
+    ]
+  }
+}
