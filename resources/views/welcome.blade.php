@@ -37,8 +37,8 @@
     {{-- ========== NAVBAR ========== --}}
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold text-white tracking-tight">
-                <span class="text-primary">Edits</span> by Devixx
+            <a href="#" class="block">
+                <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-8 md:h-10 w-auto">
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors">Services</a>
@@ -711,7 +711,7 @@
         <div class="border-t border-surface-border py-8">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <span class="text-lg font-bold text-white"><span class="text-primary">Edits</span> by Devixx</span>
+                    <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-8 w-auto">
                     <div class="flex flex-wrap items-center justify-center gap-6">
                         <a href="#services" class="text-sm text-gray-500 hover:text-white transition-colors">Services</a>
                         <a href="#testimonials" class="text-sm text-gray-500 hover:text-white transition-colors">Testimonials</a>
