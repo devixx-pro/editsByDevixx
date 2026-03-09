@@ -18,7 +18,7 @@ class ContactController extends Controller
             'message' => 'required|string|max:5000',
         ]);
 
-        Mail::to('inquiry@devixx.pro')->send(new ContactInquiry(
+        Mail::to(config('mail.admin_address', 'inquiry@devixx.pro'))->send(new ContactInquiry(
             firstName: $validated['first_name'],
             lastName: $validated['last_name'],
             email: $validated['email'],
