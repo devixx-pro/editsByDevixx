@@ -62,7 +62,7 @@
                 <a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a>
                 <a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a>
                 <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                <a href="#contact" class="btn-primary text-sm text-center">Get for Free</a>
+                <a href="#contact" class="btn-primary text-sm text-center w-full">Get for Free</a>
             </div>
         </div>
     </nav>
@@ -89,7 +89,7 @@
             </p>
 
             <div data-hero-anim class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-                <a href="#contact" class="btn-primary magnetic text-lg px-10 py-4 animate-pulse-glow">
+                <a href="#contact" class="btn-primary magnetic text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 animate-pulse-glow">
                     Let's Talk
                 </a>
             </div>
@@ -398,7 +398,7 @@
     {{-- ========== STATS ========== --}}
     <section class="py-24 relative" id="stats-section">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12" data-stats>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12" data-stats>
                 <div class="text-center stat-item">
                     <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="1000000" data-suffix="+" data-display="1M+">0</span>
                     <span class="text-sm md:text-base text-gray-500 mt-2 block">Views Generated</span>
@@ -507,7 +507,7 @@
             </div>
 
             {{-- General FAQs --}}
-            <div class="faq-tab-content space-y-4" id="faq-general" data-tab-content="general">
+            <div class="faq-tab-content space-y-3 md:space-y-4" id="faq-general" data-tab-content="general">
                 @php
                 $generalFaqs = [
                     ['Who is behind DEVIXX?', "We're a small team that got tired of agencies charging big retainers with nothing to show for it. So we built ours differently. We take on a select few clients, stay fully invested in each one, and built a model where our income depends on your results. No results, no justification for our fee. That's the standard we hold ourselves to."],
@@ -531,14 +531,14 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-12">{{ $faq[1] }}</p>
+                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-8 md:pl-12">{{ $faq[1] }}</p>
                     </div>
                 </div>
                 @endforeach
             </div>
 
             {{-- How We Work FAQs --}}
-            <div class="faq-tab-content space-y-4 hidden" id="faq-how-we-work" data-tab-content="how-we-work">
+            <div class="faq-tab-content space-y-3 md:space-y-4 hidden" id="faq-how-we-work" data-tab-content="how-we-work">
                 @php
                 $howWeWorkFaqs = [
                     ['How does the commission model work?', "We've seen too many businesses hesitate to invest in an agency because of the upfront cost. So we removed that barrier. You pay a small monthly retainer and we take a commission on every client we bring you. The better we perform the more we earn. If we don't deliver you barely paid anything."],
@@ -562,14 +562,14 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-12">{{ $faq[1] }}</p>
+                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-8 md:pl-12">{{ $faq[1] }}</p>
                     </div>
                 </div>
                 @endforeach
             </div>
 
             {{-- Our Services FAQs --}}
-            <div class="faq-tab-content space-y-4 hidden" id="faq-our-services" data-tab-content="our-services">
+            <div class="faq-tab-content space-y-3 md:space-y-4 hidden" id="faq-our-services" data-tab-content="our-services">
                 @php
                 $servicesFaqs = [
                     ['What services do you offer?', 'We offer short-form content, long-form YouTube videos, podcast editing and distribution, Meta paid ads management, and video editing only. You can take on the full system or pick the individual service you need.'],
@@ -592,7 +592,7 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-12">{{ $faq[1] }}</p>
+                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-8 md:pl-12">{{ $faq[1] }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -604,7 +604,7 @@
     <section id="contact" class="py-24 relative">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <div>
                     <span class="section-label mb-6 inline-block">Contact</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-4">
@@ -725,7 +725,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-8 w-auto">
-                    <div class="flex flex-wrap items-center justify-center gap-6">
+                    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
                         <a href="#services" class="text-sm text-gray-500 hover:text-white transition-colors">Services</a>
                         <a href="#testimonials" class="text-sm text-gray-500 hover:text-white transition-colors">Testimonials</a>
                         <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Process</a>
@@ -774,7 +774,7 @@
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) lenis.scrollTo(target, { offset: -80 });
+            if (target) lenis.scrollTo(target, { offset: window.innerWidth < 768 ? -60 : -80 });
         });
     });
 
@@ -1155,7 +1155,7 @@
         const visible = getVisibleCount();
         const maxIndex = totalTestimonials - visible;
         testimonialIndex = Math.max(0, Math.min(testimonialIndex + dir, maxIndex));
-        const pct = -(testimonialIndex * (100 / totalTestimonials));
+        const pct = -(testimonialIndex * (100 / visible));
         gsap.to(testimonialTrack, { x: pct + '%', duration: 0.5, ease: 'power2.out' });
         testimonialCounter.textContent = String(testimonialIndex + 1).padStart(2, '0') + ' / ' + String(totalTestimonials).padStart(2, '0');
     }
