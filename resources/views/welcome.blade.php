@@ -173,8 +173,8 @@
                         <div class="video-overlay absolute inset-0 bg-black/30 transition-opacity duration-300"></div>
                         <div class="play-btn absolute inset-0 flex items-center justify-center transition-opacity duration-300">
                             <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                                <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.8l4.5-3.3v13l-4.5-3.3H3.5a1 1 0 01-1-1v-4.4a1 1 0 011-1h3z"/>
                                 </svg>
                             </div>
                         </div>
@@ -201,8 +201,8 @@
                         <div class="video-overlay absolute inset-0 bg-black/30 transition-opacity duration-300"></div>
                         <div class="play-btn absolute inset-0 flex items-center justify-center transition-opacity duration-300">
                             <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                                <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.8l4.5-3.3v13l-4.5-3.3H3.5a1 1 0 01-1-1v-4.4a1 1 0 011-1h3z"/>
                                 </svg>
                             </div>
                         </div>
@@ -1095,15 +1095,13 @@
     }
 
     // ============================================
-    // VIDEO PLAY/PAUSE TOGGLE
+    // VIDEO AUTO-PLAY ON SCROLL + CLICK TO UNMUTE
     // ============================================
     function pauseAllVideos(except) {
         document.querySelectorAll('[onclick="toggleVideo(this)"] video').forEach(v => {
-            if (v !== except && !v.paused) {
-                v.pause();
+            if (v !== except && !v.muted) {
                 v.muted = true;
                 const c = v.closest('[onclick="toggleVideo(this)"]');
-                gsap.to(c.querySelector('.video-overlay'), { opacity: 1, duration: 0.3 });
                 gsap.to(c.querySelector('.play-btn'), { opacity: 1, duration: 0.3 });
             }
         });
@@ -1111,20 +1109,33 @@
 
     function toggleVideo(container) {
         const video = container.querySelector('video');
-        const overlay = container.querySelector('.video-overlay');
         const playBtn = container.querySelector('.play-btn');
-        if (video.paused) {
+        if (video.muted) {
             pauseAllVideos(video);
             video.muted = false;
-            video.play();
-            gsap.to(overlay, { opacity: 0, duration: 0.3 });
             gsap.to(playBtn, { opacity: 0, duration: 0.3 });
         } else {
-            video.pause();
-            gsap.to(overlay, { opacity: 1, duration: 0.3 });
+            video.muted = true;
             gsap.to(playBtn, { opacity: 1, duration: 0.3 });
         }
     }
+
+    // Auto-play videos muted when scrolled into view
+    document.querySelectorAll('[onclick="toggleVideo(this)"] video').forEach(video => {
+        video.muted = true;
+        const overlay = video.closest('[onclick="toggleVideo(this)"]').querySelector('.video-overlay');
+        gsap.set(overlay, { opacity: 0 });
+
+        ScrollTrigger.create({
+            trigger: video,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            onEnter: () => video.play(),
+            onLeave: () => { video.pause(); video.currentTime = 0; },
+            onEnterBack: () => video.play(),
+            onLeaveBack: () => { video.pause(); video.currentTime = 0; },
+        });
+    });
 
     // ============================================
     // TESTIMONIAL SLIDER
