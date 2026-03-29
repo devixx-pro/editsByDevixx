@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; }
-        .header { background: linear-gradient(135deg, #8B5CF6, #7C3AED); padding: 24px; border-radius: 8px 8px 0 0; }
+        .header { background: linear-gradient(135deg, #9333EA, #7E22CE); padding: 24px; border-radius: 8px 8px 0 0; }
         .header h1 { color: white; margin: 0; font-size: 20px; }
         .content { background: #f9fafb; padding: 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px; }
         .field { margin-bottom: 16px; }

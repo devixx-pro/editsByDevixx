@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edits by Devixx — Content That Gets You Chosen</title>
-    <meta name="description" content="We turn your expertise into a content system that makes sure you're not just visible. You're chosen.">
+    <meta name="description" content="Built around one goal. Getting you clients.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     </div>
 
     {{-- Page Loader --}}
-    <div id="page-loader" class="fixed inset-0 z-[9998] bg-surface flex items-center justify-center">
+    <div id="page-loader" class="fixed inset-0 z-[9998] bg-black flex items-center justify-center">
         <div class="text-center">
             <div class="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
             <span class="text-primary font-medium text-sm tracking-widest uppercase">Loading</span>
@@ -33,6 +33,9 @@
 
     {{-- Noise Texture Overlay --}}
     <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+
+    {{-- Background Grid Overlay --}}
+    <div id="bg-grid"></div>
 
     {{-- ========== NAVBAR ========== --}}
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -66,11 +69,8 @@
 
     {{-- ========== HERO SECTION ========== --}}
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div class="absolute inset-0">
-            <div data-parallax data-speed="0.3" class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/8 rounded-full blur-[120px]"></div>
-            <div data-parallax data-speed="0.5" class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]"></div>
-            <div class="absolute top-0 left-0 right-0 h-px glow-line opacity-30"></div>
-        </div>
+        {{-- Junox-style ambient glow --}}
+        <div id="hero-glow"></div>
 
         <div class="relative max-w-5xl mx-auto px-6 text-center">
             <div data-hero-anim class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
@@ -78,281 +78,59 @@
                 <span class="text-sm text-primary-light font-medium">Now Accepting New Clients</span>
             </div>
 
-            <h1 data-hero-anim data-split class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+            <h1 data-hero-anim data-split class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
                 Helping Service Businesses Build the
                 <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">Content System</span>
                 That Brings High-Ticket Clients to You
             </h1>
 
-            <p data-hero-anim class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-4 leading-relaxed">
-                We turn your expertise into a content system that makes sure you're not just visible. You're chosen.
-            </p>
-            <p data-hero-anim class="text-base text-gray-500 max-w-2xl mx-auto mb-10">
-                Because the right content doesn't just get you seen. It gets you chosen.
+            <p data-hero-anim class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Built around one goal. Getting you clients.
             </p>
 
             <div data-hero-anim class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-                <a href="#contact" class="btn-primary magnetic text-lg px-10 py-4 animate-pulse-glow group">
+                <a href="#contact" class="btn-primary magnetic text-lg px-10 py-4 animate-pulse-glow">
                     Let's Talk
-                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
                 </a>
-                <span class="text-sm text-gray-500 italic relative">
-                    (It's Free)
-                    <svg class="absolute -top-4 -right-8 w-8 h-8 text-yellow-400" viewBox="0 0 40 40" fill="none">
-                        <path d="M8 30C12 20 20 12 35 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-                        <path d="M30 6L35 8L32 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    </svg>
-                </span>
             </div>
         </div>
     </section>
 
-    {{-- ========== STATS BAR ========== --}}
-    <section class="relative py-6">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="relative overflow-hidden rounded-2xl border border-surface-border bg-gradient-to-r from-surface-card via-surface-light to-surface-card p-1">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5"></div>
-                <div class="relative grid grid-cols-2 md:grid-cols-4 gap-0" data-stats>
-                    <div class="flex flex-col items-center py-5 px-4 border-r border-surface-border stat-item">
-                        <span class="text-2xl md:text-3xl font-bold text-white" data-count="180" data-prefix="0 to " data-suffix="K">0 to 0K</span>
-                        <span class="text-xs md:text-sm text-gray-500 mt-1">Views</span>
-                    </div>
-                    <div class="flex flex-col items-center py-5 px-4 md:border-r border-surface-border stat-item">
-                        <span class="text-2xl md:text-3xl font-bold text-white" data-count="3" data-suffix="x">0x</span>
-                        <span class="text-xs md:text-sm text-gray-500 mt-1">Revenue</span>
-                    </div>
-                    <div class="flex flex-col items-center py-5 px-4 border-r border-surface-border border-t md:border-t-0 stat-item">
-                        <span class="text-2xl md:text-3xl font-bold text-white" data-count="50" data-suffix="+">0+</span>
-                        <span class="text-xs md:text-sm text-gray-500 mt-1">Inbound DMs</span>
-                    </div>
-                    <div class="flex flex-col items-center py-5 px-4 border-t md:border-t-0 stat-item">
-                        <span class="text-2xl md:text-3xl font-bold text-white" data-count="10" data-suffix="x">0x</span>
-                        <span class="text-xs md:text-sm text-gray-500 mt-1">Engagement</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- ========== WHY CHOOSE US ========== --}}
-    <section id="why-us" class="py-24 relative">
+    {{-- ========== CASE STUDIES ========== --}}
+    <section id="case-studies" class="py-24 relative">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
             <div class="text-center mb-16">
-                <span class="section-label mb-6 inline-block">Content</span>
+                <span class="section-label mb-6 inline-block">Case Studies</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
-                    What Makes Us the Last Agency You'll Need.
+                    Results We're Proud Of.
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    We obsess over one thing. Making sure the right people find you, trust you, and reach out.
+                    Real businesses. Real problems. Real results.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="card group hover:bg-primary/5">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                        <span class="text-primary font-bold text-lg">01</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Fully Done For You.</h3>
-                    <p class="text-gray-400 leading-relaxed">From the first script to the last post, we run the entire operation.</p>
-                </div>
-
-                <div class="card group hover:bg-primary/5">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                        <span class="text-primary font-bold text-lg">02</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Built Around You.</h3>
-                    <p class="text-gray-400 leading-relaxed">Nothing generic. Nothing copy pasted. Everything starts with you.</p>
-                </div>
-
-                <div class="card group hover:bg-primary/5">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                        <span class="text-primary font-bold text-lg">03</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Quality Over Everything.</h3>
-                    <p class="text-gray-400 leading-relaxed">Every piece we make is crafted with intention.</p>
-                </div>
-
-                <div class="card group hover:bg-primary/5">
-                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                        <span class="text-primary font-bold text-lg">04</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">One Goal. More Clients.</h3>
-                    <p class="text-gray-400 leading-relaxed">Every step points to one outcome. You getting clients.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- ========== SERVICES - FULL SYSTEM ========== --}}
-    <section id="services" class="py-24 relative">
-        <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[150px]"></div>
-        <div class="max-w-7xl mx-auto px-6 relative">
-            <div class="text-center mb-16">
-                <span class="section-label mb-6 inline-block">Our Services</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
-                    The Full Client Acquisition System.
-                </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Everything you need to attract, nurture, and convert high-ticket clients. Built and run for you.
-                </p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-16">
-                @php
-                $serviceIcons = [
-                    ['Complete Funnel', 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z'],
-                    ['Top-Notch Quality', 'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z'],
-                    ['Custom Strategy', 'M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z'],
-                    ['High Conversion', 'M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941'],
-                    ['Curated for Results', 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'],
-                ];
-                @endphp
-                @foreach($serviceIcons as $service)
-                <div class="card text-center group hover:bg-primary/5">
-                    <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $service[1] }}"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-white font-semibold">{{ $service[0] }}</h4>
-                </div>
-                @endforeach
-            </div>
-
-            <div class="mb-8">
-                <span class="text-sm text-gray-500 uppercase tracking-wider font-medium">What's Included</span>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="card relative overflow-hidden group hover:border-primary/40">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card group hover:border-primary/40 p-8 relative overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-5">
-                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Visibility</h3>
-                    <p class="text-gray-400 leading-relaxed">Short-form content that puts you in front of the right people consistently. Every week, every platform consistently.</p>
+                    <span class="inline-block text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mb-4">Construction Bookkeeping</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 leading-snug">
+                        How a Bookkeeper With Zero Online Presence Started Getting Inbound Clients in 60 Days.
+                    </h3>
+                    <a href="https://atomikgrowth.com/case-studies" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium text-sm mt-2">
+                        Read the Story
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
 
-                <div class="card relative overflow-hidden group hover:border-primary/40">
+                <div class="card group hover:border-primary/40 p-8 relative overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-5">
-                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0016.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.997 6.997 0 01-4.27 1.522 6.997 6.997 0 01-4.27-1.522"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Authority</h3>
-                    <p class="text-gray-400 leading-relaxed">Long-form content that builds the kind of trust that makes clients choose you before the call even starts.</p>
-                </div>
-
-                <div class="card relative overflow-hidden group hover:border-primary/40">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-5">
-                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Conversion</h3>
-                    <p class="text-gray-400 leading-relaxed">Organic content brings the right clients to you. Paid ads scale it when you're ready to grow faster.</p>
-                </div>
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="#contact" class="btn-primary">
-                    Get Started
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    {{-- ========== INDIVIDUAL SERVICES ========== --}}
-    <section class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="section-label mb-6 inline-block">Not Ready for the Full System?</span>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
-                    We also offer individual services. Pick the one that fits where you are right now and we'll handle the rest.
-                </p>
-            </div>
-
-            <div class="space-y-6">
-                @php
-                $checkSvg = '<svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
-
-                $individualServices = [
-                    [
-                        'title' => 'Short-Form Content',
-                        'desc' => 'Consistent presence across every platform. Every week.',
-                        'items' => ['Scripts written by our team', 'High-quality editing and motion captions', 'Brand-consistent visuals', 'Posted across Instagram, TikTok, and LinkedIn', 'Consistent weekly schedule']
-                    ],
-                    [
-                        'title' => 'Long-Form Youtube Videos',
-                        'desc' => 'The content that makes people trust you before they ever reach out.',
-                        'items' => ['Full script or guided outline', 'Professional editing and polished visuals', 'Thumbnail creation and title optimization', 'Published on a consistent weekly schedule']
-                    ],
-                    [
-                        'title' => 'Podcast Editing and Distribution',
-                        'desc' => 'One recording. Edited, polished, and distributed everywhere.',
-                        'items' => ['Full episode edited and polished', 'Dead air and filler removed', 'Distributed across podcast platforms', 'Repurposed into short-form clips', 'Consistent publishing schedule']
-                    ],
-                    [
-                        'title' => 'Meta Paid Ads',
-                        'desc' => 'Full ad management. You pay Meta directly. We bring the results.',
-                        'items' => ['Full ad strategy and campaign structure', 'Ad creative and copywriting', 'Audience targeting and retargeting', 'Ongoing optimization', 'Weekly performance reporting']
-                    ],
-                    [
-                        'title' => 'Video Editing Only',
-                        'desc' => 'Every frame is treated with the same precision we bring to everything else.',
-                        'items' => ['Clean cuts and pacing', 'Motion captions', 'Brand-consistent formatting', '48 hour turnaround', '2 rounds of free revisions']
-                    ],
-                ];
-                @endphp
-
-                @foreach($individualServices as $service)
-                <div class="card p-8">
-                    <div class="flex flex-col lg:flex-row lg:items-start gap-6">
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-white mb-2">{{ $service['title'] }}</h3>
-                            <p class="text-gray-400 mb-4">{{ $service['desc'] }}</p>
-                            <ul class="space-y-2">
-                                @foreach($service['items'] as $item)
-                                <li class="flex items-center gap-3 text-gray-300">
-                                    {!! $checkSvg !!}
-                                    {{ $item }}
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-3 lg:mt-2">
-                            <a href="#contact" class="btn-primary text-sm">Get Started</a>
-                            <a href="#" class="btn-outline text-sm">Connect on WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- ========== A NOTE FROM US ========== --}}
-    <section class="py-16 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="card p-8 md:p-12 text-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-                <div class="relative">
-                    <span class="section-label mb-6 inline-block">A Note From Us</span>
-                    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-6 leading-relaxed">
-                        We always recommend showing up in your own content. But if your schedule doesn't allow it, we have a way to keep your content running without you needing to record.
-                    </p>
-                    <a href="#contact" class="inline-flex items-center gap-2 mt-6 text-primary hover:text-primary-light transition-colors font-medium">
-                        Learn More
+                    <span class="inline-block text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mb-4">Small Business Bookkeeping</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 leading-snug">
+                        How We Took a Small Business Bookkeeper From Invisible to Fully Booked Through Content.
+                    </h3>
+                    <a href="https://atomikgrowth.com/case-studies" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium text-sm mt-2">
+                        Read the Story
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
@@ -360,134 +138,197 @@
         </div>
     </section>
 
-    {{-- ========== SETUP CTA BANNER ========== --}}
-    <section class="py-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-accent/20 border border-primary/20 p-6 md:p-8">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
-                <div class="relative flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p class="text-white text-lg md:text-xl font-semibold">
-                        Setup So Simple, It Just Works — Let's Set Things Up!
-                    </p>
-                    <a href="#contact" class="btn-primary whitespace-nowrap">
-                        Get Started
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- ========== SHORT-FORM VIDEOS ========== --}}
+    {{-- ========== PORTFOLIO ========== --}}
     <section id="projects" class="py-24 relative">
         <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
-                    Short-Form Videos That Actually
-                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Get Watched</span>
+                <span class="section-label mb-6 inline-block">Portfolio</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
+                    Content That Brings Clients In.
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Not Just Views.</span>
                 </h2>
                 <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-                    We script and produce from scratch, edit your footage, or clip from your existing content. All crafted with the same level of intention and quality.
+                    Every video we make is built to attract the right person and make them reach out. Here's some of our work.
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                @for($i = 0; $i < 4; $i++)
-                <div class="group relative aspect-[9/16] rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-primary/30 transition-all duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                            <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+            {{-- Short-Form Videos --}}
+            @php
+            $shortFormVideos = [
+                ['src' => 'videos/short-form/video-01.mp4', 'type' => 'video/mp4'],
+                ['src' => 'videos/short-form/video-02.mp4', 'type' => 'video/mp4'],
+                ['src' => 'videos/short-form/video-03.mp4', 'type' => 'video/mp4'],
+                ['src' => 'videos/short-form/video-04.mp4', 'type' => 'video/mp4'],
+            ];
+            @endphp
+            <div class="mb-16">
+                <h3 class="text-xl font-semibold text-white mb-6">Short-Form Videos</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    @foreach($shortFormVideos as $video)
+                    <div class="group relative aspect-[9/16] rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-primary/30 transition-all duration-300 cursor-pointer" onclick="toggleVideo(this)">
+                        <video class="absolute inset-0 w-full h-full object-cover" loop playsinline muted preload="metadata">
+                            <source src="{{ asset($video['src']) }}" type="{{ $video['type'] }}">
+                        </video>
+                        <div class="video-overlay absolute inset-0 bg-black/30 transition-opacity duration-300"></div>
+                        <div class="play-btn absolute inset-0 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-4">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full">Enable sound</span>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                @endfor
+            </div>
+
+            {{-- Long Form & Trailers --}}
+            @php
+            $longFormVideos = [
+                ['src' => 'videos/long-form/video-01.mp4'],
+                ['src' => 'videos/long-form/video-02.mp4'],
+            ];
+            @endphp
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-6">Long Form and Trailers</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    @foreach($longFormVideos as $video)
+                    <div class="group relative aspect-video rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-primary/30 transition-all duration-300 cursor-pointer" onclick="toggleVideo(this)">
+                        <video class="absolute inset-0 w-full h-full object-cover" loop playsinline muted preload="metadata">
+                            <source src="{{ asset($video['src']) }}" type="video/mp4">
+                        </video>
+                        <div class="video-overlay absolute inset-0 bg-black/30 transition-opacity duration-300"></div>
+                        <div class="play-btn absolute inset-0 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
 
-    {{-- ========== LONG FORM & TRAILERS ========== --}}
-    <section class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
-                    Long Form and
-                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Trailers</span>
-                </h2>
-                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-                    Long-form videos, podcast episodes, and trailers. A look at what we've produced and edited across formats.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                @for($i = 0; $i < 2; $i++)
-                <div class="group relative aspect-video rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-primary/30 transition-all duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                            <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="absolute top-4 right-4">
-                        <span class="text-xs bg-primary/20 text-primary-light px-3 py-1 rounded-full backdrop-blur-sm">Trailer</span>
-                    </div>
-                </div>
-                @endfor
-            </div>
-        </div>
-    </section>
-
-    {{-- ========== TESTIMONIALS ========== --}}
-    <section id="testimonials" class="py-24 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]"></div>
+    {{-- ========== SERVICES ========== --}}
+    <section id="services" class="py-24 relative">
+        <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
             <div class="text-center mb-16">
-                <span class="section-label mb-6 inline-block">Testimonials</span>
+                <span class="section-label mb-6 inline-block">Our Services</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
-                    Don't Take Our Word for It.
+                    Choose How We Work Together.
                 </h2>
-                <p class="text-gray-400 text-lg">We let our clients do the talking.</p>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Every business is different. So every plan we build is tailored to fit yours.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @php
-                $testimonials = [
-                    ['name' => 'Luna Mars', 'role' => 'Digital Marketer', 'text' => 'Switching to Devixx completely transformed how our operations team works. We went from manually tracking data across spreadsheets to an automated system that handles everything in real time. Our onboarding time dropped by 60%, and the visibility we have now is incredible.'],
-                    ['name' => 'Cody Fisher', 'role' => 'Digital Marketer', 'text' => 'The content quality and consistency has been a game-changer. Within the first month, we saw a significant increase in engagement and started getting inbound DMs from potential clients. The team truly understands what works.'],
-                    ['name' => 'Darnell Mars', 'role' => 'Digital Marketer', 'text' => 'Working with Edits by Devixx was the best decision we made this year. They took our scattered content strategy and turned it into a well-oiled machine. Our brand presence has never been stronger.'],
-                    ['name' => 'Leslie Alexander', 'role' => 'Digital Marketer', 'text' => 'From the scripts to the final edits, everything is handled with such attention to detail. We barely have to think about content anymore — and our audience keeps growing. Highly recommend for any service-based business.'],
-                    ['name' => 'Luna Mars', 'role' => 'Digital Marketer', 'text' => 'The ROI has been undeniable. Not only did our content quality improve dramatically, but we started closing clients who specifically mentioned our videos as the reason they reached out. That speaks volumes.'],
-                    ['name' => 'Cody Fisher', 'role' => 'Digital Marketer', 'text' => 'What sets Devixx apart is that they actually care about results, not just deliverables. Every piece of content is strategic, and the team communicates like true partners. This is not your typical agency.'],
-                ];
-                @endphp
-
-                @foreach($testimonials as $testimonial)
-                <div class="card p-6 hover:bg-surface-card/80">
-                    <div class="flex items-start gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold text-sm">{{ substr($testimonial['name'], 0, 1) }}</span>
+            {{-- Service Plans with slider-style layout --}}
+            <div class="grid lg:grid-cols-3 gap-6 items-start" id="service-plans">
+                {{-- CORE Plan (Highlighted) --}}
+                <div class="card service-plan active relative overflow-hidden p-8 lg:p-10 border-primary/40 lg:scale-105 lg:-my-4 z-10" data-plan="core">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none"></div>
+                    <div class="relative">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">Most Popular</span>
                         </div>
-                        <div>
-                            <h4 class="text-white font-semibold text-sm">{{ $testimonial['name'] }}</h4>
-                            <p class="text-gray-500 text-xs">{{ $testimonial['role'] }}</p>
-                        </div>
-                        <svg class="w-8 h-8 text-primary/30 ml-auto flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                        </svg>
+                        <h3 class="text-2xl font-bold text-white mb-3">Core</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            For businesses in their early growth phase. We work on a small retainer plus a commission on every client we bring you. If we don't deliver, we don't earn. Simple as that.
+                        </p>
+                        @php
+                        $coreFeatures = [
+                            'Small monthly retainer',
+                            'Commission on every client we bring',
+                            'Custom strategy built around your offer',
+                            'Fully done for you',
+                            'Monthly performance reviews',
+                        ];
+                        @endphp
+                        <ul class="space-y-3 mb-8">
+                            @foreach($coreFeatures as $feature)
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                {{ $feature }}
+                            </li>
+                            @endforeach
+                        </ul>
+                        <a href="#contact" class="btn-primary w-full justify-center">
+                            Get Started
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">{{ $testimonial['text'] }}</p>
                 </div>
-                @endforeach
+
+                {{-- SCALE Plan --}}
+                <div class="card service-plan relative overflow-hidden p-8" data-plan="scale">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-white mb-3">Scale</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            For businesses ready to hand their entire marketing to one team and focus on what they do best. Fixed monthly retainer. No commission. Just results.
+                        </p>
+                        @php
+                        $scaleFeatures = [
+                            'Fixed monthly retainer',
+                            'Consistent weekly content output',
+                            'Produced and edited to the highest standard',
+                            'Built around your specific goals',
+                            'Monthly strategy reviews',
+                        ];
+                        @endphp
+                        <ul class="space-y-3 mb-8">
+                            @foreach($scaleFeatures as $feature)
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                {{ $feature }}
+                            </li>
+                            @endforeach
+                        </ul>
+                        <a href="#contact" class="btn-outline w-full justify-center">
+                            Get Started
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                {{-- CUSTOM Plan --}}
+                <div class="card service-plan relative overflow-hidden p-8" data-plan="custom">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold text-white mb-3">Custom</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            For businesses that need one specific thing done right. Tell us what you need and we'll build exactly that.
+                        </p>
+                        @php
+                        $customFeatures = [
+                            'World class short-form content',
+                            'Professional YouTube and long-form production',
+                            'Podcast editing and distribution',
+                            'Meta paid ads management',
+                            'Premium video editing',
+                            'Mix and match what you need',
+                        ];
+                        @endphp
+                        <ul class="space-y-3 mb-8">
+                            @foreach($customFeatures as $feature)
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                {{ $feature }}
+                            </li>
+                            @endforeach
+                        </ul>
+                        <a href="#contact" class="btn-outline w-full justify-center">
+                            Get Started
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -547,14 +388,107 @@
                     <span class="text-primary font-bold text-sm mb-2 block">Step 3</span>
                     <h3 class="text-xl font-bold text-white mb-3">Grow and Evolve</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Everything goes live, we track what works, refine what doesn't, and keep pushing further every single month.
+                        Your system goes live. We track what works, refine what doesn't, and keep pushing further monthly to ensure success.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- ========== FAQs ========== --}}
+    {{-- ========== STATS ========== --}}
+    <section class="py-24 relative" id="stats-section">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12" data-stats>
+                <div class="text-center stat-item">
+                    <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="1000000" data-suffix="+" data-display="1M+">0</span>
+                    <span class="text-sm md:text-base text-gray-500 mt-2 block">Views Generated</span>
+                </div>
+                <div class="text-center stat-item">
+                    <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="300" data-suffix="%+" data-display="300%+">0</span>
+                    <span class="text-sm md:text-base text-gray-500 mt-2 block">Average ROI</span>
+                </div>
+                <div class="text-center stat-item">
+                    <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="500" data-suffix="+" data-display="500+">0</span>
+                    <span class="text-sm md:text-base text-gray-500 mt-2 block">Content Produced</span>
+                </div>
+                <div class="text-center stat-item">
+                    <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="10" data-suffix="+" data-display="10+">0</span>
+                    <span class="text-sm md:text-base text-gray-500 mt-2 block">Clients Served</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ========== TESTIMONIALS ========== --}}
+    <section id="testimonials" class="py-24 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]"></div>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
+                <div>
+                    <span class="section-label mb-6 inline-block">Testimonials</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
+                        Don't Take Our Word for It.
+                    </h2>
+                    <p class="text-gray-400 text-lg">We let our clients do the talking.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-500 text-sm font-medium mr-2" id="testimonial-counter">01 / 06</span>
+                    <button onclick="slideTestimonial(-1)" class="w-11 h-11 rounded-full border border-surface-border bg-surface-card flex items-center justify-center text-gray-400 hover:text-white hover:border-primary/40 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button onclick="slideTestimonial(1)" class="w-11 h-11 rounded-full border border-surface-border bg-surface-card flex items-center justify-center text-gray-400 hover:text-white hover:border-primary/40 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            @php
+            $testimonials = [
+                ['name' => 'Luna Mars', 'role' => 'Digital Marketer', 'text' => 'Switching to Devixx completely transformed how our operations team works. We went from manually tracking data across spreadsheets to an automated system that handles everything in real time. Our onboarding time dropped by 60%, and the visibility we have now is incredible.'],
+                ['name' => 'Cody Fisher', 'role' => 'Digital Marketer', 'text' => 'The content quality and consistency has been a game-changer. Within the first month, we saw a significant increase in engagement and started getting inbound DMs from potential clients. The team truly understands what works.'],
+                ['name' => 'Darnell Mars', 'role' => 'Digital Marketer', 'text' => 'Working with Edits by Devixx was the best decision we made this year. They took our scattered content strategy and turned it into a well-oiled machine. Our brand presence has never been stronger.'],
+                ['name' => 'Leslie Alexander', 'role' => 'Digital Marketer', 'text' => 'From the scripts to the final edits, everything is handled with such attention to detail. We barely have to think about content anymore — and our audience keeps growing. Highly recommend for any service-based business.'],
+                ['name' => 'Luna Mars', 'role' => 'Digital Marketer', 'text' => 'The ROI has been undeniable. Not only did our content quality improve dramatically, but we started closing clients who specifically mentioned our videos as the reason they reached out. That speaks volumes.'],
+                ['name' => 'Cody Fisher', 'role' => 'Digital Marketer', 'text' => 'What sets Devixx apart is that they actually care about results, not just deliverables. Every piece of content is strategic, and the team communicates like true partners. This is not your typical agency.'],
+            ];
+            @endphp
+
+            <div class="relative" id="testimonial-slider">
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-out" id="testimonial-track" style="transform: translateX(0)">
+                        @foreach($testimonials as $index => $testimonial)
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                            <div class="card p-8 h-full flex flex-col hover:bg-surface-card/80 group">
+                                <div class="flex items-center gap-1 mb-5">
+                                    @for($s = 0; $s < 5; $s++)
+                                    <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    @endfor
+                                </div>
+                                <div class="relative flex-1">
+                                    <svg class="w-8 h-8 text-primary/20 mb-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                    <p class="text-gray-400 leading-relaxed">{{ $testimonial['text'] }}</p>
+                                </div>
+                                <div class="flex items-center gap-4 mt-6 pt-6 border-t border-surface-border">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold">{{ substr($testimonial['name'], 0, 1) }}</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold">{{ $testimonial['name'] }}</h4>
+                                        <p class="text-gray-500 text-sm">{{ $testimonial['role'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ========== FAQs (Tabbed) ========== --}}
     <section class="py-24 relative">
         <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]"></div>
         <div class="max-w-3xl mx-auto px-6 relative">
@@ -565,19 +499,86 @@
                 </h2>
             </div>
 
-            <div class="space-y-4" id="faq-container">
+            {{-- FAQ Tabs --}}
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button class="faq-tab active px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-primary/10 text-primary border border-primary/20" data-tab="general" onclick="switchFaqTab('general')">General</button>
+                <button class="faq-tab px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-surface-card text-gray-400 border border-surface-border hover:text-white" data-tab="how-we-work" onclick="switchFaqTab('how-we-work')">How We Work</button>
+                <button class="faq-tab px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-surface-card text-gray-400 border border-surface-border hover:text-white" data-tab="our-services" onclick="switchFaqTab('our-services')">Services</button>
+            </div>
+
+            {{-- General FAQs --}}
+            <div class="faq-tab-content space-y-4" id="faq-general" data-tab-content="general">
                 @php
-                $faqs = [
+                $generalFaqs = [
+                    ['Who is behind DEVIXX?', "We're a small team that got tired of agencies charging big retainers with nothing to show for it. So we built ours differently. We take on a select few clients, stay fully invested in each one, and built a model where our income depends on your results. No results, no justification for our fee. That's the standard we hold ourselves to."],
                     ['Who is this for?', "We work with high-ticket service businesses, consultants, finance professionals, and agencies who are serious about building a consistent inbound pipeline. If you're selling a premium service and want the right clients coming to you, this is for you."],
-                    ['Do I need to be involved in the content creation process?', 'You film your content at your own pace and approve everything before it goes live. Everything else is handled entirely by us.'],
-                    ['How is pricing determined?', "Every client is different. Pricing is based on your specific needs, goals, and the services you require. Reach out and we'll put together something tailored to you."],
                     ['What is the timeline of results?', 'Typically clients start seeing results within 1 to 2 months. The ones who grow the most stick with the process for 3 to 6 months and beyond.'],
                     ['Is there any guarantee?', "We don't offer guarantees. We do offer world class content and a system that has a proven track record of impacting brands."],
                     ['How soon can we get started?', 'Once we align on strategy and onboarding is complete we typically go live within two weeks.'],
                 ];
                 @endphp
+                @foreach($generalFaqs as $index => $faq)
+                <div class="faq-item card cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary text-sm font-bold">{{ $index + 1 }}</span>
+                            <h3 class="text-white font-semibold text-sm md:text-base">{{ $faq[0] }}</h3>
+                        </div>
+                        <div class="faq-icon w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-12">{{ $faq[1] }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
 
-                @foreach($faqs as $index => $faq)
+            {{-- How We Work FAQs --}}
+            <div class="faq-tab-content space-y-4 hidden" id="faq-how-we-work" data-tab-content="how-we-work">
+                @php
+                $howWeWorkFaqs = [
+                    ['How does the commission model work?', "We've seen too many businesses hesitate to invest in an agency because of the upfront cost. So we removed that barrier. You pay a small monthly retainer and we take a commission on every client we bring you. The better we perform the more we earn. If we don't deliver you barely paid anything."],
+                    ['How do you track where leads come from?', 'Since we build and run your entire funnel we have full visibility into where every lead comes from. Every inbound conversation is tracked and attributed accurately.'],
+                    ['Do I need to be involved in the content creation process?', "You film your content at your own pace and approve everything before it goes live. Everything else is handled entirely by us. We recommend setting aside one dedicated day per month to batch record your content. It keeps things consistent without eating into your schedule. If filming isn't an option at all we have a separate offer for that. Contact us to learn more."],
+                    ['How is pricing determined?', "Every client is different. Pricing is based on your specific needs, goals, and the services you require. Reach out and we'll put together something tailored to you."],
+                    ['What if I want a straight retainer without the commission model?', "No problem. We also work on a straight retainer basis for businesses who want the full system built and run without the commission structure. Reach out and we'll figure out what fits."],
+                ];
+                @endphp
+                @foreach($howWeWorkFaqs as $index => $faq)
+                <div class="faq-item card cursor-pointer group" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary text-sm font-bold">{{ $index + 1 }}</span>
+                            <h3 class="text-white font-semibold text-sm md:text-base">{{ $faq[0] }}</h3>
+                        </div>
+                        <div class="faq-icon w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+                            <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-12">{{ $faq[1] }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            {{-- Our Services FAQs --}}
+            <div class="faq-tab-content space-y-4 hidden" id="faq-our-services" data-tab-content="our-services">
+                @php
+                $servicesFaqs = [
+                    ['What services do you offer?', 'We offer short-form content, long-form YouTube videos, podcast editing and distribution, Meta paid ads management, and video editing only. You can take on the full system or pick the individual service you need.'],
+                    ['Can I start with one service and scale up later?', "Absolutely. A lot of clients start with one service to see how we work and add more as they grow. There's no pressure to commit to everything upfront."],
+                    ['What platforms do you post on?', 'We primarily work with Instagram, TikTok, LinkedIn, and YouTube. Additional platforms can be discussed during onboarding.'],
+                    ['How does the video editing only service work?', 'You send us your raw footage and we handle the editing, motion captions, and formatting. 48 hour turnaround with 2 rounds of free revisions included.'],
+                ];
+                @endphp
+                @foreach($servicesFaqs as $index => $faq)
                 <div class="faq-item card cursor-pointer group" onclick="toggleFaq(this)">
                     <div class="flex items-center justify-between gap-4">
                         <div class="flex items-center gap-4">
@@ -627,28 +628,24 @@
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418"/>
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-gray-500 text-sm">Website</p>
-                                <p class="text-white font-medium">editsbydevixx.com</p>
+                                <p class="text-gray-500 text-sm">WhatsApp</p>
+                                <p class="text-white font-medium">+1 (555) 000-0000</p>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-3 pt-4">
+                            {{-- Instagram --}}
                             <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                             </a>
+                            {{-- X (Twitter) --}}
                             <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2-.61z"/></svg>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                             </a>
                         </div>
                     </div>
@@ -713,10 +710,10 @@
     <footer class="relative border-t border-surface-border">
         <div class="py-16 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
-                Your expertise deserves to be seen.
+                You deserve to win. We make sure you do.
             </h2>
             <p class="text-gray-400 text-lg mb-8">
-                We make the right people see it, trust it, and act on it.
+                We build the system. You close the deals. That's the whole thing.
             </p>
             <a href="#contact" class="btn-primary text-lg px-10 py-4">
                 Let's Talk
@@ -736,17 +733,13 @@
                         <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">FAQ</a>
                     </div>
                     <div class="flex items-center gap-3">
+                        {{-- Instagram --}}
                         <a href="#" class="text-gray-500 hover:text-primary transition-colors">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </a>
+                        {{-- X (Twitter) --}}
                         <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.1a8.16 8.16 0 005.58 2.2V11.3a4.85 4.85 0 01-2-.61z"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -805,9 +798,9 @@
         requestAnimationFrame(animateRing);
     })();
 
-    document.querySelectorAll('a, button, .card, .faq-item, input, textarea').forEach(el => {
+    document.querySelectorAll('a, button, .card, .faq-item, .faq-tab, input, textarea').forEach(el => {
         el.addEventListener('mouseenter', () => {
-            gsap.to(cursorRing, { width: 60, height: 60, borderColor: 'rgba(139,92,246,0.6)', duration: 0.3 });
+            gsap.to(cursorRing, { width: 60, height: 60, borderColor: 'rgba(147,51,234,0.6)', duration: 0.3 });
             gsap.to(cursorDot, { scale: 0.5, duration: 0.3 });
         });
         el.addEventListener('mouseleave', () => {
@@ -846,7 +839,6 @@
             y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out',
         }, '-=0.2')
         .call(() => {
-            // Refresh ScrollTrigger after all initial animations complete
             ScrollTrigger.refresh();
         });
     });
@@ -859,7 +851,7 @@
         onUpdate: (self) => {
             const s = self.scroll();
             if (s > 50) {
-                navbar.style.background = 'rgba(10,10,15,0.85)';
+                navbar.style.background = 'rgba(0,0,0,0.85)';
                 navbar.style.backdropFilter = 'blur(20px)';
                 navbar.style.borderBottom = '1px solid rgba(30,30,42,0.8)';
             } else {
@@ -882,11 +874,8 @@
     mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
     // ============================================
-    // SCROLL REVEAL — Using ScrollTrigger.batch for reliability
-    // All elements start visible, animate FROM off-screen
+    // SCROLL REVEAL
     // ============================================
-
-    // Helper: create a reveal for a set of elements
     function reveal(selector, fromVars, staggerAmt = 0) {
         const els = gsap.utils.toArray(selector);
         if (!els.length) return;
@@ -918,7 +907,7 @@
     // Paragraphs in section headers
     reveal('.text-center > p.text-gray-400, .text-center > p.text-gray-500', { y: 30, duration: 0.7 });
 
-    // Cards in grids — use batch for stagger effect
+    // Cards in grids
     gsap.utils.toArray('.grid').forEach(grid => {
         const items = grid.querySelectorAll('.card, .stat-item, [class*="group relative aspect-"]');
         if (!items.length) return;
@@ -940,39 +929,22 @@
         });
     });
 
-    // Individual service cards (slide from alternating sides)
-    gsap.utils.toArray('.space-y-6 > .card').forEach((card, i) => {
-        gsap.fromTo(card,
-            { x: i % 2 === 0 ? -50 : 50, opacity: 0 },
-            {
-                x: 0, opacity: 1,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 88%',
-                    toggleActions: 'play none none none',
+    // Service plan cards - blur/focus effect on hover
+    const servicePlans = document.querySelectorAll('.service-plan');
+    servicePlans.forEach(plan => {
+        plan.addEventListener('mouseenter', () => {
+            servicePlans.forEach(p => {
+                if (p !== plan) {
+                    gsap.to(p, { opacity: 0.5, filter: 'blur(2px)', duration: 0.3 });
                 }
-            }
-        );
+            });
+        });
+        plan.addEventListener('mouseleave', () => {
+            servicePlans.forEach(p => {
+                gsap.to(p, { opacity: 1, filter: 'blur(0px)', duration: 0.3 });
+            });
+        });
     });
-
-    // "What's Included" label
-    reveal('span.text-sm.text-gray-500.uppercase', { y: 15, duration: 0.5 });
-
-    // CTA banner
-    const ctaBanner = document.querySelector('[class*="from-primary\\/20"][class*="to-accent\\/20"]');
-    if (ctaBanner) {
-        gsap.fromTo(ctaBanner,
-            { y: 40, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
-              scrollTrigger: { trigger: ctaBanner, start: 'top 88%', toggleActions: 'play none none none' }
-            }
-        );
-    }
-
-    // "A Note From Us" card
-    reveal('.card.p-8.md\\:p-12', { y: 40, duration: 0.8 });
 
     // How It Works step line draw
     gsap.utils.toArray('[class*="border-dashed"]').forEach(line => {
@@ -1001,25 +973,33 @@
             onEnter: () => {
                 counters.forEach(counter => {
                     const target = parseInt(counter.dataset.count);
-                    const prefix = counter.dataset.prefix || '';
+                    const display = counter.dataset.display;
                     const suffix = counter.dataset.suffix || '';
-                    gsap.to({ val: 0 }, {
-                        val: target, duration: 2, ease: 'power2.out',
-                        onUpdate: function() {
-                            counter.textContent = prefix + Math.round(this.targets()[0].val) + suffix;
-                        }
-                    });
+
+                    if (target >= 1000000) {
+                        // Animate to 1M+
+                        gsap.to({ val: 0 }, {
+                            val: 1, duration: 2.5, ease: 'power2.out',
+                            onUpdate: function() {
+                                const v = this.targets()[0].val;
+                                if (v < 1) {
+                                    counter.textContent = Math.round(v * 1000) + 'K+';
+                                } else {
+                                    counter.textContent = '1M+';
+                                }
+                            }
+                        });
+                    } else {
+                        gsap.to({ val: 0 }, {
+                            val: target, duration: 2, ease: 'power2.out',
+                            onUpdate: function() {
+                                counter.textContent = Math.round(this.targets()[0].val) + suffix;
+                            }
+                        });
+                    }
                 });
             }
         });
-
-        // Stats bar scale-in
-        gsap.fromTo(statsSection.closest('.relative.py-6'),
-            { scaleX: 0.85, opacity: 0 },
-            { scaleX: 1, opacity: 1, duration: 1, ease: 'power3.out',
-              scrollTrigger: { trigger: statsSection, start: 'top 90%', toggleActions: 'play none none none' }
-            }
-        );
     }
 
     // ============================================
@@ -1062,7 +1042,8 @@
     // FAQ ACCORDION
     // ============================================
     function toggleFaq(el) {
-        document.querySelectorAll('.faq-item').forEach(item => {
+        const container = el.closest('.faq-tab-content');
+        container.querySelectorAll('.faq-item').forEach(item => {
             if (item !== el && item.classList.contains('active')) {
                 item.classList.remove('active');
                 gsap.to(item.querySelector('.faq-answer'), { maxHeight: 0, paddingTop: 0, duration: 0.4, ease: 'power2.inOut' });
@@ -1078,11 +1059,102 @@
     }
 
     // ============================================
+    // FAQ TABS
+    // ============================================
+    function switchFaqTab(tabName) {
+        // Close all open FAQs first
+        document.querySelectorAll('.faq-item.active').forEach(item => {
+            item.classList.remove('active');
+            gsap.set(item.querySelector('.faq-answer'), { maxHeight: 0, paddingTop: 0 });
+        });
+
+        // Update tab buttons
+        document.querySelectorAll('.faq-tab').forEach(tab => {
+            if (tab.dataset.tab === tabName) {
+                tab.classList.add('active');
+                tab.className = tab.className.replace('bg-surface-card text-gray-400 border-surface-border', 'bg-primary/10 text-primary border-primary/20');
+            } else {
+                tab.classList.remove('active');
+                tab.className = tab.className.replace('bg-primary/10 text-primary border-primary/20', 'bg-surface-card text-gray-400 border-surface-border');
+            }
+        });
+
+        // Show/hide content
+        document.querySelectorAll('.faq-tab-content').forEach(content => {
+            if (content.dataset.tabContent === tabName) {
+                content.classList.remove('hidden');
+                // Animate in
+                gsap.fromTo(content.querySelectorAll('.faq-item'),
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out' }
+                );
+            } else {
+                content.classList.add('hidden');
+            }
+        });
+    }
+
+    // ============================================
+    // VIDEO PLAY/PAUSE TOGGLE
+    // ============================================
+    function pauseAllVideos(except) {
+        document.querySelectorAll('[onclick="toggleVideo(this)"] video').forEach(v => {
+            if (v !== except && !v.paused) {
+                v.pause();
+                v.muted = true;
+                const c = v.closest('[onclick="toggleVideo(this)"]');
+                gsap.to(c.querySelector('.video-overlay'), { opacity: 1, duration: 0.3 });
+                gsap.to(c.querySelector('.play-btn'), { opacity: 1, duration: 0.3 });
+            }
+        });
+    }
+
+    function toggleVideo(container) {
+        const video = container.querySelector('video');
+        const overlay = container.querySelector('.video-overlay');
+        const playBtn = container.querySelector('.play-btn');
+        if (video.paused) {
+            pauseAllVideos(video);
+            video.muted = false;
+            video.play();
+            gsap.to(overlay, { opacity: 0, duration: 0.3 });
+            gsap.to(playBtn, { opacity: 0, duration: 0.3 });
+        } else {
+            video.pause();
+            gsap.to(overlay, { opacity: 1, duration: 0.3 });
+            gsap.to(playBtn, { opacity: 1, duration: 0.3 });
+        }
+    }
+
+    // ============================================
+    // TESTIMONIAL SLIDER
+    // ============================================
+    let testimonialIndex = 0;
+    const testimonialTrack = document.getElementById('testimonial-track');
+    const testimonialCounter = document.getElementById('testimonial-counter');
+    const totalTestimonials = {{ count($testimonials) }};
+
+    function getVisibleCount() {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    }
+
+    function slideTestimonial(dir) {
+        const visible = getVisibleCount();
+        const maxIndex = totalTestimonials - visible;
+        testimonialIndex = Math.max(0, Math.min(testimonialIndex + dir, maxIndex));
+        const pct = -(testimonialIndex * (100 / totalTestimonials));
+        gsap.to(testimonialTrack, { x: pct + '%', duration: 0.5, ease: 'power2.out' });
+        testimonialCounter.textContent = String(testimonialIndex + 1).padStart(2, '0') + ' / ' + String(totalTestimonials).padStart(2, '0');
+    }
+
+    // ============================================
     // SCROLL PROGRESS BAR
     // ============================================
     const progressBar = document.createElement('div');
     progressBar.id = 'scroll-progress';
-    progressBar.style.cssText = 'position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#8B5CF6,#C084FC);z-index:9999;transform-origin:left;transform:scaleX(0);width:100%;';
+    progressBar.style.cssText = 'position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#9333EA,#D946EF);z-index:9999;transform-origin:left;transform:scaleX(0);width:100%;';
     document.body.prepend(progressBar);
 
     ScrollTrigger.create({
