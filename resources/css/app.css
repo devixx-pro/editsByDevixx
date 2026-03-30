@@ -105,6 +105,45 @@
 }
 
 /* ============================================
+   MARQUEE / TRUSTED BY
+   ============================================ */
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee-track.marquee-reverse {
+    animation: marquee-reverse 40s linear infinite;
+}
+
+.marquee-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-25%); }
+}
+
+@keyframes marquee-reverse {
+    0% { transform: translateX(-25%); }
+    100% { transform: translateX(0); }
+}
+
+/* ============================================
    CUSTOM ANIMATIONS
    ============================================ */
 

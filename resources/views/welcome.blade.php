@@ -38,31 +38,42 @@
     <div id="bg-grid"></div>
 
     {{-- ========== NAVBAR ========== --}}
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="block">
-                <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-8 md:h-10 w-auto">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 pt-4">
+        <div class="navbar-pill max-w-5xl mx-auto mx-4 md:mx-auto flex items-center justify-between px-8 py-4 rounded-full border border-white/[0.06] transition-all duration-500" style="background: rgba(100, 100, 120, 0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+            {{-- Logo --}}
+            <a href="#" class="block shrink-0">
+                <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-9 md:h-10 w-auto">
             </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors">Services</a>
-                <a href="#projects" class="text-sm text-gray-400 hover:text-white transition-colors">Projects</a>
-                <a href="#testimonials" class="text-sm text-gray-400 hover:text-white transition-colors">Testimonials</a>
-                <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a>
-                <a href="#contact" class="btn-primary magnetic text-sm !px-5 !py-2.5">Get for Free</a>
+
+            {{-- Desktop Navigation --}}
+            <div class="hidden md:flex items-center gap-9">
+                <a href="#services" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Services</a>
+                <a href="#projects" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Projects</a>
+                <a href="#testimonials" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Testimonials</a>
+                <a href="#contact" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Contact</a>
             </div>
+
+            {{-- CTA Button --}}
+            <a href="#contact" class="hidden md:inline-flex items-center px-6 py-2.5 rounded-full border border-[#c8ff00]/60 text-[#c8ff00] text-[15px] font-medium transition-all duration-300 hover:bg-[#c8ff00]/10 hover:border-[#c8ff00] hover:shadow-[0_0_20px_rgba(200,255,0,0.15)] magnetic shrink-0">
+                Get in Touch
+            </a>
+
+            {{-- Mobile Toggle --}}
             <button id="mobile-toggle" class="md:hidden text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-surface-light/95 backdrop-blur-xl border-t border-surface-border">
-            <div class="px-6 py-4 flex flex-col gap-4">
-                <a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
-                <a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a>
-                <a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a>
-                <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                <a href="#contact" class="btn-primary text-sm text-center w-full">Get for Free</a>
+
+        {{-- Mobile Menu --}}
+        <div id="mobile-menu" class="hidden md:hidden mx-4 mt-2 rounded-2xl border border-white/[0.06] overflow-hidden transition-all duration-300" style="background: rgba(100, 100, 120, 0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+            <div class="px-6 py-5 flex flex-col gap-4">
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Services</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Projects</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
+                <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-[#c8ff00]/60 text-[#c8ff00] text-sm font-medium transition-all duration-300 hover:bg-[#c8ff00]/10">Get in Touch</a>
             </div>
         </div>
     </nav>
@@ -72,13 +83,13 @@
         {{-- Junox-style ambient glow --}}
         <div id="hero-glow"></div>
 
-        <div class="relative max-w-5xl mx-auto px-6 text-center">
+        <div class="relative max-w-6xl mx-auto px-6 text-center">
             <div data-hero-anim class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
                 <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                 <span class="text-sm text-primary-light font-medium">Now Accepting New Clients</span>
             </div>
 
-            <h1 data-hero-anim data-split class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+            <h1 data-hero-anim data-split class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
                 Helping Service Businesses Build the
                 <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">Content System</span>
                 That Brings High-Ticket Clients to You
@@ -92,6 +103,63 @@
                 <a href="#contact" class="btn-primary magnetic text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 animate-pulse-glow">
                     Let's Talk
                 </a>
+            </div>
+        </div>
+    </section>
+
+    {{-- ========== TRUSTED BY ========== --}}
+    <section class="pt-0 pb-20 -mt-16 relative overflow-hidden">
+        <p class="text-center text-gray-500 italic text-base mb-12 tracking-wide">Trusted by the best</p>
+
+        @php
+            $brandsRow1 = [
+                ['name' => 'Starter Studio', 'initials' => 'SS', 'color' => '#2d3a3a', 'text' => '#5eead4'],
+                ['name' => 'Acquired', 'initials' => 'ACQ', 'color' => '#10b981', 'text' => '#ffffff'],
+                ['name' => 'MediaForge', 'initials' => 'MF', 'color' => '#f97316', 'text' => '#ffffff'],
+                ['name' => 'BrandPulse', 'initials' => 'BP', 'color' => '#ef4444', 'text' => '#ffffff'],
+                ['name' => 'VisionCraft', 'initials' => 'VC', 'color' => '#1e1e2e', 'text' => '#ffffff'],
+                ['name' => 'ContentHQ', 'initials' => 'CH', 'color' => '#f5f5f5', 'text' => '#111111'],
+                ['name' => 'ScaleUp', 'initials' => 'SU', 'color' => '#6366f1', 'text' => '#ffffff'],
+            ];
+            $brandsRow2 = [
+                ['name' => 'Greylock', 'initials' => 'G', 'color' => '#1a1a2e', 'text' => '#9ca3af'],
+                ['name' => 'No Priors', 'initials' => 'NP', 'color' => '#7c3aed', 'text' => '#ffffff'],
+                ['name' => 'Tessl', 'initials' => 'T', 'color' => '#1e293b', 'text' => '#38bdf8'],
+                ['name' => 'GrowthLab', 'initials' => 'GL', 'color' => '#1a1a2e', 'text' => '#a78bfa'],
+                ['name' => 'Darknet', 'initials' => 'DN', 'color' => '#7c3aed', 'text' => '#ffffff'],
+                ['name' => 'Primary VC', 'initials' => 'PV', 'color' => '#1e293b', 'text' => '#38bdf8'],
+            ];
+        @endphp
+
+        {{-- Row 1 — scrolls left --}}
+        <div class="marquee-wrapper mb-8">
+            <div class="marquee-track">
+                @for ($i = 0; $i < 4; $i++)
+                    @foreach ($brandsRow1 as $brand)
+                        <div class="marquee-item">
+                            <div class="w-24 h-24 rounded-2xl flex items-center justify-center font-bold text-2xl" style="background: {{ $brand['color'] }}; color: {{ $brand['text'] }};">
+                                {{ $brand['initials'] }}
+                            </div>
+                            <span class="text-gray-500 text-xs mt-3 block text-center">{{ $brand['name'] }}</span>
+                        </div>
+                    @endforeach
+                @endfor
+            </div>
+        </div>
+
+        {{-- Row 2 — scrolls right (reverse) --}}
+        <div class="marquee-wrapper">
+            <div class="marquee-track marquee-reverse">
+                @for ($i = 0; $i < 4; $i++)
+                    @foreach ($brandsRow2 as $brand)
+                        <div class="marquee-item">
+                            <div class="w-24 h-24 rounded-2xl flex items-center justify-center font-bold text-2xl" style="background: {{ $brand['color'] }}; color: {{ $brand['text'] }};">
+                                {{ $brand['initials'] }}
+                            </div>
+                            <span class="text-gray-500 text-xs mt-3 block text-center">{{ $brand['name'] }}</span>
+                        </div>
+                    @endforeach
+                @endfor
             </div>
         </div>
     </section>
@@ -110,30 +178,93 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="card group hover:border-primary/40 p-8 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <span class="inline-block text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mb-4">Construction Bookkeeping</span>
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 leading-snug">
-                        How a Bookkeeper With Zero Online Presence Started Getting Inbound Clients in 60 Days.
-                    </h3>
-                    <a href="https://atomikgrowth.com/case-studies" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium text-sm mt-2">
-                        Read the Story
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
+            {{-- Case Study Slider --}}
+            <div class="relative overflow-hidden rounded-2xl">
+                <div id="casestudy-track" class="flex transition-transform duration-500">
+
+                    {{-- Slide 1 --}}
+                    <div class="casestudy-slide w-full flex-shrink-0">
+                        <div class="grid md:grid-cols-2 bg-surface-card border border-surface-border rounded-2xl overflow-hidden min-h-[420px]">
+                            {{-- Image --}}
+                            <div class="relative bg-gradient-to-br from-surface-light to-surface-card flex items-center justify-center min-h-[280px] md:min-h-full">
+                                <div class="text-center p-8">
+                                    <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
+                                </div>
+                                <span class="absolute top-4 left-4 bg-[#c8ff00] text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">Featured</span>
+                            </div>
+                            {{-- Content --}}
+                            <div class="flex flex-col justify-center p-8 md:p-12">
+                                <span class="text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4">Construction Bookkeeping</span>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-5 leading-snug">
+                                    How a Bookkeeper With Zero Online Presence Started Getting Inbound Clients in 60 Days.
+                                </h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                                    We partnered with a construction bookkeeper to build a content engine from scratch — going from zero social presence to a steady stream of qualified inbound leads in just two months.
+                                </p>
+                                <div class="flex items-end justify-between mt-auto">
+                                    <div>
+                                        <p class="text-white text-xl md:text-2xl font-bold">12 Inbound Clients</p>
+                                        <p class="text-gray-500 text-sm">In the First 60 Days</p>
+                                    </div>
+                                    <a href="#" class="inline-flex items-center gap-2 text-white hover:text-primary-light transition-colors font-medium text-sm whitespace-nowrap">
+                                        View case study
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Slide 2 --}}
+                    <div class="casestudy-slide w-full flex-shrink-0">
+                        <div class="grid md:grid-cols-2 bg-surface-card border border-surface-border rounded-2xl overflow-hidden min-h-[420px]">
+                            {{-- Image --}}
+                            <div class="relative bg-gradient-to-br from-surface-light to-surface-card flex items-center justify-center min-h-[280px] md:min-h-full">
+                                <div class="text-center p-8">
+                                    <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
+                                </div>
+                                <span class="absolute top-4 left-4 bg-[#c8ff00] text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">Featured</span>
+                            </div>
+                            {{-- Content --}}
+                            <div class="flex flex-col justify-center p-8 md:p-12">
+                                <span class="text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4">Small Business Bookkeeping</span>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-5 leading-snug">
+                                    How We Took a Small Business Bookkeeper From Invisible to Fully Booked Through Content.
+                                </h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                                    A small business bookkeeper came to us with no online visibility. We built a full content strategy that transformed their brand into a client magnet — fully booked within months.
+                                </p>
+                                <div class="flex items-end justify-between mt-auto">
+                                    <div>
+                                        <p class="text-white text-xl md:text-2xl font-bold">Fully Booked</p>
+                                        <p class="text-gray-500 text-sm">Through Content Alone</p>
+                                    </div>
+                                    <a href="#" class="inline-flex items-center gap-2 text-white hover:text-primary-light transition-colors font-medium text-sm whitespace-nowrap">
+                                        View case study
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="card group hover:border-primary/40 p-8 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <span class="inline-block text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mb-4">Small Business Bookkeeping</span>
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4 leading-snug">
-                        How We Took a Small Business Bookkeeper From Invisible to Fully Booked Through Content.
-                    </h3>
-                    <a href="https://atomikgrowth.com/case-studies" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium text-sm mt-2">
-                        Read the Story
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                </div>
+                {{-- Navigation Arrows --}}
+                <button onclick="slideCaseStudy(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button onclick="slideCaseStudy(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            {{-- Dot Indicators --}}
+            <div class="flex items-center justify-center gap-2 mt-8">
+                <button onclick="goToCaseStudy(0)" class="casestudy-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300" data-index="0"></button>
+                <button onclick="goToCaseStudy(1)" class="casestudy-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300" data-index="1"></button>
             </div>
         </div>
     </section>
@@ -847,23 +978,18 @@
     // NAVBAR
     // ============================================
     const navbar = document.getElementById('navbar');
+    const navbarPill = navbar.querySelector('.navbar-pill');
     ScrollTrigger.create({
         onUpdate: (self) => {
             const s = self.scroll();
             if (s > 50) {
-                navbar.style.background = 'rgba(0,0,0,0.85)';
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.borderBottom = '1px solid rgba(30,30,42,0.8)';
+                navbarPill.style.background = 'rgba(100, 100, 120, 0.3)';
+                navbarPill.style.borderColor = 'rgba(255,255,255,0.08)';
             } else {
-                navbar.style.background = 'transparent';
-                navbar.style.backdropFilter = 'none';
-                navbar.style.borderBottom = 'none';
+                navbarPill.style.background = 'rgba(100, 100, 120, 0.25)';
+                navbarPill.style.borderColor = 'rgba(255,255,255,0.06)';
             }
-            if (s > 300) {
-                gsap.to(navbar, { y: self.direction === 1 ? -100 : 0, duration: 0.3, overwrite: true });
-            } else {
-                gsap.to(navbar, { y: 0, duration: 0.3, overwrite: true });
-            }
+            gsap.set(navbar, { y: 0 });
         }
     });
 
@@ -1136,6 +1262,43 @@
             onLeaveBack: () => { video.pause(); video.currentTime = 0; },
         });
     });
+
+    // ============================================
+    // CASE STUDY SLIDER
+    // ============================================
+    let csIndex = 0;
+    const csTrack = document.getElementById('casestudy-track');
+    const csDots = document.querySelectorAll('.casestudy-dot');
+    const csTotalSlides = 2;
+
+    function updateCsDots() {
+        csDots.forEach((dot, i) => {
+            dot.style.background = i === csIndex ? '#9333EA' : 'rgba(255,255,255,0.25)';
+            dot.style.width = i === csIndex ? '24px' : '10px';
+            dot.style.borderRadius = '9999px';
+        });
+    }
+
+    function slideCaseStudy(dir) {
+        csIndex = Math.max(0, Math.min(csIndex + dir, csTotalSlides - 1));
+        gsap.to(csTrack, { x: -(csIndex * 100) + '%', duration: 0.6, ease: 'power2.out' });
+        updateCsDots();
+    }
+
+    function goToCaseStudy(i) {
+        csIndex = i;
+        gsap.to(csTrack, { x: -(csIndex * 100) + '%', duration: 0.6, ease: 'power2.out' });
+        updateCsDots();
+    }
+
+    updateCsDots();
+
+    // Auto-advance every 6 seconds
+    setInterval(() => {
+        csIndex = (csIndex + 1) % csTotalSlides;
+        gsap.to(csTrack, { x: -(csIndex * 100) + '%', duration: 0.6, ease: 'power2.out' });
+        updateCsDots();
+    }, 6000);
 
     // ============================================
     // TESTIMONIAL SLIDER
