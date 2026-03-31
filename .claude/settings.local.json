@@ -11,7 +11,26 @@
       "Bash(php /Users/diwakar/Sites/editsByDevixx/artisan serve --host=127.0.0.1 --port=8001 2>&1)",
       "Bash(php /Users/diwakar/Sites/editsByDevixx/artisan serve --host=127.0.0.1 --port=8080 2>&1)",
       "Bash(git init && git branch -M main)",
-      "Bash(git add -A && git status --short | head -30)"
+      "Bash(git add -A && git status --short | head -30)",
+      "Bash(cmd.exe /c \"npm install\")",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/lenovo/AppData/Roaming/npm\")",
+      "Bash(npm install:*)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(where.exe npm:*)",
+      "Bash(cmd.exe /c \"where npm\")",
+      "Bash(cmd.exe /c \"cd c:\\\\xampp\\\\htdocs\\\\editsByDevixx && npm install\")",
+      "Bash(cmd.exe /c \"node --version && npm --version\")",
+      "Bash(powershell.exe -Command \"node --version; npm --version\")",
+      "Bash(npm run:*)",
+      "Bash(php artisan:*)",
+      "WebFetch(domain:nexostudio.webflow.io)",
+      "Bash(ls c:/xampp/htdocs/editsByDevixx/vite.config.*)",
+      "WebFetch(domain:fusionai.framer.website)",
+      "Bash(php -r \"try { $b = new \\\\Illuminate\\\\View\\\\Compilers\\\\BladeCompiler\\(new \\\\Illuminate\\\\Filesystem\\\\Filesystem\\(\\), sys_get_temp_dir\\(\\)\\); $b->compile\\(''resources/views/welcome.blade.php''\\); echo ''OK''; } catch\\(\\\\Exception $e\\) { echo $e->getMessage\\(\\); }\")",
+      "Bash(php -l resources/views/welcome.blade.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/editsByDevixx/public/)",
+      "Bash(curl -s http://localhost/editsByDevixx/public/)"
     ]
   }
 }

@@ -31,6 +31,14 @@
         </div>
     </div>
 
+    {{-- Failsafe: hide loader after 3s no matter what --}}
+    <script>
+        setTimeout(function() {
+            var l = document.getElementById('page-loader');
+            if (l) { l.style.opacity = '0'; l.style.transition = 'opacity 0.5s'; setTimeout(function() { l.style.display = 'none'; }, 500); }
+        }, 3000);
+    </script>
+
     {{-- Noise Texture Overlay --}}
     <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
 
@@ -39,7 +47,7 @@
 
     {{-- ========== NAVBAR ========== --}}
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 pt-4">
-        <div class="navbar-pill max-w-5xl mx-auto mx-4 md:mx-auto flex items-center justify-between px-8 py-4 rounded-full border border-white/[0.06] transition-all duration-500" style="background: rgba(100, 100, 120, 0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+        <div class="navbar-pill max-w-5xl mx-auto mx-4 md:mx-auto flex items-center justify-between px-8 py-1 rounded-full border border-white/[0.06] transition-all duration-500" style="background: rgba(100, 100, 120, 0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             {{-- Logo --}}
             <a href="#" class="block shrink-0">
                 <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-9 md:h-10 w-auto">
@@ -48,13 +56,16 @@
             {{-- Desktop Navigation --}}
             <div class="hidden md:flex items-center gap-9">
                 <a href="#services" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Services</a>
+                <span class="w-px h-4 bg-white/15"></span>
                 <a href="#projects" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Projects</a>
+                <span class="w-px h-4 bg-white/15"></span>
                 <a href="#testimonials" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Testimonials</a>
+                <span class="w-px h-4 bg-white/15"></span>
                 <a href="#contact" class="nav-link text-[15px] text-gray-300 hover:text-white transition-colors duration-200 font-medium">Contact</a>
             </div>
 
             {{-- CTA Button --}}
-            <a href="#contact" class="hidden md:inline-flex items-center px-6 py-2.5 rounded-full border border-[#c8ff00]/60 text-[#c8ff00] text-[15px] font-medium transition-all duration-300 hover:bg-[#c8ff00]/10 hover:border-[#c8ff00] hover:shadow-[0_0_20px_rgba(200,255,0,0.15)] magnetic shrink-0">
+            <a href="#contact" class="hidden md:inline-flex items-center px-4 py-[10px] rounded-full text-white text-[14px] font-medium transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] magnetic shrink-0" style="background: linear-gradient(90deg, #9333EA 0%, #9333EA 30%, #4C1D95 100%);">
                 Get in Touch
             </a>
 
@@ -73,7 +84,7 @@
                 <a href="#projects" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Projects</a>
                 <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Testimonials</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
-                <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-[#c8ff00]/60 text-[#c8ff00] text-sm font-medium transition-all duration-300 hover:bg-[#c8ff00]/10">Get in Touch</a>
+                <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-[#9333EA]/60 text-white text-sm font-medium transition-all duration-300 hover:bg-[#9333EA]/10">Get in Touch</a>
             </div>
         </div>
     </nav>
@@ -108,18 +119,20 @@
     </section>
 
     {{-- ========== TRUSTED BY ========== --}}
-    <section class="pt-0 pb-20 -mt-16 relative overflow-hidden">
-        <p class="text-center text-gray-500 italic text-base mb-12 tracking-wide">Trusted by the best</p>
+    <section class="pt-0 pb-[5px] -mt-16 relative overflow-hidden">
+        <div class="text-center mt-[65px] mb-6">
+            <span class="section-label mb-6 inline-block">Trusted by the Best</span>
+        </div>
 
         @php
             $brandsRow1 = [
-                ['name' => 'Starter Studio', 'initials' => 'SS', 'color' => '#2d3a3a', 'text' => '#5eead4'],
-                ['name' => 'Acquired', 'initials' => 'ACQ', 'color' => '#10b981', 'text' => '#ffffff'],
-                ['name' => 'MediaForge', 'initials' => 'MF', 'color' => '#f97316', 'text' => '#ffffff'],
-                ['name' => 'BrandPulse', 'initials' => 'BP', 'color' => '#ef4444', 'text' => '#ffffff'],
-                ['name' => 'VisionCraft', 'initials' => 'VC', 'color' => '#1e1e2e', 'text' => '#ffffff'],
-                ['name' => 'ContentHQ', 'initials' => 'CH', 'color' => '#f5f5f5', 'text' => '#111111'],
-                ['name' => 'ScaleUp', 'initials' => 'SU', 'color' => '#6366f1', 'text' => '#ffffff'],
+                ['name' => 'Tax Partners', 'initials' => 'TPI', 'color' => '#2d3a3a', 'text' => '#5eead4'],
+                ['name' => 'Emerald Wealth Services', 'initials' => 'EWS', 'color' => '#10b981', 'text' => '#ffffff'],
+                ['name' => 'FinTruction', 'initials' => 'FT', 'color' => '#f97316', 'text' => '#ffffff'],
+                ['name' => 'Accrivo', 'initials' => 'AC', 'color' => '#ef4444', 'text' => '#ffffff'],
+                ['name' => 'Insured by Phoenix', 'initials' => 'IP', 'color' => '#1e1e2e', 'text' => '#ffffff'],
+                ['name' => 'DEVIXX', 'initials' => 'DX', 'color' => '#f5f5f5', 'text' => '#111111'],
+                ['name' => 'Block3 Finance', 'initials' => 'B3F', 'color' => '#6366f1', 'text' => '#ffffff'],
             ];
             $brandsRow2 = [
                 ['name' => 'Greylock', 'initials' => 'G', 'color' => '#1a1a2e', 'text' => '#9ca3af'],
@@ -147,21 +160,6 @@
             </div>
         </div>
 
-        {{-- Row 2 — scrolls right (reverse) --}}
-        <div class="marquee-wrapper">
-            <div class="marquee-track marquee-reverse">
-                @for ($i = 0; $i < 4; $i++)
-                    @foreach ($brandsRow2 as $brand)
-                        <div class="marquee-item">
-                            <div class="w-24 h-24 rounded-2xl flex items-center justify-center font-bold text-2xl" style="background: {{ $brand['color'] }}; color: {{ $brand['text'] }};">
-                                {{ $brand['initials'] }}
-                            </div>
-                            <span class="text-gray-500 text-xs mt-3 block text-center">{{ $brand['name'] }}</span>
-                        </div>
-                    @endforeach
-                @endfor
-            </div>
-        </div>
     </section>
 
     {{-- ========== CASE STUDIES ========== --}}
@@ -178,99 +176,86 @@
                 </p>
             </div>
 
-            {{-- Case Study Slider --}}
-            <div class="relative overflow-hidden rounded-2xl">
-                <div id="casestudy-track" class="flex transition-transform duration-500">
-
-                    {{-- Slide 1 --}}
-                    <div class="casestudy-slide w-full flex-shrink-0">
-                        <div class="grid md:grid-cols-2 bg-surface-card border border-surface-border rounded-2xl overflow-hidden min-h-[420px]">
-                            {{-- Image --}}
-                            <div class="relative bg-gradient-to-br from-surface-light to-surface-card flex items-center justify-center min-h-[280px] md:min-h-full">
-                                <div class="text-center p-8">
-                                    <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                    <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
-                                </div>
-                                <span class="absolute top-4 left-4 bg-[#c8ff00] text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">Featured</span>
+            {{-- Case Study Bento Cards --}}
+            <div class="flex gap-6 min-h-[530px]" id="casestudy-bento" style="perspective: 1200px;">
+                {{-- Card 1 --}}
+                <div class="casestudy-card active rounded-2xl cursor-pointer flex-[2] min-w-0 relative glow-border-card" style="transition: flex 0.7s ease-in-out, transform 0.15s ease-out, box-shadow 0.3s ease; transform-style: preserve-3d; will-change: transform; padding: 1px;" onmouseenter="expandCard(0)" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                    <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                    <div class="h-full flex flex-col pointer-events-none rounded-2xl overflow-hidden relative z-[1]" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                        {{-- Top glow line --}}
+                        <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                        {{-- Purple light source bottom-left --}}
+                        <div class="absolute bottom-0 left-0 w-[1300px] h-[1300px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, rgba(147,51,234,0.12) 10%, rgba(147,51,234,0.07) 25%, rgba(147,51,234,0.03) 40%, rgba(147,51,234,0.01) 55%, transparent 70%); transform: translate(-50%, 50%); filter: blur(20px);"></div>
+                        {{-- Shine overlay --}}
+                        <div class="card-shine absolute inset-0 z-10 rounded-2xl pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s;"></div>
+                        <span class="absolute top-4 right-4 z-20 inline-block px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium">Construction Bookkeeping</span>
+                        {{-- Top visual area --}}
+                        <div class="relative bg-transparent flex items-center justify-center flex-1 min-h-[325px] max-w-[406.25px]">
+                            <div class="text-center p-8">
+                                <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
                             </div>
-                            {{-- Content --}}
-                            <div class="flex flex-col justify-center p-8 md:p-12">
-                                <span class="text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4">Construction Bookkeeping</span>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-5 leading-snug">
-                                    How a Bookkeeper With Zero Online Presence Started Getting Inbound Clients in 60 Days.
-                                </h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                                    We partnered with a construction bookkeeper to build a content engine from scratch — going from zero social presence to a steady stream of qualified inbound leads in just two months.
-                                </p>
-                                <div class="flex items-end justify-between mt-auto">
-                                    <div>
-                                        <p class="text-white text-xl md:text-2xl font-bold">12 Inbound Clients</p>
-                                        <p class="text-gray-500 text-sm">In the First 60 Days</p>
-                                    </div>
-                                    <a href="#" class="inline-flex items-center gap-2 text-white hover:text-primary-light transition-colors font-medium text-sm whitespace-nowrap">
-                                        View case study
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                                    </a>
-                                </div>
+                        </div>
+                        {{-- Bottom content --}}
+                        <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1]">
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">12 Inbound Clients.<br>60 Days.</h3>
+                            <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2">
+                                <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -1.2s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Zero online presence</span></div>
+                                <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -2.8s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Built content system from scratch</span></div>
+                                <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -0.5s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Steady stream of inbound leads</span></div>
+                            </div>
+                            <div class="mt-3 flex justify-end">
+                                <a href="#" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
+                                    <span class="cs-btn-text whitespace-nowrap transition-all duration-500">View Casestudy</span>
+                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                                </a>
                             </div>
                         </div>
                     </div>
-
-                    {{-- Slide 2 --}}
-                    <div class="casestudy-slide w-full flex-shrink-0">
-                        <div class="grid md:grid-cols-2 bg-surface-card border border-surface-border rounded-2xl overflow-hidden min-h-[420px]">
-                            {{-- Image --}}
-                            <div class="relative bg-gradient-to-br from-surface-light to-surface-card flex items-center justify-center min-h-[280px] md:min-h-full">
-                                <div class="text-center p-8">
-                                    <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                    <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
-                                </div>
-                                <span class="absolute top-4 left-4 bg-[#c8ff00] text-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">Featured</span>
-                            </div>
-                            {{-- Content --}}
-                            <div class="flex flex-col justify-center p-8 md:p-12">
-                                <span class="text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4">Small Business Bookkeeping</span>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-5 leading-snug">
-                                    How We Took a Small Business Bookkeeper From Invisible to Fully Booked Through Content.
-                                </h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                                    A small business bookkeeper came to us with no online visibility. We built a full content strategy that transformed their brand into a client magnet — fully booked within months.
-                                </p>
-                                <div class="flex items-end justify-between mt-auto">
-                                    <div>
-                                        <p class="text-white text-xl md:text-2xl font-bold">Fully Booked</p>
-                                        <p class="text-gray-500 text-sm">Through Content Alone</p>
-                                    </div>
-                                    <a href="#" class="inline-flex items-center gap-2 text-white hover:text-primary-light transition-colors font-medium text-sm whitespace-nowrap">
-                                        View case study
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
-                {{-- Navigation Arrows --}}
-                <button onclick="slideCaseStudy(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all z-10">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button onclick="slideCaseStudy(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all z-10">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
+                {{-- Card 2 --}}
+                <div class="casestudy-card rounded-2xl cursor-pointer flex-1 min-w-0 relative glow-border-card" style="transition: flex 0.7s ease-in-out, transform 0.15s ease-out, box-shadow 0.3s ease; transform-style: preserve-3d; will-change: transform; padding: 1px;" onmouseenter="expandCard(1)" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                    <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                    <div class="h-full flex flex-col pointer-events-none rounded-2xl overflow-hidden relative z-[1]" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                        {{-- Top glow line --}}
+                        <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                        {{-- Purple light source bottom-right --}}
+                        <div class="absolute bottom-0 right-0 w-[1300px] h-[1300px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, rgba(147,51,234,0.12) 10%, rgba(147,51,234,0.07) 25%, rgba(147,51,234,0.03) 40%, rgba(147,51,234,0.01) 55%, transparent 70%); transform: translate(50%, 50%); filter: blur(20px);"></div>
+                        {{-- Shine overlay --}}
+                        <div class="card-shine absolute inset-0 z-10 rounded-2xl pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s;"></div>
+                        <span class="absolute top-4 right-4 z-20 inline-block px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium">Small Business Bookkeeping</span>
+                        {{-- Top visual area --}}
+                        <div class="relative bg-transparent flex items-center justify-center flex-1 min-h-[325px] max-w-[406.25px]">
+                            <div class="text-center p-8">
+                                <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
+                            </div>
+                        </div>
+                        {{-- Bottom content --}}
+                        <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1]">
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">From Invisible<br>To Fully Booked.</h3>
+                            <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2">
+                                <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -3.5s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">No online visibility</span></div>
+                                <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -1.7s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Full content strategy built from scratch</span></div>
+                                <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -2.3s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Brand turned into a client magnet</span></div>
+                            </div>
+                            <div class="mt-3 flex justify-end">
+                                <a href="#" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
+                                    <span class="cs-btn-text whitespace-nowrap transition-all duration-500">View Casestudy</span>
+                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            {{-- Dot Indicators --}}
-            <div class="flex items-center justify-center gap-2 mt-8">
-                <button onclick="goToCaseStudy(0)" class="casestudy-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300" data-index="0"></button>
-                <button onclick="goToCaseStudy(1)" class="casestudy-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300" data-index="1"></button>
             </div>
         </div>
     </section>
 
     {{-- ========== PORTFOLIO ========== --}}
-    <section id="projects" class="py-24 relative">
+    <section id="projects" class="pt-[66px] pb-24 relative">
         <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
             <div class="text-center mb-16">
@@ -294,20 +279,58 @@
             ];
             @endphp
             <div class="mb-16">
-                <h3 class="text-xl font-semibold text-white mb-6">Short-Form Videos</h3>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-10">Short-Form Videos That <span class="text-[#9333EA]">Actually Get Watched</span></h3>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach($shortFormVideos as $video)
-                    <div class="group relative aspect-[9/16] rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-primary/30 transition-all duration-300 cursor-pointer" onclick="toggleVideo(this)">
+                    <div class="group relative aspect-[9/16] rounded-2xl bg-transparent transition-all duration-300 cursor-pointer short-form-video" style="padding: 7px; border: 0.3px solid rgba(128, 128, 128, 0.3);" onclick="togglePlayPauseContainer(this)">
+                        <div class="relative w-full h-full rounded-xl overflow-hidden">
                         <video class="absolute inset-0 w-full h-full object-cover" loop playsinline muted preload="metadata">
                             <source src="{{ asset($video['src']) }}" type="{{ $video['type'] }}">
                         </video>
                         <div class="video-overlay absolute inset-0 bg-black/30 transition-opacity duration-300"></div>
-                        <div class="play-btn absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-                            <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {{-- Sound button top-left --}}
+                        <div class="play-btn absolute top-3 left-3 transition-opacity duration-300 z-10" onclick="event.stopPropagation(); toggleVideoMute(this)">
+                            <div class="w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-4 h-4 text-white icon-unmuted hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.8l4.5-3.3v13l-4.5-3.3H3.5a1 1 0 01-1-1v-4.4a1 1 0 011-1h3z"/>
                                 </svg>
+                                <svg class="w-4 h-4 icon-muted" fill="white" viewBox="0 0 24 24">
+                                    <path d="M13 2.06c-.47-.24-1.03-.15-1.41.22L7.17 6H4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h3.17l4.42 3.72c.22.18.48.28.76.28.22 0 .44-.06.65-.17A1.5 1.5 0 0014 16.5v-13c0-.6-.33-1.14-.83-1.41l-.17-.03z"/>
+                                    <path d="M19.5 12l2.5-2.5-.7-.7L18.8 11.3 16.3 8.8l-.7.7 2.5 2.5-2.5 2.5.7.7 2.5-2.5 2.5 2.5.7-.7z"/>
+                                </svg>
                             </div>
+                        </div>
+                        {{-- Video controls overlay --}}
+                        <div class="video-controls absolute bottom-0 left-0 right-0 opacity-0 transition-opacity duration-300" onclick="event.stopPropagation()">
+                            {{-- Progress bar --}}
+                            <div class="video-progress-bar w-full h-1 bg-white/20 cursor-pointer relative mx-0" onclick="seekToPosition(event, this)">
+                                <div class="video-progress h-full bg-[#9333EA] relative" style="width: 0%;">
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+                            </div>
+                            {{-- Controls row --}}
+                            <div class="px-3 py-2 flex items-center justify-between bg-black/70">
+                                {{-- Left: Duration --}}
+                                <span class="video-time text-white text-[11px] font-mono min-w-[32px] leading-5">0:00</span>
+                                {{-- Center controls --}}
+                                <div class="flex items-center gap-3 h-5">
+                                    <button class="btn-fwd10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideo(this, 10)">
+                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M464 256c0-114.69-93.31-208-208-208a210.35 210.35 0 00-105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M464 256c0 114.69-93.31 208-208 208S48 370.69 48 256" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="95,25 195,105 85,125" fill="white"/></svg>
+                                    </button>
+                                    <button class="btn-playpause flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="togglePlayPause(this)">
+                                        <svg class="w-5 h-5 icon-pause hidden" fill="white" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+                                        <svg class="w-5 h-5 icon-play" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <button class="btn-back10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideo(this, -10)">
+                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M48 256c0-114.69 93.31-208 208-208a210.35 210.35 0 01105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M48 256c0 114.69 93.31 208 208 208s208-93.31 208-208" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="417,25 317,105 427,125" fill="white"/></svg>
+                                    </button>
+                                </div>
+                                {{-- Right: Fullscreen --}}
+                                <button class="btn-fullscreen flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="toggleFullscreen(this)">
+                                    <svg class="w-4 h-4" fill="none" stroke="white" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg>
+                                </button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     @endforeach
@@ -322,20 +345,58 @@
             ];
             @endphp
             <div>
-                <h3 class="text-xl font-semibold text-white mb-6">Long Form and Trailers</h3>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-10">Long Form and <span class="text-[#9333EA]">Trailers</span></h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     @foreach($longFormVideos as $video)
-                    <div class="group relative aspect-video rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-primary/30 transition-all duration-300 cursor-pointer" onclick="toggleVideo(this)">
+                    <div class="group relative aspect-video rounded-2xl bg-transparent transition-all duration-300 cursor-pointer long-form-video" style="padding: 7px; border: 0.3px solid rgba(128, 128, 128, 0.3);" onclick="togglePlayPauseContainer(this)">
+                        <div class="relative w-full h-full rounded-xl overflow-hidden">
                         <video class="absolute inset-0 w-full h-full object-cover" loop playsinline muted preload="metadata">
                             <source src="{{ asset($video['src']) }}" type="video/mp4">
                         </video>
                         <div class="video-overlay absolute inset-0 bg-black/30 transition-opacity duration-300"></div>
-                        <div class="play-btn absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-                            <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {{-- Sound button top-left --}}
+                        <div class="play-btn absolute top-3 left-3 transition-opacity duration-300 z-10" onclick="event.stopPropagation(); toggleLongFormMute(this)">
+                            <div class="w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <svg class="w-4 h-4 text-white icon-unmuted hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.95 6.05a8 8 0 010 11.9M6.5 8.8l4.5-3.3v13l-4.5-3.3H3.5a1 1 0 01-1-1v-4.4a1 1 0 011-1h3z"/>
                                 </svg>
+                                <svg class="w-4 h-4 icon-muted" fill="white" viewBox="0 0 24 24">
+                                    <path d="M13 2.06c-.47-.24-1.03-.15-1.41.22L7.17 6H4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h3.17l4.42 3.72c.22.18.48.28.76.28.22 0 .44-.06.65-.17A1.5 1.5 0 0014 16.5v-13c0-.6-.33-1.14-.83-1.41l-.17-.03z"/>
+                                    <path d="M19.5 12l2.5-2.5-.7-.7L18.8 11.3 16.3 8.8l-.7.7 2.5 2.5-2.5 2.5.7.7 2.5-2.5 2.5 2.5.7-.7z"/>
+                                </svg>
                             </div>
+                        </div>
+                        {{-- Video controls overlay --}}
+                        <div class="video-controls absolute bottom-0 left-0 right-0 opacity-0 transition-opacity duration-300" onclick="event.stopPropagation()">
+                            {{-- Progress bar --}}
+                            <div class="video-progress-bar w-full h-1 bg-white/20 cursor-pointer relative mx-0" onclick="seekToPositionLong(event, this)">
+                                <div class="video-progress h-full bg-[#9333EA] relative" style="width: 0%;">
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+                            </div>
+                            {{-- Controls row --}}
+                            <div class="px-3 py-2 flex items-center justify-between bg-black/70">
+                                {{-- Left: Duration --}}
+                                <span class="video-time text-white text-[11px] font-mono min-w-[32px] leading-5">0:00</span>
+                                {{-- Center controls --}}
+                                <div class="flex items-center gap-3 h-5">
+                                    <button class="btn-fwd10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideoLong(this, 10)">
+                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M464 256c0-114.69-93.31-208-208-208a210.35 210.35 0 00-105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M464 256c0 114.69-93.31 208-208 208S48 370.69 48 256" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="95,25 195,105 85,125" fill="white"/></svg>
+                                    </button>
+                                    <button class="btn-playpause flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="togglePlayPauseLong(this)">
+                                        <svg class="w-5 h-5 icon-pause hidden" fill="white" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+                                        <svg class="w-5 h-5 icon-play" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <button class="btn-back10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideoLong(this, -10)">
+                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M48 256c0-114.69 93.31-208 208-208a210.35 210.35 0 01105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M48 256c0 114.69 93.31 208 208 208s208-93.31 208-208" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="417,25 317,105 427,125" fill="white"/></svg>
+                                    </button>
+                                </div>
+                                {{-- Right: Fullscreen --}}
+                                <button class="btn-fullscreen flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="toggleFullscreenLong(this)">
+                                    <svg class="w-4 h-4" fill="none" stroke="white" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg>
+                                </button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     @endforeach
@@ -347,7 +408,7 @@
     {{-- ========== SERVICES ========== --}}
     <section id="services" class="py-24 relative">
         <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[150px]"></div>
-        <div class="max-w-7xl mx-auto px-6 relative">
+        <div class="max-w-[1410px] mx-auto px-6 relative">
             <div class="text-center mb-16">
                 <span class="section-label mb-6 inline-block">Our Services</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
@@ -358,114 +419,126 @@
                 </p>
             </div>
 
-            {{-- Service Plans with slider-style layout --}}
-            <div class="grid lg:grid-cols-3 gap-6 items-start" id="service-plans">
-                {{-- CORE Plan (Highlighted) --}}
-                <div class="card service-plan active relative overflow-hidden p-8 lg:p-10 border-primary/40 lg:scale-105 lg:-my-4 z-10" data-plan="core">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none"></div>
-                    <div class="relative">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">Most Popular</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Core</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            For businesses in their early growth phase. We work on a small retainer plus a commission on every client we bring you. If we don't deliver, we don't earn. Simple as that.
-                        </p>
-                        @php
-                        $coreFeatures = [
-                            'Small monthly retainer',
-                            'Commission on every client we bring',
-                            'Custom strategy built around your offer',
-                            'Fully done for you',
-                            'Monthly performance reviews',
-                        ];
-                        @endphp
-                        <ul class="space-y-3 mb-8">
-                            @foreach($coreFeatures as $feature)
-                            <li class="flex items-center gap-3 text-gray-300">
-                                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                {{ $feature }}
-                            </li>
-                            @endforeach
-                        </ul>
-                        <a href="#contact" class="btn-primary w-full justify-center">
-                            Get Started
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
-                    </div>
-                </div>
+            {{-- Pricing Cards --}}
+            <div class="grid lg:grid-cols-3 gap-7 items-stretch" id="service-plans" style="perspective: 1200px;">
 
-                {{-- SCALE Plan --}}
-                <div class="card service-plan relative overflow-hidden p-8" data-plan="scale">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="relative">
-                        <h3 class="text-2xl font-bold text-white mb-3">Scale</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            For businesses ready to hand their entire marketing to one team and focus on what they do best. Fixed monthly retainer. No commission. Just results.
-                        </p>
-                        @php
-                        $scaleFeatures = [
+                @php
+                $plans = [
+                    [
+                        'name' => 'Full Takeover',
+                        'number' => '/002/',
+                        'highlight' => false,
+                        'description' => 'For businesses ready to hand their entire marketing to one dedicated team.',
+                        'features' => [
                             'Fixed monthly retainer',
+                            'No commission involved',
+                            'Full content strategy and planning',
                             'Consistent weekly content output',
-                            'Produced and edited to the highest standard',
-                            'Built around your specific goals',
-                            'Monthly strategy reviews',
-                        ];
-                        @endphp
-                        <ul class="space-y-3 mb-8">
-                            @foreach($scaleFeatures as $feature)
-                            <li class="flex items-center gap-3 text-gray-300">
-                                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                {{ $feature }}
-                            </li>
-                            @endforeach
-                        </ul>
-                        <a href="#contact" class="btn-outline w-full justify-center">
-                            Get Started
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                {{-- CUSTOM Plan --}}
-                <div class="card service-plan relative overflow-hidden p-8" data-plan="custom">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="relative">
-                        <h3 class="text-2xl font-bold text-white mb-3">Custom</h3>
-                        <p class="text-gray-400 leading-relaxed mb-6">
-                            For businesses that need one specific thing done right. Tell us what you need and we'll build exactly that.
-                        </p>
-                        @php
-                        $customFeatures = [
+                            'Scripting, filming guidance, and editing',
+                            'Posting across all agreed platforms',
+                            'Monthly strategy reviews and check ins',
+                            'Performance and growth reports',
+                            'Built entirely around your specific goals',
+                        ],
+                    ],
+                    [
+                        'name' => 'Results Based',
+                        'number' => '/001/',
+                        'highlight' => true,
+                        'description' => 'For businesses in their early growth phase.<br>Low upfront cost. We earn when you do.',
+                        'features' => [
+                            'Small monthly retainer',
+                            'Commission on every client we bring you',
+                            'Custom content strategy built from scratch',
+                            'Full scripting and creative direction',
+                            'High quality editing and production',
+                            'Posting across agreed platforms',
+                            'Monthly performance reviews',
+                            'Fully done for you from day one',
+                            'We only earn when you earn',
+                        ],
+                    ],
+                    [
+                        'name' => 'Build Your Own',
+                        'number' => '/003/',
+                        'highlight' => false,
+                        'description' => 'For businesses that need one specific service done to the highest standard.',
+                        'features' => [
                             'World class short-form content',
                             'Professional YouTube and long-form production',
                             'Podcast editing and distribution',
                             'Meta paid ads management',
                             'Premium video editing',
-                            'Mix and match what you need',
-                        ];
-                        @endphp
-                        <ul class="space-y-3 mb-8">
-                            @foreach($customFeatures as $feature)
-                            <li class="flex items-center gap-3 text-gray-300">
-                                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            'Captions and thumbnails',
+                            'Platform specific formatting',
+                            'Mix and match exactly what you need',
+                            'No long term commitment required',
+                        ],
+                    ],
+                ];
+                @endphp
+
+                @foreach($plans as $plan)
+                <div class="pricing-card rounded-2xl cursor-pointer relative {{ $plan['highlight'] ? 'lg:scale-[1.07] z-10' : 'h-full' }} glow-border-card {{ $plan['highlight'] ? 'active' : '' }}" style="padding: 1px; transform-style: preserve-3d; will-change: transform; transition: transform 0.15s ease-out;" onmouseenter="activatePricingCard(this)" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                    <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                    <div class="h-full flex flex-col rounded-2xl overflow-hidden relative z-[1] {{ $plan['highlight'] ? 'p-10 lg:p-12' : 'p-8 lg:p-10' }}" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);{{ $plan['highlight'] ? ' padding-bottom: 73px;' : '' }}">
+                        {{-- Top glow line --}}
+                        <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                        {{-- Card number --}}
+                        <span class="text-xs text-[#9333EA] font-mono tracking-wider z-[2] relative" style="text-shadow: 0 0 8px rgba(147,51,234,0.6), 0 0 20px rgba(147,51,234,0.3); margin-bottom: 23px;">{{ $plan['number'] }}</span>
+                        {{-- Purple light source bottom-left --}}
+                        <div class="absolute bottom-0 left-0 w-[1200px] h-[1200px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, rgba(147,51,234,0.10) 20%, rgba(147,51,234,0.04) 40%, transparent 65%); transform: translate(-40%, 40%); filter: blur(30px);"></div>
+                        <div class="card-shine absolute inset-0 z-10 rounded-2xl pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s;"></div>
+
+                        {{-- Plan name --}}
+                        <div class="flex items-center justify-between mb-3 relative z-[2]">
+                            <h3 class="text-2xl font-bold text-white">{{ $plan['name'] }}</h3>
+                            @if($plan['highlight'])
+                            <span class="px-3 py-1 text-xs font-semibold text-white rounded-md border border-white/20" style="background: linear-gradient(90deg, #9333EA, #4C1D95);">Popular</span>
+                            @endif
+                        </div>
+
+                        {{-- Description --}}
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 relative z-[2]">{!! $plan['description'] !!}</p>
+
+                        {{-- CTA Button --}}
+                        @if($plan['highlight'])
+                        <div class="relative w-full mb-8 z-[2] rounded-xl glow-border-btn overflow-hidden" style="padding: 1px;">
+                            <div class="glow-border-btn-bg glow-white absolute inset-0 rounded-xl z-0"></div>
+                            <a href="#contact" class="w-full py-3 rounded-[11px] text-center text-sm font-semibold transition-all duration-300 block relative z-[1] text-white border border-white/30" style="background: linear-gradient(90deg, #9333EA 0%, #9333EA 30%, #4C1D95 100%);">
+                                Choose this plan
+                            </a>
+                        </div>
+                        @else
+                        <div class="relative w-full mb-8 z-[2] rounded-xl glow-border-btn overflow-hidden" style="padding: 1px;">
+                            <div class="glow-border-btn-bg absolute inset-0 rounded-xl z-0"></div>
+                            <a href="#contact" class="w-full py-3 rounded-[11px] text-center text-sm font-semibold transition-all duration-300 block relative z-[1] bg-[#000000] text-white border border-gray-700">
+                                Choose this plan
+                            </a>
+                        </div>
+                        @endif
+
+                        {{-- Divider --}}
+                        <div class="w-full h-px bg-gray-800 mb-6 relative z-[2]"></div>
+
+                        {{-- Features --}}
+                        <ul class="space-y-3.5 relative z-[2]">
+                            @foreach($plan['features'] as $feature)
+                            <li class="flex items-start gap-3 text-gray-400 text-sm">
+                                <svg class="w-5 h-5 text-[#9333EA] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 {{ $feature }}
                             </li>
                             @endforeach
                         </ul>
-                        <a href="#contact" class="btn-outline w-full justify-center">
-                            Get Started
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
 
     {{-- ========== HOW IT WORKS ========== --}}
-    <section class="py-24 relative">
+    <section class="py-24 relative" style="padding-top: 116px; padding-bottom: 116px;">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="section-label mb-6 inline-block">How It Works?</span>
@@ -477,47 +550,73 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="relative text-center group">
-                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-                        </svg>
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                {{-- Connected line across all 3 steps --}}
+                <div id="steps-line" class="absolute top-[175px] hidden md:flex items-center z-0" style="left: calc((100% - 64px) / 6); right: calc((100% - 64px) / 6);">
+                    <div class="w-full h-[3px] bg-gray-700 relative">
+                        {{-- Animated purple fill --}}
+                        <div id="steps-line-fill" class="absolute inset-y-0 left-0 bg-purple-600 rounded-full" style="width: 0%; box-shadow: 0 0 10px rgba(147,51,234,0.6), 0 0 20px rgba(147,51,234,0.3);"></div>
+                        {{-- Circle at step 1 --}}
+                        <div id="step-circle-1" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-purple-500 bg-purple-600 z-10" style="box-shadow: 0 0 10px rgba(147,51,234,0.8), 0 0 20px rgba(147,51,234,0.4);"></div>
+                        {{-- Circle at step 2 --}}
+                        <div id="step-circle-2" class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-gray-600 bg-gray-800 z-10 transition-all duration-300"></div>
+                        {{-- Circle at step 3 --}}
+                        <div id="step-circle-3" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-3 h-3 rounded-full border-2 border-gray-600 bg-gray-800 z-10 transition-all duration-300"></div>
                     </div>
-                    <div class="absolute top-10 left-[60%] right-0 hidden md:block">
-                        <div class="border-t-2 border-dashed border-primary/20 w-full"></div>
+                </div>
+
+                <div class="relative text-center group" data-step-box="1">
+                    <div class="w-[100px] h-[100px] mx-auto mb-6 relative z-[1] rounded-2xl glow-border-card step-glow-box active overflow-hidden group-hover:scale-110 transition-transform" style="padding: 1px;">
+                        <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                        <div class="w-full h-full rounded-[15px] bg-[#111111] flex items-center justify-center relative z-[1] overflow-hidden" style="border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                            <div class="absolute inset-0 z-0" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.15) 0%, rgba(147,51,234,0.05) 40%, transparent 70%);"></div>
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <span class="text-primary font-bold text-sm mb-2 block">Step 1</span>
-                    <h3 class="text-xl font-bold text-white mb-3">Book a Call</h3>
+                    <span class="text-primary font-bold text-sm mb-8 block">Step 1</span>
+
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-[1] mt-[55px]">Book a Call</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Tell us about your brand, your offer, and your goals. We ask the right questions and take it from there.
                     </p>
                 </div>
 
-                <div class="relative text-center group">
-                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
-                        </svg>
+                <div class="relative text-center group" data-step-box="2">
+                    <div class="w-[100px] h-[100px] mx-auto mb-6 relative z-[1] rounded-2xl glow-border-card step-glow-box overflow-hidden group-hover:scale-110 transition-transform" style="padding: 1px;">
+                        <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                        <div class="w-full h-full rounded-[15px] bg-[#111111] flex items-center justify-center relative z-[1] overflow-hidden" style="border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                            <div class="absolute inset-0 z-0" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.15) 0%, rgba(147,51,234,0.05) 40%, transparent 70%);"></div>
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="absolute top-10 left-[60%] right-0 hidden md:block">
-                        <div class="border-t-2 border-dashed border-primary/20 w-full"></div>
-                    </div>
-                    <span class="text-primary font-bold text-sm mb-2 block">Step 2</span>
-                    <h3 class="text-xl font-bold text-white mb-3">We Build Your System</h3>
+                    <span class="text-primary font-bold text-sm mb-8 block">Step 2</span>
+
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-[1] mt-[55px]">We Build Your System</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         We design your content strategy, produce everything, and set up your entire funnel tailored specifically to you.
                     </p>
                 </div>
 
-                <div class="relative text-center group">
-                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
-                        </svg>
+                <div class="relative text-center group" data-step-box="3">
+                    <div class="w-[100px] h-[100px] mx-auto mb-6 relative z-[1] rounded-2xl glow-border-card step-glow-box overflow-hidden group-hover:scale-110 transition-transform" style="padding: 1px;">
+                        <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                        <div class="w-full h-full rounded-[15px] bg-[#111111] flex items-center justify-center relative z-[1] overflow-hidden" style="border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                            <div class="absolute inset-0 z-0" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.15) 0%, rgba(147,51,234,0.05) 40%, transparent 70%);"></div>
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
+                            </svg>
+                        </div>
                     </div>
-                    <span class="text-primary font-bold text-sm mb-2 block">Step 3</span>
-                    <h3 class="text-xl font-bold text-white mb-3">Grow and Evolve</h3>
+                    <span class="text-primary font-bold text-sm mb-8 block">Step 3</span>
+
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-[1] mt-[55px]">Grow and Evolve</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Your system goes live. We track what works, refine what doesn't, and keep pushing further monthly to ensure success.
                     </p>
@@ -527,11 +626,13 @@
     </section>
 
     {{-- ========== STATS ========== --}}
-    <section class="py-24 relative" id="stats-section">
-        <div class="max-w-5xl mx-auto px-6">
+    <section class="relative mt-[50px]" id="stats-section">
+        <div class="w-full h-px bg-white/[0.04]"></div>
+        <div class="absolute inset-0 backdrop-blur-[1px] bg-white/[0.005] z-0" style="top: 1px; bottom: 1px;"></div>
+        <div class="max-w-5xl mx-auto px-6 py-16 relative z-[1]">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12" data-stats>
                 <div class="text-center stat-item">
-                    <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="1000000" data-suffix="+" data-display="1M+">0</span>
+                    <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-white block" data-count="77000000" data-suffix="+" data-display="77M+">0</span>
                     <span class="text-sm md:text-base text-gray-500 mt-2 block">Views Generated</span>
                 </div>
                 <div class="text-center stat-item">
@@ -548,72 +649,105 @@
                 </div>
             </div>
         </div>
+        <div class="w-full h-px bg-white/[0.04]"></div>
     </section>
 
     {{-- ========== TESTIMONIALS ========== --}}
     <section id="testimonials" class="py-24 relative overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
-                <div>
-                    <span class="section-label mb-6 inline-block">Testimonials</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
-                        Don't Take Our Word for It.
-                    </h2>
-                    <p class="text-gray-400 text-lg">We let our clients do the talking.</p>
-                </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-gray-500 text-sm font-medium mr-2" id="testimonial-counter">01 / 06</span>
-                    <button onclick="slideTestimonial(-1)" class="w-11 h-11 rounded-full border border-surface-border bg-surface-card flex items-center justify-center text-gray-400 hover:text-white hover:border-primary/40 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button onclick="slideTestimonial(1)" class="w-11 h-11 rounded-full border border-surface-border bg-surface-card flex items-center justify-center text-gray-400 hover:text-white hover:border-primary/40 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
+            <div class="text-center mb-16">
+                <span class="section-label mb-6 inline-block">Testimonials</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
+                    Don't Take Our Word for It.
+                </h2>
+                <p class="text-gray-400 text-lg">We let our clients do the talking.</p>
             </div>
 
             @php
             $testimonials = [
-                ['name' => 'Luna Mars', 'role' => 'Digital Marketer', 'text' => 'Switching to Devixx completely transformed how our operations team works. We went from manually tracking data across spreadsheets to an automated system that handles everything in real time. Our onboarding time dropped by 60%, and the visibility we have now is incredible.'],
-                ['name' => 'Cody Fisher', 'role' => 'Digital Marketer', 'text' => 'The content quality and consistency has been a game-changer. Within the first month, we saw a significant increase in engagement and started getting inbound DMs from potential clients. The team truly understands what works.'],
-                ['name' => 'Darnell Mars', 'role' => 'Digital Marketer', 'text' => 'Working with Edits by Devixx was the best decision we made this year. They took our scattered content strategy and turned it into a well-oiled machine. Our brand presence has never been stronger.'],
-                ['name' => 'Leslie Alexander', 'role' => 'Digital Marketer', 'text' => 'From the scripts to the final edits, everything is handled with such attention to detail. We barely have to think about content anymore — and our audience keeps growing. Highly recommend for any service-based business.'],
-                ['name' => 'Luna Mars', 'role' => 'Digital Marketer', 'text' => 'The ROI has been undeniable. Not only did our content quality improve dramatically, but we started closing clients who specifically mentioned our videos as the reason they reached out. That speaks volumes.'],
-                ['name' => 'Cody Fisher', 'role' => 'Digital Marketer', 'text' => 'What sets Devixx apart is that they actually care about results, not just deliverables. Every piece of content is strategic, and the team communicates like true partners. This is not your typical agency.'],
+                ['name' => 'Mahad Mohamed', 'role' => 'Tax Partners', 'text' => 'Working with Edits by DEVIXX completely changed how we show up online. The content quality is unlike anything we had before. Highly recommend.', 'initials' => '', 'avatar' => 'images/mahad.jpg'],
+                ['name' => 'Kevin Ball', 'role' => 'Block3 Finance', 'text' => 'The team just gets it. They understood our brand from day one and the content they produce consistently brings in the right people.', 'initials' => 'K', 'avatar' => ''],
+                ['name' => 'Vivian Szatmari', 'role' => 'Insured by Phoenix', 'text' => 'We went from having no content strategy to having a full system running without us having to think about it. The results speak for themselves.', 'initials' => 'V', 'avatar' => ''],
+                ['name' => 'Kizzy Bowen', 'role' => 'Emerald Wealth Services', 'text' => 'Professional, fast, and genuinely invested in our growth. The content they create for us has made a real difference in how clients find us.', 'initials' => 'K', 'avatar' => ''],
             ];
             @endphp
 
-            <div class="relative" id="testimonial-slider">
-                <div class="overflow-hidden">
-                    <div class="flex transition-transform duration-500 ease-out" id="testimonial-track" style="transform: translateX(0)">
-                        @foreach($testimonials as $index => $testimonial)
-                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
-                            <div class="card p-8 h-full flex flex-col hover:bg-surface-card/80 group">
-                                <div class="flex items-center gap-1 mb-5">
-                                    @for($s = 0; $s < 5; $s++)
-                                    <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                    @endfor
-                                </div>
-                                <div class="relative flex-1">
-                                    <svg class="w-8 h-8 text-primary/20 mb-3" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                                    </svg>
-                                    <p class="text-gray-400 leading-relaxed">{{ $testimonial['text'] }}</p>
-                                </div>
-                                <div class="flex items-center gap-4 mt-6 pt-6 border-t border-surface-border">
-                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                                        <span class="text-white font-bold">{{ substr($testimonial['name'], 0, 1) }}</span>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-semibold">{{ $testimonial['name'] }}</h4>
-                                        <p class="text-gray-500 text-sm">{{ $testimonial['role'] }}</p>
-                                    </div>
-                                </div>
+            {{-- Bento grid: 2 left cards | center video | 2 right cards --}}
+            <div class="flex flex-col lg:flex-row gap-6 items-center" id="testimonial-grid" style="perspective: 1200px;">
+                {{-- Left column: 2 smaller stacked cards --}}
+                <div class="flex flex-col gap-5 testimonial-col-left w-full lg:flex-1">
+                    @foreach([$testimonials[0], $testimonials[1]] as $t)
+                    <div class="testimonial-side-card rounded-2xl p-6 flex flex-col" style="min-height: 260px; background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.15) 0%, #0a0a0a 60%); border: 1px solid rgba(147,51,234,0.15); transform-style: preserve-3d; will-change: transform; transition: transform 0.3s ease-out;">
+                        <div class="flex items-center gap-0.5 mb-4">
+                            @for($s = 0; $s < 5; $s++)
+                            <svg class="w-4 h-4 text-[#9333EA]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">"{{ $t['text'] }}"</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            @if(!empty($t['avatar']))
+                            <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                                <img src="{{ asset($t['avatar']) }}" alt="{{ $t['name'] }}" class="w-full h-full object-cover object-[center_26%]">
+                            </div>
+                            @else
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">{{ $t['initials'] }}</span>
+                            </div>
+                            @endif
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">{{ $t['name'] }}</h4>
+                                <p class="text-gray-500 text-xs">{{ $t['role'] }}</p>
                             </div>
                         </div>
-                        @endforeach
                     </div>
+                    @endforeach
+                </div>
+
+                {{-- Center: Large tall video card --}}
+                <div class="testimonial-center-card rounded-2xl overflow-hidden flex flex-col w-full lg:flex-[1.4]" style="background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.15) 0%, #0a0a0a 60%); border: 1px solid rgba(147,51,234,0.15);">
+                    <div class="relative w-full overflow-hidden flex flex-col items-center justify-center" style="min-height: 470px; background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.1) 0%, transparent 50%);">
+                        {{-- Video Coming Soon placeholder --}}
+                        <svg class="w-14 h-14 text-gray-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-gray-500 text-sm font-medium">Video Coming Soon</p>
+                    </div>
+                    <div class="p-6 text-center">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Edits by DEVIXX understands what it takes to build a brand that actually converts. They handle everything and the quality is always there.</p>
+                        <h4 class="text-white font-bold text-2xl mb-1">Shivajee Shedain</h4>
+                        <p class="text-[#9333EA] font-semibold text-[16px] mb-0.5">Accrivo & FinTruction</p>
+                        <p class="text-[#9333EA] text-sm font-medium">COO/Director</p>
+                    </div>
+                </div>
+
+                {{-- Right column: 2 smaller stacked cards --}}
+                <div class="flex flex-col gap-5 testimonial-col-right w-full lg:flex-1">
+                    @foreach([$testimonials[2], $testimonials[3]] as $t)
+                    <div class="testimonial-side-card rounded-2xl p-6 flex flex-col" style="min-height: 260px; background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.15) 0%, #0a0a0a 60%); border: 1px solid rgba(147,51,234,0.15); transform-style: preserve-3d; will-change: transform; transition: transform 0.3s ease-out;">
+                        <div class="flex items-center gap-0.5 mb-4">
+                            @for($s = 0; $s < 5; $s++)
+                            <svg class="w-4 h-4 text-[#9333EA]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">"{{ $t['text'] }}"</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            @if(!empty($t['avatar']))
+                            <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                                <img src="{{ asset($t['avatar']) }}" alt="{{ $t['name'] }}" class="w-full h-full object-cover object-[center_26%]">
+                            </div>
+                            @else
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">{{ $t['initials'] }}</span>
+                            </div>
+                            @endif
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">{{ $t['name'] }}</h4>
+                                <p class="text-gray-500 text-xs">{{ $t['role'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -626,7 +760,7 @@
             <div class="text-center mb-16">
                 <span class="section-label mb-6 inline-block">FAQs</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4">
-                    Have Questions? We have answers.
+                    Have Questions?<br><span class="inline-block mt-[12px]">We have <span class="px-4 relative overflow-hidden" style="border-left: 2px solid rgba(255,255,255,0.9); background: linear-gradient(90deg, rgba(147,51,234,0.30) 0%, rgba(147,51,234,0.30) 55%, rgba(147,51,234,0) 100%); padding-top: 0; padding-bottom: 4px; margin-top: 3px; line-height: 0.65;">answers.</span></span>
                 </h2>
             </div>
 
@@ -782,9 +916,12 @@
                     </div>
                 </div>
 
-                <div class="card p-8 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent"></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Want Us To Reach Out To You?</h3>
+                <div class="relative rounded-2xl glow-border-card active overflow-hidden" style="padding: 1px;">
+                    <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                    <div class="p-8 relative rounded-[15px] overflow-hidden z-[1]" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                    <div class="absolute top-0 left-0 right-0 h-px z-10" style="background: linear-gradient(90deg, transparent 0%, rgba(147,51,234,0.6) 30%, rgba(168,85,247,0.8) 50%, rgba(147,51,234,0.6) 70%, transparent 100%);"></div>
+                    <div class="absolute bottom-0 right-0 w-[1250px] h-[1250px] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(147,51,234,0.18) 0%, rgba(147,51,234,0.12) 10%, rgba(147,51,234,0.07) 25%, rgba(147,51,234,0.03) 40%, rgba(147,51,234,0.01) 55%, transparent 70%); transform: translate(50%, 50%); filter: blur(20px);"></div>
+                    <h3 class="text-xl font-bold text-white mb-2 relative z-[1]">Want Us To Reach Out To You?</h3>
                     <p class="text-gray-500 text-sm mb-6">Fill in the form and we'll get back to you.</p>
 
                     @if(session('success'))
@@ -832,6 +969,7 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </button>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -852,7 +990,7 @@
             </a>
         </div>
 
-        <div class="border-t border-surface-border py-8">
+        <div class="border-t border-surface-border py-8" style="background: rgba(0,0,0,0.5);">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-8 w-auto">
@@ -958,8 +1096,9 @@
     // ============================================
     // PAGE LOADER + HERO ENTRANCE
     // ============================================
-    window.addEventListener('load', () => {
+    function hideLoader() {
         const loader = document.getElementById('page-loader');
+        if (!loader || loader.style.display === 'none') return;
         const tl = gsap.timeline();
 
         tl.to(loader, {
@@ -972,16 +1111,26 @@
         .call(() => {
             ScrollTrigger.refresh();
         });
-    });
+    }
+
+    window.addEventListener('load', hideLoader);
+    // Safety: force hide loader after 4 seconds even if resources fail
+    setTimeout(hideLoader, 4000);
 
     // ============================================
     // NAVBAR
     // ============================================
     const navbar = document.getElementById('navbar');
     const navbarPill = navbar.querySelector('.navbar-pill');
+    var lastScrollY = 0;
+    var navHidden = false;
+    var hideThreshold = 700;
+
     ScrollTrigger.create({
         onUpdate: (self) => {
-            const s = self.scroll();
+            var s = self.scroll();
+            var direction = self.direction; // 1 = down, -1 = up
+
             if (s > 50) {
                 navbarPill.style.background = 'rgba(100, 100, 120, 0.3)';
                 navbarPill.style.borderColor = 'rgba(255,255,255,0.08)';
@@ -989,7 +1138,21 @@
                 navbarPill.style.background = 'rgba(100, 100, 120, 0.25)';
                 navbarPill.style.borderColor = 'rgba(255,255,255,0.06)';
             }
-            gsap.set(navbar, { y: 0 });
+
+            // Hide/show navbar based on scroll direction after threshold
+            if (s > hideThreshold && direction === 1 && !navHidden) {
+                navHidden = true;
+                gsap.to(navbar, { y: -120, duration: 0.4, ease: 'power2.inOut' });
+            } else if (direction === -1 && navHidden) {
+                navHidden = false;
+                gsap.to(navbar, { y: 0, duration: 0.24, ease: 'power2.inOut' });
+            }
+
+            // Always show at top
+            if (s <= hideThreshold && navHidden) {
+                navHidden = false;
+                gsap.to(navbar, { y: 0, duration: 0.4, ease: 'power2.inOut' });
+            }
         }
     });
 
@@ -1072,19 +1235,83 @@
         });
     });
 
-    // How It Works step line draw
-    gsap.utils.toArray('[class*="border-dashed"]').forEach(line => {
-        gsap.fromTo(line,
-            { scaleX: 0 },
-            {
-                scaleX: 1,
-                transformOrigin: 'left center',
-                duration: 1.2,
-                ease: 'power2.inOut',
-                scrollTrigger: { trigger: line, start: 'top 85%', toggleActions: 'play none none none' }
-            }
-        );
-    });
+    // How It Works - animated step line with circle glow and box activation
+    (function() {
+        var lineFill = document.getElementById('steps-line-fill');
+        var stepsLine = document.getElementById('steps-line');
+        if (!lineFill || !stepsLine) return;
+
+        var circle1 = document.getElementById('step-circle-1');
+        var circle2 = document.getElementById('step-circle-2');
+        var circle3 = document.getElementById('step-circle-3');
+        var box1 = document.querySelector('[data-step-box="1"] .step-glow-box');
+        var box2 = document.querySelector('[data-step-box="2"] .step-glow-box');
+        var box3 = document.querySelector('[data-step-box="3"] .step-glow-box');
+
+        var purpleGlow = '0 0 10px rgba(147,51,234,0.8), 0 0 20px rgba(147,51,234,0.4)';
+
+        function activateCircle(circle) {
+            circle.style.borderColor = '#a855f7';
+            circle.style.backgroundColor = '#9333ea';
+            circle.style.boxShadow = purpleGlow;
+        }
+
+        function deactivateCircle(circle) {
+            circle.style.borderColor = '#4b5563';
+            circle.style.backgroundColor = '#1f2937';
+            circle.style.boxShadow = 'none';
+        }
+
+        function activateBox(box) {
+            box.classList.add('active');
+        }
+
+        function deactivateBox(box) {
+            box.classList.remove('active');
+        }
+
+        function runStepAnimation() {
+            var tl = gsap.timeline({ repeat: -1 });
+
+            // Phase 1: Start at circle 1 (already active), box 1 active, pause 3s
+            tl.set(lineFill, { width: '0%' });
+            tl.call(function() {
+                activateCircle(circle1); deactivateCircle(circle2); deactivateCircle(circle3);
+                activateBox(box1); deactivateBox(box2); deactivateBox(box3);
+            });
+            tl.to({}, { duration: 1.5 });
+
+            // Phase 2: Fill line from 0% to 50% (to circle 2), activate circle 2 + box 2
+            tl.to(lineFill, { width: '50%', duration: 0.8, ease: 'power2.inOut' });
+            tl.call(function() {
+                activateCircle(circle2);
+                deactivateBox(box1); activateBox(box2);
+            });
+            tl.to({}, { duration: 1.5 });
+
+            // Phase 3: Fill line from 50% to 100% (to circle 3), activate circle 3 + box 3
+            tl.to(lineFill, { width: '100%', duration: 0.8, ease: 'power2.inOut' });
+            tl.call(function() {
+                activateCircle(circle3);
+                deactivateBox(box2); activateBox(box3);
+            });
+            tl.to({}, { duration: 1.5 });
+
+            // Phase 4: Reset everything for loop
+            tl.call(function() {
+                deactivateCircle(circle2); deactivateCircle(circle3);
+                deactivateBox(box3);
+            });
+            tl.set(lineFill, { width: '0%' });
+        }
+
+        ScrollTrigger.create({
+            trigger: stepsLine,
+            start: 'top 85%',
+            once: true,
+            onEnter: runStepAnimation
+        });
+    })();
 
     // ============================================
     // STATS COUNTER ANIMATION
@@ -1103,15 +1330,15 @@
                     const suffix = counter.dataset.suffix || '';
 
                     if (target >= 1000000) {
-                        // Animate to 1M+
+                        // Animate to 77M+
                         gsap.to({ val: 0 }, {
-                            val: 1, duration: 2.5, ease: 'power2.out',
+                            val: 77, duration: 2.5, ease: 'power2.out',
                             onUpdate: function() {
                                 const v = this.targets()[0].val;
                                 if (v < 1) {
                                     counter.textContent = Math.round(v * 1000) + 'K+';
                                 } else {
-                                    counter.textContent = '1M+';
+                                    counter.textContent = Math.round(v) + 'M+';
                                 }
                             }
                         });
@@ -1221,7 +1448,288 @@
     }
 
     // ============================================
-    // VIDEO AUTO-PLAY ON SCROLL + CLICK TO UNMUTE
+    // SHORT-FORM VIDEO CONTROLS
+    // ============================================
+    function updateVolumeIcon(container, muted) {
+        const playBtn = container.querySelector('.play-btn');
+        if (!playBtn) return;
+        const iconMuted = playBtn.querySelector('.icon-muted');
+        const iconUnmuted = playBtn.querySelector('.icon-unmuted');
+        if (muted) {
+            iconMuted.classList.remove('hidden');
+            iconUnmuted.classList.add('hidden');
+        } else {
+            iconMuted.classList.add('hidden');
+            iconUnmuted.classList.remove('hidden');
+        }
+    }
+
+    function toggleVideoMute(btn) {
+        const container = btn.closest('.short-form-video');
+        const video = container.querySelector('video');
+        if (video.muted) {
+            // Mute all other videos first
+            document.querySelectorAll('.short-form-video').forEach(c => {
+                const v = c.querySelector('video');
+                if (v !== video && !v.muted) {
+                    v.muted = true;
+                    updateVolumeIcon(c, true);
+                }
+            });
+            video.muted = false;
+            updateVolumeIcon(container, false);
+        } else {
+            video.muted = true;
+            updateVolumeIcon(container, true);
+        }
+    }
+
+    function togglePlayPauseContainer(container) {
+        const video = container.querySelector('video');
+        if (video.paused) {
+            video.currentTime = 0;
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function seekVideo(btn, seconds) {
+        const video = btn.closest('.short-form-video').querySelector('video');
+        video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+    }
+
+    function togglePlayPause(btn) {
+        const container = btn.closest('.short-form-video');
+        const video = container.querySelector('video');
+        const iconPlay = btn.querySelector('.icon-play');
+        const iconPause = btn.querySelector('.icon-pause');
+        if (video.paused) {
+            video.play();
+            iconPlay.classList.add('hidden');
+            iconPause.classList.remove('hidden');
+        } else {
+            video.pause();
+            iconPlay.classList.remove('hidden');
+            iconPause.classList.add('hidden');
+        }
+    }
+
+    function toggleFullscreen(btn) {
+        const container = btn.closest('.short-form-video');
+        if (document.fullscreenElement === container) {
+            document.exitFullscreen();
+        } else {
+            container.requestFullscreen().then(() => {
+                container.style.background = '#000';
+                const video = container.querySelector('video');
+                video.style.objectFit = 'contain';
+                video.style.maxWidth = '1080px';
+                video.style.maxHeight = '1920px';
+                video.style.margin = '0 auto';
+            });
+        }
+        container.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                const video = container.querySelector('video');
+                video.style.objectFit = 'cover';
+                video.style.maxWidth = '';
+                video.style.maxHeight = '';
+                video.style.margin = '';
+                container.style.background = '';
+            }
+        }, { once: true });
+    }
+
+    function formatTime(s) {
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ':' + String(sec).padStart(2, '0');
+    }
+
+    function seekToPosition(e, bar) {
+        const video = bar.closest('.short-form-video').querySelector('video');
+        const rect = bar.getBoundingClientRect();
+        const pct = (e.clientX - rect.left) / rect.width;
+        video.currentTime = pct * video.duration;
+    }
+
+    // Update time, progress bar, play/pause icons, and hover show/hide
+    document.querySelectorAll('.short-form-video').forEach(container => {
+        const video = container.querySelector('video');
+        const timeEl = container.querySelector('.video-time');
+        const progressEl = container.querySelector('.video-progress');
+        const controls = container.querySelector('.video-controls');
+        const iconPlay = container.querySelector('.icon-play');
+        const iconPause = container.querySelector('.icon-pause');
+
+        video.addEventListener('timeupdate', () => {
+            timeEl.textContent = formatTime(video.currentTime);
+            if (video.duration) {
+                progressEl.style.width = (video.currentTime / video.duration * 100) + '%';
+            }
+        });
+        video.addEventListener('play', () => {
+            iconPlay.classList.add('hidden');
+            iconPause.classList.remove('hidden');
+        });
+        video.addEventListener('pause', () => {
+            iconPlay.classList.remove('hidden');
+            iconPause.classList.add('hidden');
+        });
+
+        // Show controls on hover
+        container.addEventListener('mouseenter', () => {
+            controls.style.opacity = '1';
+        });
+        container.addEventListener('mouseleave', () => {
+            controls.style.opacity = '0';
+        });
+
+        // Auto-play muted on scroll into view
+        const overlay = container.querySelector('.video-overlay');
+        gsap.set(overlay, { opacity: 0 });
+
+        ScrollTrigger.create({
+            trigger: container,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            onEnter: () => { video.muted = true; updateVolumeIcon(container, true); video.play(); },
+            onLeave: () => { video.pause(); video.currentTime = 0; },
+            onEnterBack: () => { video.muted = true; updateVolumeIcon(container, true); video.play(); },
+            onLeaveBack: () => { video.pause(); video.currentTime = 0; },
+        });
+    });
+
+    // ============================================
+    // LONG-FORM VIDEO CONTROLS
+    // ============================================
+    function updateLongFormVolumeIcon(container, muted) {
+        const playBtn = container.querySelector('.play-btn');
+        if (!playBtn) return;
+        const iconMuted = playBtn.querySelector('.icon-muted');
+        const iconUnmuted = playBtn.querySelector('.icon-unmuted');
+        if (muted) {
+            iconMuted.classList.remove('hidden');
+            iconUnmuted.classList.add('hidden');
+        } else {
+            iconMuted.classList.add('hidden');
+            iconUnmuted.classList.remove('hidden');
+        }
+    }
+
+    function toggleLongFormMute(btn) {
+        const container = btn.closest('.long-form-video');
+        const video = container.querySelector('video');
+        if (video.muted) {
+            document.querySelectorAll('.long-form-video').forEach(c => {
+                const v = c.querySelector('video');
+                if (v !== video && !v.muted) {
+                    v.muted = true;
+                    updateLongFormVolumeIcon(c, true);
+                }
+            });
+            video.muted = false;
+            updateLongFormVolumeIcon(container, false);
+        } else {
+            video.muted = true;
+            updateLongFormVolumeIcon(container, true);
+        }
+    }
+
+    function seekVideoLong(btn, seconds) {
+        const video = btn.closest('.long-form-video').querySelector('video');
+        video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
+    }
+
+    function togglePlayPauseLong(btn) {
+        const container = btn.closest('.long-form-video');
+        const video = container.querySelector('video');
+        const iconPlay = btn.querySelector('.icon-play');
+        const iconPause = btn.querySelector('.icon-pause');
+        if (video.paused) {
+            video.currentTime = 0;
+            video.play();
+            iconPlay.classList.add('hidden');
+            iconPause.classList.remove('hidden');
+        } else {
+            video.pause();
+            iconPlay.classList.remove('hidden');
+            iconPause.classList.add('hidden');
+        }
+    }
+
+    function seekToPositionLong(e, bar) {
+        const video = bar.closest('.long-form-video').querySelector('video');
+        const rect = bar.getBoundingClientRect();
+        const pct = (e.clientX - rect.left) / rect.width;
+        video.currentTime = pct * video.duration;
+    }
+
+    function toggleFullscreenLong(btn) {
+        const container = btn.closest('.long-form-video');
+        if (document.fullscreenElement === container) {
+            document.exitFullscreen();
+        } else {
+            container.requestFullscreen().then(() => {
+                container.style.background = '#000';
+                const video = container.querySelector('video');
+                video.style.objectFit = 'contain';
+            });
+        }
+        container.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                const video = container.querySelector('video');
+                video.style.objectFit = 'cover';
+                container.style.background = '';
+            }
+        }, { once: true });
+    }
+
+    // Long-form video event listeners
+    document.querySelectorAll('.long-form-video').forEach(container => {
+        const video = container.querySelector('video');
+        const timeEl = container.querySelector('.video-time');
+        const progressEl = container.querySelector('.video-progress');
+        const controls = container.querySelector('.video-controls');
+        const iconPlay = container.querySelector('.btn-playpause .icon-play');
+        const iconPause = container.querySelector('.btn-playpause .icon-pause');
+
+        video.addEventListener('timeupdate', () => {
+            timeEl.textContent = formatTime(video.currentTime);
+            if (video.duration) {
+                progressEl.style.width = (video.currentTime / video.duration * 100) + '%';
+            }
+        });
+        video.addEventListener('play', () => {
+            if (iconPlay) iconPlay.classList.add('hidden');
+            if (iconPause) iconPause.classList.remove('hidden');
+        });
+        video.addEventListener('pause', () => {
+            if (iconPlay) iconPlay.classList.remove('hidden');
+            if (iconPause) iconPause.classList.add('hidden');
+        });
+
+        container.addEventListener('mouseenter', () => { controls.style.opacity = '1'; });
+        container.addEventListener('mouseleave', () => { controls.style.opacity = '0'; });
+
+        // Auto-play muted on scroll
+        const overlay = container.querySelector('.video-overlay');
+        gsap.set(overlay, { opacity: 0 });
+
+        ScrollTrigger.create({
+            trigger: container,
+            start: 'top 90%',
+            end: 'bottom 10%',
+            onEnter: () => { video.muted = true; updateLongFormVolumeIcon(container, true); video.play(); },
+            onLeave: () => { video.pause(); video.currentTime = 0; },
+            onEnterBack: () => { video.muted = true; updateLongFormVolumeIcon(container, true); video.play(); },
+            onLeaveBack: () => { video.pause(); video.currentTime = 0; },
+        });
+    });
+
+    // ============================================
+    // LEGACY VIDEO AUTO-PLAY (kept for other sections)
     // ============================================
     function pauseAllVideos(except) {
         document.querySelectorAll('[onclick="toggleVideo(this)"] video').forEach(v => {
@@ -1264,63 +1772,146 @@
     });
 
     // ============================================
-    // CASE STUDY SLIDER
+    // CASE STUDY BENTO CARDS
     // ============================================
-    let csIndex = 0;
-    const csTrack = document.getElementById('casestudy-track');
-    const csDots = document.querySelectorAll('.casestudy-dot');
-    const csTotalSlides = 2;
-
-    function updateCsDots() {
-        csDots.forEach((dot, i) => {
-            dot.style.background = i === csIndex ? '#9333EA' : 'rgba(255,255,255,0.25)';
-            dot.style.width = i === csIndex ? '24px' : '10px';
-            dot.style.borderRadius = '9999px';
+    function expandCard(index) {
+        const cards = document.querySelectorAll('.casestudy-card');
+        cards.forEach((card, i) => {
+            const btnText = card.querySelector('.cs-btn-text');
+            const btn = card.querySelector('.cs-btn');
+            if (i === index) {
+                card.style.flex = '2';
+                card.classList.add('active');
+                if (btnText) { btnText.style.width = ''; btnText.style.opacity = '1'; btnText.style.marginRight = ''; }
+                if (btn) { btn.style.paddingLeft = ''; btn.style.paddingRight = ''; }
+            } else {
+                card.style.flex = '1';
+                card.classList.remove('active');
+                if (btnText) { btnText.style.width = '0'; btnText.style.opacity = '0'; btnText.style.marginRight = '-8px'; }
+                if (btn) { btn.style.paddingLeft = '12px'; btn.style.paddingRight = '12px'; }
+            }
         });
     }
 
-    function slideCaseStudy(dir) {
-        csIndex = Math.max(0, Math.min(csIndex + dir, csTotalSlides - 1));
-        gsap.to(csTrack, { x: -(csIndex * 100) + '%', duration: 0.6, ease: 'power2.out' });
-        updateCsDots();
+    // Initialize button states on load
+    document.querySelectorAll('.casestudy-card').forEach((card) => {
+        const btnText = card.querySelector('.cs-btn-text');
+        const btn = card.querySelector('.cs-btn');
+        if (!card.classList.contains('active')) {
+            if (btnText) { btnText.style.width = '0'; btnText.style.opacity = '0'; btnText.style.marginRight = '-8px'; }
+            if (btn) { btn.style.paddingLeft = '12px'; btn.style.paddingRight = '12px'; }
+        }
+    });
+
+    // Pricing card glow border activation
+    function activatePricingCard(hoveredCard) {
+        document.querySelectorAll('#service-plans .glow-border-card').forEach(function(card) {
+            if (card === hoveredCard) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
     }
 
-    function goToCaseStudy(i) {
-        csIndex = i;
-        gsap.to(csTrack, { x: -(csIndex * 100) + '%', duration: 0.6, ease: 'power2.out' });
-        updateCsDots();
+    // Reset to highlighted card when leaving the pricing section
+    const servicePlansGrid = document.getElementById('service-plans');
+    if (servicePlansGrid) {
+        servicePlansGrid.addEventListener('mouseleave', function() {
+            document.querySelectorAll('#service-plans .glow-border-card').forEach(function(card) {
+                card.classList.remove('active');
+            });
+            const highlighted = servicePlansGrid.querySelector('.lg\\:scale-\\[1\\.07\\]');
+            if (highlighted) highlighted.classList.add('active');
+        });
     }
 
-    updateCsDots();
+    function tiltCard(e, card) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4.5;
+        const rotateY = ((x - centerX) / centerX) * 4.5;
+        card.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+        card.style.boxShadow = '0 25px 50px rgba(147, 51, 234, 0.15), 0 0 30px rgba(147, 51, 234, 0.05)';
+        // Move shine
+        const shine = card.querySelector('.card-shine');
+        if (shine) {
+            shine.style.opacity = '1';
+            shine.style.background = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, rgba(147,51,234,0.12) 0%, transparent 60%)';
+        }
+    }
 
-    // Auto-advance every 6 seconds
-    setInterval(() => {
-        csIndex = (csIndex + 1) % csTotalSlides;
-        gsap.to(csTrack, { x: -(csIndex * 100) + '%', duration: 0.6, ease: 'power2.out' });
-        updateCsDots();
-    }, 6000);
+    function resetTilt(card) {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.boxShadow = 'none';
+        const shine = card.querySelector('.card-shine');
+        if (shine) shine.style.opacity = '0';
+    }
 
     // ============================================
-    // TESTIMONIAL SLIDER
+    // TESTIMONIAL GRID ANIMATIONS
     // ============================================
-    let testimonialIndex = 0;
-    const testimonialTrack = document.getElementById('testimonial-track');
-    const testimonialCounter = document.getElementById('testimonial-counter');
-    const totalTestimonials = {{ count($testimonials) }};
-
-    function getVisibleCount() {
-        if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 768) return 2;
-        return 1;
+    // Side cards tilt together in place on grid hover
+    const tGrid = document.getElementById('testimonial-grid');
+    const sideCards = document.querySelectorAll('.testimonial-side-card');
+    if (tGrid && sideCards.length) {
+        tGrid.addEventListener('mousemove', function(e) {
+            const rect = tGrid.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            sideCards.forEach(function(card) {
+                gsap.to(card, {
+                    rotateX: -y * 8, rotateY: x * 8,
+                    duration: 0.3, ease: 'power2.out',
+                    transformPerspective: 800
+                });
+            });
+        });
+        tGrid.addEventListener('mouseleave', function() {
+            sideCards.forEach(function(card) {
+                gsap.to(card, {
+                    rotateX: 0, rotateY: 0,
+                    duration: 0.5, ease: 'power2.out',
+                    transformPerspective: 800
+                });
+            });
+        });
     }
 
-    function slideTestimonial(dir) {
-        const visible = getVisibleCount();
-        const maxIndex = totalTestimonials - visible;
-        testimonialIndex = Math.max(0, Math.min(testimonialIndex + dir, maxIndex));
-        const pct = -(testimonialIndex * (100 / visible));
-        gsap.to(testimonialTrack, { x: pct + '%', duration: 0.5, ease: 'power2.out' });
-        testimonialCounter.textContent = String(testimonialIndex + 1).padStart(2, '0') + ' / ' + String(totalTestimonials).padStart(2, '0');
+    // Scroll-triggered Framer-style entrance
+    if (typeof ScrollTrigger !== 'undefined') {
+        // Initially hide all cards
+        gsap.set('.testimonial-side-card, .testimonial-center-card', {
+            y: 60, opacity: 0, scale: 0.95
+        });
+
+        ScrollTrigger.create({
+            trigger: '#testimonial-grid',
+            start: 'top 85%',
+            once: true,
+            onEnter: () => {
+                // Center card first
+                gsap.to('.testimonial-center-card', {
+                    y: 0, opacity: 1, scale: 1,
+                    duration: 0.9, ease: 'power3.out'
+                });
+                // Left cards staggered
+                gsap.to('.testimonial-col-left .testimonial-side-card', {
+                    y: 0, opacity: 1, scale: 1,
+                    duration: 0.9, ease: 'power3.out',
+                    stagger: 0.15, delay: 0.15
+                });
+                // Right cards staggered
+                gsap.to('.testimonial-col-right .testimonial-side-card', {
+                    y: 0, opacity: 1, scale: 1,
+                    duration: 0.9, ease: 'power3.out',
+                    stagger: 0.15, delay: 0.15
+                });
+            }
+        });
     }
 
     // ============================================
