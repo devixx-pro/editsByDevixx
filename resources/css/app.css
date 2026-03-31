@@ -148,8 +148,8 @@
 .marquee-wrapper {
     width: 100%;
     overflow: hidden;
-    mask-image: linear-gradient(to right, transparent 5%, rgba(0,0,0,0.45) 15%, black 30%, black 60%, rgba(0,0,0,0.45) 78%, transparent 90%);
-    -webkit-mask-image: linear-gradient(to right, transparent 5%, rgba(0,0,0,0.45) 15%, black 30%, black 60%, rgba(0,0,0,0.45) 78%, transparent 90%);
+    mask-image: linear-gradient(to right, transparent 22%, black 34%, black 66%, transparent 78%);
+    -webkit-mask-image: linear-gradient(to right, transparent 22%, black 34%, black 66%, transparent 78%);
 }
 
 .marquee-track {
@@ -228,6 +228,7 @@
 .faq-answer {
     max-height: 0;
     overflow: hidden;
+    transform-origin: top;
 }
 
 .faq-item.active .faq-icon {
@@ -236,6 +237,7 @@
 
 .faq-item {
     transition: border-color 0.3s ease, background-color 0.3s ease;
+    transform-origin: top center;
 }
 
 .faq-item.active {
@@ -391,6 +393,17 @@ input:focus, textarea:focus {
             rgba(147, 51, 234, 0.056) 58.5%,
             transparent 76.5%
         );
+}
+
+/* ============================================
+   HIDE SCROLLBAR FOR SWIPEABLE CONTAINERS
+   ============================================ */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 }
 
 /* ============================================

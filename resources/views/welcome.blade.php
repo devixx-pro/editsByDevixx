@@ -49,7 +49,7 @@
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 pt-4">
         <div class="navbar-pill max-w-5xl mx-auto mx-4 md:mx-auto flex items-center justify-between px-8 py-1 rounded-full border border-white/[0.06] transition-all duration-500" style="background: rgba(100, 100, 120, 0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             {{-- Logo --}}
-            <a href="#" class="block shrink-0">
+            <a href="#" class="block shrink-0" onclick="event.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'});">
                 <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-9 md:h-10 w-auto">
             </a>
 
@@ -177,7 +177,7 @@
             </div>
 
             {{-- Case Study Bento Cards --}}
-            <div class="flex gap-6 min-h-[530px]" id="casestudy-bento" style="perspective: 1200px;">
+            <div class="flex flex-col md:flex-row gap-6 md:min-h-[530px]" id="casestudy-bento" style="perspective: 1200px;">
                 {{-- Card 1 --}}
                 <div class="casestudy-card active rounded-2xl cursor-pointer flex-[2] min-w-0 relative glow-border-card" style="transition: flex 0.7s ease-in-out, transform 0.15s ease-out, box-shadow 0.3s ease; transform-style: preserve-3d; will-change: transform; padding: 1px;" onmouseenter="expandCard(0)" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
                     <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
@@ -197,14 +197,14 @@
                             </div>
                         </div>
                         {{-- Bottom content --}}
-                        <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1]">
+                        <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1] text-center md:text-left">
                             <h3 class="text-xl md:text-2xl font-bold text-white mb-4">12 Inbound Clients.<br>60 Days.</h3>
-                            <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2">
+                            <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2 items-center md:items-start">
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -1.2s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Zero online presence</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -2.8s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Built content system from scratch</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -0.5s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Steady stream of inbound leads</span></div>
                             </div>
-                            <div class="mt-3 flex justify-end">
+                            <div class="mt-3 flex justify-center md:justify-end">
                                 <a href="#" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
                                     <span class="cs-btn-text whitespace-nowrap transition-all duration-500">View Casestudy</span>
                                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -233,14 +233,14 @@
                             </div>
                         </div>
                         {{-- Bottom content --}}
-                        <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1]">
+                        <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1] text-center md:text-left">
                             <h3 class="text-xl md:text-2xl font-bold text-white mb-4">From Invisible<br>To Fully Booked.</h3>
-                            <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2">
+                            <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2 items-center md:items-start">
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -3.5s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">No online visibility</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -1.7s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Full content strategy built from scratch</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -2.3s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Brand turned into a client magnet</span></div>
                             </div>
-                            <div class="mt-3 flex justify-end">
+                            <div class="mt-3 flex justify-center md:justify-end">
                                 <a href="#" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
                                     <span class="cs-btn-text whitespace-nowrap transition-all duration-500">View Casestudy</span>
                                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -280,9 +280,9 @@
             @endphp
             <div class="mb-16">
                 <h3 class="text-2xl md:text-3xl font-bold text-white mb-10">Short-Form Videos That <span class="text-[#9333EA]">Actually Get Watched</span></h3>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide pb-4 sm:pb-0 -mx-6 px-[12vw] sm:mx-0 sm:px-0">
                     @foreach($shortFormVideos as $video)
-                    <div class="group relative aspect-[9/16] rounded-2xl bg-transparent transition-all duration-300 cursor-pointer short-form-video" style="padding: 7px; border: 0.3px solid rgba(128, 128, 128, 0.3);" onclick="togglePlayPauseContainer(this)">
+                    <div class="group relative aspect-[9/16] rounded-2xl bg-transparent transition-all duration-300 cursor-pointer short-form-video flex-shrink-0 w-[56vw] sm:w-auto snap-center" style="padding: 7px; border: 0.3px solid rgba(128, 128, 128, 0.3);" onclick="togglePlayPauseContainer(this)">
                         <div class="relative w-full h-full rounded-xl overflow-hidden">
                         <video class="absolute inset-0 w-full h-full object-cover" loop playsinline muted preload="metadata">
                             <source src="{{ asset($video['src']) }}" type="{{ $video['type'] }}">
@@ -420,7 +420,7 @@
             </div>
 
             {{-- Pricing Cards --}}
-            <div class="grid lg:grid-cols-3 gap-7 items-stretch" id="service-plans" style="perspective: 1200px;">
+            <div class="flex lg:grid lg:grid-cols-3 gap-7 items-stretch overflow-x-auto lg:overflow-visible snap-x snap-mandatory scrollbar-hide pb-4 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0" id="service-plans" style="perspective: 1200px;">
 
                 @php
                 $plans = [
@@ -479,7 +479,7 @@
                 @endphp
 
                 @foreach($plans as $plan)
-                <div class="pricing-card rounded-2xl cursor-pointer relative {{ $plan['highlight'] ? 'lg:scale-[1.07] z-10' : 'h-full' }} glow-border-card {{ $plan['highlight'] ? 'active' : '' }}" style="padding: 1px; transform-style: preserve-3d; will-change: transform; transition: transform 0.15s ease-out;" onmouseenter="activatePricingCard(this)" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
+                <div class="pricing-card rounded-2xl cursor-pointer relative {{ $plan['highlight'] ? 'lg:scale-[1.07] z-10' : 'h-full' }} glow-border-card {{ $plan['highlight'] ? 'active' : '' }} flex-shrink-0 w-[75vw] lg:w-auto snap-center" style="padding: 1px; transform-style: preserve-3d; will-change: transform; transition: transform 0.15s ease-out;" onmouseenter="activatePricingCard(this)" onmousemove="tiltCard(event, this)" onmouseleave="resetTilt(this)">
                     <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
                     <div class="h-full flex flex-col rounded-2xl overflow-hidden relative z-[1] {{ $plan['highlight'] ? 'p-10 lg:p-12' : 'p-8 lg:p-10' }}" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);{{ $plan['highlight'] ? ' padding-bottom: 73px;' : '' }}">
                         {{-- Top glow line --}}
@@ -870,7 +870,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-6 relative">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                <div>
+                <div class="text-center lg:text-left">
                     <span class="section-label mb-6 inline-block">Contact</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-4">
                         Ready to Build the System That Brings Clients to You?
@@ -879,7 +879,7 @@
                         Let's talk about what this looks like for your business.
                     </p>
 
-                    <div class="space-y-6">
+                    <div class="space-y-6 flex flex-col items-center lg:items-start">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -903,7 +903,7 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-3 pt-4">
+                        <div class="flex items-center justify-center lg:justify-start gap-3 pt-4">
                             {{-- Instagram --}}
                             <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -1163,6 +1163,102 @@
     mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
     // ============================================
+    // MOBILE VIDEO CAROUSEL FADE/BLUR
+    // ============================================
+    (function() {
+        var carousel = document.querySelector('.scrollbar-hide');
+        if (!carousel) return;
+        var videos = carousel.querySelectorAll('.short-form-video');
+        if (!videos.length) return;
+
+        function updateVideoFades() {
+            if (window.innerWidth >= 640) {
+                videos.forEach(function(v) {
+                    v.style.opacity = '';
+                    v.style.filter = '';
+                    v.style.transition = '';
+                });
+                return;
+            }
+            var containerRect = carousel.getBoundingClientRect();
+            var containerCenter = containerRect.left + containerRect.width / 2;
+
+            videos.forEach(function(v) {
+                var rect = v.getBoundingClientRect();
+                var videoCenter = rect.left + rect.width / 2;
+                var distance = Math.abs(containerCenter - videoCenter);
+                var maxDist = containerRect.width * 0.5;
+                var ratio = Math.min(distance / maxDist, 1);
+
+                var opacity = 1 - ratio * 0.55;
+                var blur = ratio * 3.4;
+
+                v.style.opacity = opacity;
+                v.style.filter = 'blur(' + blur + 'px)';
+                v.style.transition = 'opacity 0.3s ease, filter 0.3s ease';
+            });
+        }
+
+        carousel.addEventListener('scroll', updateVideoFades, { passive: true });
+        window.addEventListener('resize', updateVideoFades);
+        updateVideoFades();
+    })();
+
+    // ============================================
+    // MOBILE PRICING CAROUSEL - CENTER ON POPULAR CARD + FADE/BLUR
+    // ============================================
+    (function() {
+        var container = document.getElementById('service-plans');
+        if (!container) return;
+        var cards = container.querySelectorAll('.pricing-card');
+        if (!cards.length) return;
+
+        function scrollToPopular() {
+            if (window.innerWidth >= 1024) return;
+            // Find the highlighted/popular card (middle one)
+            var popularCard = container.querySelector('.lg\\:scale-\\[1\\.07\\]') || cards[1];
+            if (popularCard) {
+                var containerRect = container.getBoundingClientRect();
+                var cardRect = popularCard.getBoundingClientRect();
+                var scrollLeft = container.scrollLeft + (cardRect.left - containerRect.left) - (containerRect.width / 2) + (cardRect.width / 2);
+                container.scrollLeft = scrollLeft;
+            }
+        }
+
+        function updateCardFades() {
+            if (window.innerWidth >= 1024) {
+                cards.forEach(function(c) {
+                    c.style.opacity = '';
+                    c.style.filter = '';
+                    c.style.transition = '';
+                });
+                return;
+            }
+            var containerRect = container.getBoundingClientRect();
+            var containerCenter = containerRect.left + containerRect.width / 2;
+
+            cards.forEach(function(c) {
+                var rect = c.getBoundingClientRect();
+                var cardCenter = rect.left + rect.width / 2;
+                var distance = Math.abs(containerCenter - cardCenter);
+                var maxDist = containerRect.width * 0.5;
+                var ratio = Math.min(distance / maxDist, 1);
+
+                var opacity = 1 - ratio * 0.5;
+                var blur = ratio * 3;
+
+                c.style.opacity = opacity;
+                c.style.filter = 'blur(' + blur + 'px)';
+                c.style.transition = 'opacity 0.3s ease, filter 0.3s ease';
+            });
+        }
+
+        container.addEventListener('scroll', updateCardFades, { passive: true });
+        window.addEventListener('resize', function() { scrollToPopular(); updateCardFades(); });
+        setTimeout(function() { scrollToPopular(); updateCardFades(); }, 100);
+    })();
+
+    // ============================================
     // SCROLL REVEAL
     // ============================================
     function reveal(selector, fromVars, staggerAmt = 0) {
@@ -1395,17 +1491,21 @@
     // FAQ ACCORDION
     // ============================================
     function toggleFaq(el) {
-        const container = el.closest('.faq-tab-content');
-        container.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== el && item.classList.contains('active')) {
-                item.classList.remove('active');
-                gsap.to(item.querySelector('.faq-answer'), { maxHeight: 0, paddingTop: 0, duration: 0.4, ease: 'power2.inOut' });
-            }
-        });
         el.classList.toggle('active');
-        const answer = el.querySelector('.faq-answer');
+        var answer = el.querySelector('.faq-answer');
         if (el.classList.contains('active')) {
-            gsap.to(answer, { maxHeight: 300, paddingTop: 16, duration: 0.5, ease: 'power2.out' });
+            var scrollBefore = window.scrollY;
+            var elTopBefore = el.getBoundingClientRect().top;
+            gsap.to(answer, { maxHeight: 300, paddingTop: 16, duration: 0.5, ease: 'power2.out',
+                onUpdate: function() {
+                    var elTopNow = el.getBoundingClientRect().top;
+                    var drift = elTopNow - elTopBefore;
+                    if (Math.abs(drift) > 0.5) {
+                        window.scrollTo(0, window.scrollY + drift);
+                        elTopBefore = el.getBoundingClientRect().top;
+                    }
+                }
+            });
         } else {
             gsap.to(answer, { maxHeight: 0, paddingTop: 0, duration: 0.4, ease: 'power2.inOut' });
         }
@@ -1423,12 +1523,12 @@
 
         // Update tab buttons
         document.querySelectorAll('.faq-tab').forEach(tab => {
+            // Remove all state classes first
+            tab.classList.remove('active', 'bg-primary/10', 'text-primary', 'border-primary/20', 'bg-surface-card', 'text-gray-400', 'border-surface-border', 'hover:text-white');
             if (tab.dataset.tab === tabName) {
-                tab.classList.add('active');
-                tab.className = tab.className.replace('bg-surface-card text-gray-400 border-surface-border', 'bg-primary/10 text-primary border-primary/20');
+                tab.classList.add('active', 'bg-primary/10', 'text-primary', 'border-primary/20');
             } else {
-                tab.classList.remove('active');
-                tab.className = tab.className.replace('bg-primary/10 text-primary border-primary/20', 'bg-surface-card text-gray-400 border-surface-border');
+                tab.classList.add('bg-surface-card', 'text-gray-400', 'border-surface-border', 'hover:text-white');
             }
         });
 
