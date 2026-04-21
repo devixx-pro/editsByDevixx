@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//f/Devraj's_Personal Clips/**)",
+      "Bash(identify favicon.png)",
+      "Bash(python -c \"from PIL import Image; print\\('PIL OK'\\)\")",
+      "Bash(python -c ' *)",
+      "Read(//c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site//**)",
+      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Accrivo.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/accrivo.png)",
+      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Block3 Finance.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/block3-finance.png)",
+      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Emerald Wealth Services.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/emerald-wealth-services.png)",
+      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/FinTruction.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/fintruction.png)",
+      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Insured by Phoenix.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/insured-by-phoenix.png)"
+    ],
+    "additionalDirectories": [
+      "F:\\Devraj's_Personal Clips"
+    ]
+  }
+}

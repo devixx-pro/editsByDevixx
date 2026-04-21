@@ -154,7 +154,8 @@
 
 .marquee-track {
     display: flex;
-    gap: 4rem;
+    align-items: center;
+    gap: calc(4rem - 10px);
     width: max-content;
     animation: marquee 40s linear infinite;
 }

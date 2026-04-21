@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edits by Devixx — Content That Gets You Chosen</title>
     <meta name="description" content="Built around one goal. Getting you clients.">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -120,19 +123,18 @@
 
     {{-- ========== TRUSTED BY ========== --}}
     <section class="pt-0 pb-[5px] -mt-16 relative overflow-hidden">
-        <div class="text-center mt-[65px] mb-6">
+        <div class="text-center mt-[77px] mb-6">
             <span class="section-label mb-6 inline-block">Trusted by the Best</span>
         </div>
 
         @php
             $brandsRow1 = [
-                ['name' => 'Tax Partners', 'initials' => 'TPI', 'color' => '#2d3a3a', 'text' => '#5eead4'],
-                ['name' => 'Emerald Wealth Services', 'initials' => 'EWS', 'color' => '#10b981', 'text' => '#ffffff'],
-                ['name' => 'FinTruction', 'initials' => 'FT', 'color' => '#f97316', 'text' => '#ffffff'],
-                ['name' => 'Accrivo', 'initials' => 'AC', 'color' => '#ef4444', 'text' => '#ffffff'],
-                ['name' => 'Insured by Phoenix', 'initials' => 'IP', 'color' => '#1e1e2e', 'text' => '#ffffff'],
-                ['name' => 'DEVIXX', 'initials' => 'DX', 'color' => '#f5f5f5', 'text' => '#111111'],
-                ['name' => 'Block3 Finance', 'initials' => 'B3F', 'color' => '#6366f1', 'text' => '#ffffff'],
+                ['name' => 'Tax Partners', 'initials' => 'TPI', 'color' => '#2d3a3a', 'text' => '#5eead4', 'logo' => 'images/logos/tax-partners.png', 'scale' => 1.2],
+                ['name' => 'Emerald Wealth Services', 'initials' => 'EWS', 'color' => '#10b981', 'text' => '#ffffff', 'logo' => 'images/logos/emerald-wealth-services.png', 'extraGap' => '8px'],
+                ['name' => 'FinTruction', 'initials' => 'FT', 'color' => '#f97316', 'text' => '#ffffff', 'logo' => 'images/logos/fintruction.png', 'scale' => 1.3, 'extraGap' => '8px'],
+                ['name' => 'Accrivo', 'initials' => 'AC', 'color' => '#ef4444', 'text' => '#ffffff', 'logo' => 'images/logos/accrivo.png', 'scale' => 1.1],
+                ['name' => 'Insured by Phoenix', 'initials' => 'IP', 'color' => '#1e1e2e', 'text' => '#ffffff', 'logo' => 'images/logos/insured-by-phoenix.png', 'size' => 'w-32 h-32'],
+                ['name' => 'Block3 Finance', 'initials' => 'B3F', 'color' => '#6366f1', 'text' => '#ffffff', 'logo' => 'images/logos/block3-finance.png', 'extraGap' => '36px'],
             ];
             $brandsRow2 = [
                 ['name' => 'Greylock', 'initials' => 'G', 'color' => '#1a1a2e', 'text' => '#9ca3af'],
@@ -149,11 +151,16 @@
             <div class="marquee-track">
                 @for ($i = 0; $i < 4; $i++)
                     @foreach ($brandsRow1 as $brand)
-                        <div class="marquee-item">
-                            <div class="w-24 h-24 rounded-2xl flex items-center justify-center font-bold text-2xl" style="background: {{ $brand['color'] }}; color: {{ $brand['text'] }};">
-                                {{ $brand['initials'] }}
-                            </div>
-                            <span class="text-gray-500 text-xs mt-3 block text-center">{{ $brand['name'] }}</span>
+                        <div class="marquee-item" @if (!empty($brand['extraGap'])) style="margin-right: {{ $brand['extraGap'] }};" @endif>
+                            @if (!empty($brand['logo']))
+                                <div class="{{ $brand['size'] ?? 'w-52 h-52' }} flex items-center justify-center">
+                                    <img src="{{ asset($brand['logo']) }}" alt="{{ $brand['name'] }}" class="max-w-full max-h-full object-contain" @if (!empty($brand['scale'])) style="transform: scale({{ $brand['scale'] }});" @endif>
+                                </div>
+                            @else
+                                <div class="w-52 h-52 rounded-2xl flex items-center justify-center font-bold text-2xl" style="background: {{ $brand['color'] }}; color: {{ $brand['text'] }};">
+                                    {{ $brand['initials'] }}
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                 @endfor
@@ -205,7 +212,7 @@
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -0.5s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Steady stream of inbound leads</span></div>
                             </div>
                             <div class="mt-3 flex justify-center md:justify-end">
-                                <a href="#" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
+                                <a href="{{ route('case-studies.fintruction') }}" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
                                     <span class="cs-btn-text whitespace-nowrap transition-all duration-500">View Casestudy</span>
                                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                                 </a>
@@ -303,9 +310,11 @@
                         {{-- Video controls overlay --}}
                         <div class="video-controls absolute bottom-0 left-0 right-0 opacity-0 transition-opacity duration-300" onclick="event.stopPropagation()">
                             {{-- Progress bar --}}
-                            <div class="video-progress-bar w-full h-1 bg-white/20 cursor-pointer relative mx-0" onclick="seekToPosition(event, this)">
-                                <div class="video-progress h-full bg-[#9333EA] relative" style="width: 0%;">
-                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="video-progress-bar w-full pt-3 -mt-3 cursor-pointer relative mx-0" style="touch-action: none; z-index: 5;">
+                                <div class="h-1 bg-white/20 relative pointer-events-none">
+                                    <div class="video-progress h-full bg-[#9333EA] relative" style="width: 0%;">
+                                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    </div>
                                 </div>
                             </div>
                             {{-- Controls row --}}
@@ -314,15 +323,15 @@
                                 <span class="video-time text-white text-[11px] font-mono min-w-[32px] leading-5">0:00</span>
                                 {{-- Center controls --}}
                                 <div class="flex items-center gap-3 h-5">
-                                    <button class="btn-fwd10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideo(this, 10)">
-                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M464 256c0-114.69-93.31-208-208-208a210.35 210.35 0 00-105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M464 256c0 114.69-93.31 208-208 208S48 370.69 48 256" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="95,25 195,105 85,125" fill="white"/></svg>
+                                    <button type="button" class="btn-fwd10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors">
+                                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 512 512" fill="white"><path d="M464 256c0-114.69-93.31-208-208-208a210.35 210.35 0 00-105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M464 256c0 114.69-93.31 208-208 208S48 370.69 48 256" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="95,25 195,105 85,125" fill="white"/></svg>
                                     </button>
-                                    <button class="btn-playpause flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="togglePlayPause(this)">
-                                        <svg class="w-5 h-5 icon-pause hidden" fill="white" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-                                        <svg class="w-5 h-5 icon-play" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    <button type="button" class="btn-playpause flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="togglePlayPause(this)">
+                                        <svg class="w-5 h-5 icon-pause hidden pointer-events-none" fill="white" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+                                        <svg class="w-5 h-5 icon-play pointer-events-none" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                     </button>
-                                    <button class="btn-back10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideo(this, -10)">
-                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M48 256c0-114.69 93.31-208 208-208a210.35 210.35 0 01105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M48 256c0 114.69 93.31 208 208 208s208-93.31 208-208" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="417,25 317,105 427,125" fill="white"/></svg>
+                                    <button type="button" class="btn-back10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors">
+                                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 512 512" fill="white"><path d="M48 256c0-114.69 93.31-208 208-208a210.35 210.35 0 01105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M48 256c0 114.69 93.31 208 208 208s208-93.31 208-208" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="417,25 317,105 427,125" fill="white"/></svg>
                                     </button>
                                 </div>
                                 {{-- Right: Fullscreen --}}
@@ -369,9 +378,11 @@
                         {{-- Video controls overlay --}}
                         <div class="video-controls absolute bottom-0 left-0 right-0 opacity-0 transition-opacity duration-300" onclick="event.stopPropagation()">
                             {{-- Progress bar --}}
-                            <div class="video-progress-bar w-full h-1 bg-white/20 cursor-pointer relative mx-0" onclick="seekToPositionLong(event, this)">
-                                <div class="video-progress h-full bg-[#9333EA] relative" style="width: 0%;">
-                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="video-progress-bar w-full pt-3 -mt-3 cursor-pointer relative mx-0" style="touch-action: none; z-index: 5;">
+                                <div class="h-1 bg-white/20 relative pointer-events-none">
+                                    <div class="video-progress h-full bg-[#9333EA] relative" style="width: 0%;">
+                                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    </div>
                                 </div>
                             </div>
                             {{-- Controls row --}}
@@ -380,15 +391,15 @@
                                 <span class="video-time text-white text-[11px] font-mono min-w-[32px] leading-5">0:00</span>
                                 {{-- Center controls --}}
                                 <div class="flex items-center gap-3 h-5">
-                                    <button class="btn-fwd10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideoLong(this, 10)">
-                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M464 256c0-114.69-93.31-208-208-208a210.35 210.35 0 00-105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M464 256c0 114.69-93.31 208-208 208S48 370.69 48 256" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="95,25 195,105 85,125" fill="white"/></svg>
+                                    <button type="button" class="btn-fwd10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors">
+                                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 512 512" fill="white"><path d="M464 256c0-114.69-93.31-208-208-208a210.35 210.35 0 00-105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M464 256c0 114.69-93.31 208-208 208S48 370.69 48 256" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="95,25 195,105 85,125" fill="white"/></svg>
                                     </button>
-                                    <button class="btn-playpause flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="togglePlayPauseLong(this)">
-                                        <svg class="w-5 h-5 icon-pause hidden" fill="white" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-                                        <svg class="w-5 h-5 icon-play" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    <button type="button" class="btn-playpause flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="togglePlayPauseLong(this)">
+                                        <svg class="w-5 h-5 icon-pause hidden pointer-events-none" fill="white" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+                                        <svg class="w-5 h-5 icon-play pointer-events-none" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                     </button>
-                                    <button class="btn-back10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors" onclick="seekVideoLong(this, -10)">
-                                        <svg class="w-4 h-4" viewBox="0 0 512 512" fill="white"><path d="M48 256c0-114.69 93.31-208 208-208a210.35 210.35 0 01105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M48 256c0 114.69 93.31 208 208 208s208-93.31 208-208" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="417,25 317,105 427,125" fill="white"/></svg>
+                                    <button type="button" class="btn-back10 flex items-center justify-center h-5 text-white hover:text-[#9333EA] transition-colors">
+                                        <svg class="w-4 h-4 pointer-events-none" viewBox="0 0 512 512" fill="white"><path d="M48 256c0-114.69 93.31-208 208-208a210.35 210.35 0 01105.61 28.48" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><text x="256" y="295" fill="white" font-size="200" font-weight="bold" font-family="Arial" text-anchor="middle">10</text><path d="M48 256c0 114.69 93.31 208 208 208s208-93.31 208-208" fill="none" stroke="white" stroke-width="40" stroke-linecap="round"/><polygon points="417,25 317,105 427,125" fill="white"/></svg>
                                     </button>
                                 </div>
                                 {{-- Right: Fullscreen --}}
@@ -796,7 +807,7 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-8 md:pl-12">{{ $faq[1] }}</p>
+                        <p class="text-gray-400 text-sm leading-relaxed pt-[12.5px] pl-8 md:pl-12">{{ $faq[1] }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -827,7 +838,7 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-8 md:pl-12">{{ $faq[1] }}</p>
+                        <p class="text-gray-400 text-sm leading-relaxed pt-[12.5px] pl-8 md:pl-12">{{ $faq[1] }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -857,7 +868,7 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 text-sm leading-relaxed pt-4 pl-8 md:pl-12">{{ $faq[1] }}</p>
+                        <p class="text-gray-400 text-sm leading-relaxed pt-[12.5px] pl-8 md:pl-12">{{ $faq[1] }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -880,37 +891,45 @@
                     </p>
 
                     <div class="space-y-6 flex flex-col items-center lg:items-start">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <a href="mailto:inquiry@devixx.pro" class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center transition-colors group-hover:bg-primary/20">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
                                 </svg>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-sm">Email</p>
-                                <p class="text-white font-medium">inquiry@devixx.pro</p>
+                                <p class="text-white font-medium transition-colors group-hover:text-primary">inquiry@devixx.pro</p>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        </a>
+                        <a href="https://wa.link/ui4ei8" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center transition-colors group-hover:bg-primary/20">
                                 <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                                 </svg>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-sm">WhatsApp</p>
-                                <p class="text-white font-medium">+1 (555) 000-0000</p>
+                                <p class="text-white font-medium transition-colors group-hover:text-primary">+1 (587) 854-4099</p>
                             </div>
-                        </div>
+                        </a>
 
                         <div class="flex items-center justify-center lg:justify-start gap-3 pt-4">
                             {{-- Instagram --}}
-                            <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
+                            <a href="https://www.instagram.com/editsbydevixx/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                             </a>
+                            {{-- LinkedIn --}}
+                            <a href="https://www.linkedin.com/company/edits-by-devixx/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
                             {{-- X (Twitter) --}}
-                            <a href="#" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
+                            <a href="https://x.com/editsbyDEVIXX" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            {{-- YouTube --}}
+                            <a href="https://www.youtube.com/@editsbyDEVIXX" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/30 transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                             </a>
                         </div>
                     </div>
@@ -1003,12 +1022,20 @@
                     </div>
                     <div class="flex items-center gap-3">
                         {{-- Instagram --}}
-                        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                        <a href="https://www.instagram.com/editsbydevixx/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary transition-colors">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </a>
+                        {{-- LinkedIn --}}
+                        <a href="https://www.linkedin.com/company/edits-by-devixx/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
                         {{-- X (Twitter) --}}
-                        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                        <a href="https://x.com/editsbyDEVIXX" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary transition-colors">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        {{-- YouTube --}}
+                        <a href="https://www.youtube.com/@editsbyDEVIXX" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -1587,16 +1614,14 @@
     function togglePlayPauseContainer(container) {
         const video = container.querySelector('video');
         if (video.paused) {
-            video.currentTime = 0;
+            if (!container.dataset.firstManualPlayDone) {
+                video.currentTime = 0;
+                container.dataset.firstManualPlayDone = '1';
+            }
             video.play();
         } else {
             video.pause();
         }
-    }
-
-    function seekVideo(btn, seconds) {
-        const video = btn.closest('.short-form-video').querySelector('video');
-        video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
     }
 
     function togglePlayPause(btn) {
@@ -1647,11 +1672,31 @@
         return m + ':' + String(sec).padStart(2, '0');
     }
 
-    function seekToPosition(e, bar) {
-        const video = bar.closest('.short-form-video').querySelector('video');
-        const rect = bar.getBoundingClientRect();
-        const pct = (e.clientX - rect.left) / rect.width;
-        video.currentTime = pct * video.duration;
+    function attachProgressDrag(bar, videoSelector) {
+        const seekFromEvent = (e) => {
+            const video = bar.closest(videoSelector).querySelector('video');
+            if (!video || !video.duration || !isFinite(video.duration)) return;
+            const rect = bar.getBoundingClientRect();
+            const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+            video.currentTime = pct * video.duration;
+        };
+        bar.addEventListener('pointerdown', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            bar.setPointerCapture(e.pointerId);
+            seekFromEvent(e);
+        });
+        bar.addEventListener('pointermove', (e) => {
+            if (bar.hasPointerCapture && bar.hasPointerCapture(e.pointerId)) {
+                seekFromEvent(e);
+            }
+        });
+        bar.addEventListener('pointerup', (e) => {
+            if (bar.hasPointerCapture && bar.hasPointerCapture(e.pointerId)) {
+                bar.releasePointerCapture(e.pointerId);
+            }
+        });
+        bar.addEventListener('click', (e) => { e.stopPropagation(); });
     }
 
     // Update time, progress bar, play/pause icons, and hover show/hide
@@ -1686,6 +1731,26 @@
             controls.style.opacity = '0';
         });
 
+        // Draggable progress bar
+        const progressBar = container.querySelector('.video-progress-bar');
+        if (progressBar) attachProgressDrag(progressBar, '.short-form-video');
+
+        // Explicit button bindings (onclick kept as fallback)
+        const fwdBtn = container.querySelector('.btn-fwd10');
+        const backBtn = container.querySelector('.btn-back10');
+        if (fwdBtn) fwdBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.duration && isFinite(video.duration)) {
+                video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + 10));
+            }
+        });
+        if (backBtn) backBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.duration && isFinite(video.duration)) {
+                video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime - 10));
+            }
+        });
+
         // Auto-play muted on scroll into view
         const overlay = container.querySelector('.video-overlay');
         gsap.set(overlay, { opacity: 0 });
@@ -1695,9 +1760,9 @@
             start: 'top 90%',
             end: 'bottom 10%',
             onEnter: () => { video.muted = true; updateVolumeIcon(container, true); video.play(); },
-            onLeave: () => { video.pause(); video.currentTime = 0; },
+            onLeave: () => { video.pause(); video.currentTime = 0; delete container.dataset.firstManualPlayDone; },
             onEnterBack: () => { video.muted = true; updateVolumeIcon(container, true); video.play(); },
-            onLeaveBack: () => { video.pause(); video.currentTime = 0; },
+            onLeaveBack: () => { video.pause(); video.currentTime = 0; delete container.dataset.firstManualPlayDone; },
         });
     });
 
@@ -1737,11 +1802,6 @@
         }
     }
 
-    function seekVideoLong(btn, seconds) {
-        const video = btn.closest('.long-form-video').querySelector('video');
-        video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + seconds));
-    }
-
     function togglePlayPauseLong(btn) {
         const container = btn.closest('.long-form-video');
         const video = container.querySelector('video');
@@ -1757,13 +1817,6 @@
             iconPlay.classList.remove('hidden');
             iconPause.classList.add('hidden');
         }
-    }
-
-    function seekToPositionLong(e, bar) {
-        const video = bar.closest('.long-form-video').querySelector('video');
-        const rect = bar.getBoundingClientRect();
-        const pct = (e.clientX - rect.left) / rect.width;
-        video.currentTime = pct * video.duration;
     }
 
     function toggleFullscreenLong(btn) {
@@ -1813,6 +1866,26 @@
         container.addEventListener('mouseenter', () => { controls.style.opacity = '1'; });
         container.addEventListener('mouseleave', () => { controls.style.opacity = '0'; });
 
+        // Draggable progress bar
+        const progressBar = container.querySelector('.video-progress-bar');
+        if (progressBar) attachProgressDrag(progressBar, '.long-form-video');
+
+        // Explicit button bindings
+        const fwdBtn = container.querySelector('.btn-fwd10');
+        const backBtn = container.querySelector('.btn-back10');
+        if (fwdBtn) fwdBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.duration && isFinite(video.duration)) {
+                video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + 10));
+            }
+        });
+        if (backBtn) backBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.duration && isFinite(video.duration)) {
+                video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime - 10));
+            }
+        });
+
         // Auto-play muted on scroll
         const overlay = container.querySelector('.video-overlay');
         gsap.set(overlay, { opacity: 0 });
@@ -1822,9 +1895,9 @@
             start: 'top 90%',
             end: 'bottom 10%',
             onEnter: () => { video.muted = true; updateLongFormVolumeIcon(container, true); video.play(); },
-            onLeave: () => { video.pause(); video.currentTime = 0; },
+            onLeave: () => { video.pause(); video.currentTime = 0; delete container.dataset.firstManualPlayDone; },
             onEnterBack: () => { video.muted = true; updateLongFormVolumeIcon(container, true); video.play(); },
-            onLeaveBack: () => { video.pause(); video.currentTime = 0; },
+            onLeaveBack: () => { video.pause(); video.currentTime = 0; delete container.dataset.firstManualPlayDone; },
         });
     });
 
