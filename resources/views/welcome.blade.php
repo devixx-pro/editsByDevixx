@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edits by Devixx — Content That Gets You Chosen</title>
+    <title>edits by DEVIXX — Content That Gets You Chosen</title>
     <meta name="description" content="Built around one goal. Getting you clients.">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}">
@@ -53,7 +53,7 @@
         <div class="navbar-pill max-w-5xl mx-auto mx-4 md:mx-auto flex items-center justify-between px-8 py-1 rounded-full border border-white/[0.06] transition-all duration-500" style="background: rgba(100, 100, 120, 0.25); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
             {{-- Logo --}}
             <a href="#" class="block shrink-0" onclick="event.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'});">
-                <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-9 md:h-10 w-auto">
+                <img src="{{ asset('images/logomain.png') }}" alt="edits by DEVIXX" class="h-9 md:h-10 w-auto">
             </a>
 
             {{-- Desktop Navigation --}}
@@ -197,15 +197,12 @@
                         <div class="card-shine absolute inset-0 z-10 rounded-2xl pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s;"></div>
                         <span class="absolute top-4 right-4 z-20 inline-block px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium">Construction Bookkeeping</span>
                         {{-- Top visual area --}}
-                        <div class="relative bg-transparent flex items-center justify-center flex-1 min-h-[325px] max-w-[406.25px]">
-                            <div class="text-center p-8">
-                                <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
-                            </div>
+                        <div class="relative overflow-hidden flex-1 min-h-[325px] w-full">
+                            <img src="{{ asset('images/case-studies/fintruction-1k-to-16k.png') }}" alt="FinTruction — $1K to $16K in 60 Days" class="absolute inset-0 w-full h-full object-cover">
                         </div>
                         {{-- Bottom content --}}
                         <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1] text-center md:text-left">
-                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">12 Inbound Clients.<br>60 Days.</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">$1K to $16K MRR.<br>60 days.</h3>
                             <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2 items-center md:items-start">
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -1.2s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Zero online presence</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -2.8s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Built content system from scratch</span></div>
@@ -233,22 +230,19 @@
                         <div class="card-shine absolute inset-0 z-10 rounded-2xl pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.08) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s;"></div>
                         <span class="absolute top-4 right-4 z-20 inline-block px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium">Small Business Bookkeeping</span>
                         {{-- Top visual area --}}
-                        <div class="relative bg-transparent flex items-center justify-center flex-1 min-h-[325px] max-w-[406.25px]">
-                            <div class="text-center p-8">
-                                <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                                <p class="text-gray-600 text-sm">Thumbnail Coming Soon</p>
-                            </div>
+                        <div class="relative overflow-hidden flex-1 min-h-[325px] w-full">
+                            <img src="{{ asset('images/case-studies/accrivo-150k-views.png') }}" alt="Accrivo — Faceless. 150K Views. 30 Days." class="absolute inset-0 w-full h-full object-cover">
                         </div>
                         {{-- Bottom content --}}
                         <div class="p-6 md:p-8 pb-4 md:pb-5 relative z-[1] text-center md:text-left">
-                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">From Invisible<br>To Fully Booked.</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Zero Camera.<br>150K+ Views in 30 Days.</h3>
                             <div class="text-gray-400 text-sm leading-relaxed card-desc flex flex-col gap-2 items-center md:items-start">
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -3.5s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">No online visibility</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -1.7s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Full content strategy built from scratch</span></div>
                                 <div class="relative w-fit rounded-md glow-border-btn overflow-hidden" style="padding: 1px;"><div class="glow-border-btn-bg absolute inset-0 rounded-md z-0" style="animation-delay: -2.3s;"></div><span class="px-2 py-1 rounded-[5px] border border-gray-700 bg-[#000000] w-fit text-xs block relative z-[1]">Brand turned into a client magnet</span></div>
                             </div>
                             <div class="mt-3 flex justify-center md:justify-end">
-                                <a href="#" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
+                                <a href="{{ route('case-studies.accrivo') }}" class="cs-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/20 transition-all duration-500 overflow-hidden pointer-events-auto">
                                     <span class="cs-btn-text whitespace-nowrap transition-all duration-500">View Casestudy</span>
                                     <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                                 </a>
@@ -678,9 +672,9 @@
             @php
             $testimonials = [
                 ['name' => 'Mahad Mohamed', 'role' => 'Tax Partners', 'text' => 'Working with Edits by DEVIXX completely changed how we show up online. The content quality is unlike anything we had before. Highly recommend.', 'initials' => '', 'avatar' => 'images/mahad.jpg'],
-                ['name' => 'Kevin Ball', 'role' => 'Block3 Finance', 'text' => 'The team just gets it. They understood our brand from day one and the content they produce consistently brings in the right people.', 'initials' => 'K', 'avatar' => ''],
-                ['name' => 'Vivian Szatmari', 'role' => 'Insured by Phoenix', 'text' => 'We went from having no content strategy to having a full system running without us having to think about it. The results speak for themselves.', 'initials' => 'V', 'avatar' => ''],
-                ['name' => 'Kizzy Bowen', 'role' => 'Emerald Wealth Services', 'text' => 'Professional, fast, and genuinely invested in our growth. The content they create for us has made a real difference in how clients find us.', 'initials' => 'K', 'avatar' => ''],
+                ['name' => 'Kevin Ball', 'role' => 'Block3 Finance', 'text' => 'The team just gets it. They understood our brand from day one and the content they produce consistently brings in the right people.', 'initials' => 'K', 'avatar' => 'images/testimonials/kevin.jpg'],
+                ['name' => 'Vivian Szatmari', 'role' => 'Insured by Phoenix', 'text' => 'We went from having no content strategy to having a full system running without us having to think about it. The results speak for themselves.', 'initials' => 'V', 'avatar' => 'images/testimonials/vivian.png'],
+                ['name' => 'Kizzy Bowen', 'role' => 'Emerald Wealth Services', 'text' => 'Professional, fast, and genuinely invested in our growth. The content they create for us has made a real difference in how clients find us.', 'initials' => 'K', 'avatar' => 'images/testimonials/kizzy.png'],
             ];
             @endphp
 
@@ -717,12 +711,8 @@
 
                 {{-- Center: Large tall video card --}}
                 <div class="testimonial-center-card rounded-2xl overflow-hidden flex flex-col w-full lg:flex-[1.4]" style="background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.15) 0%, #0a0a0a 60%); border: 1px solid rgba(147,51,234,0.15);">
-                    <div class="relative w-full overflow-hidden flex flex-col items-center justify-center" style="min-height: 470px; background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.1) 0%, transparent 50%);">
-                        {{-- Video Coming Soon placeholder --}}
-                        <svg class="w-14 h-14 text-gray-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                        <p class="text-gray-500 text-sm font-medium">Video Coming Soon</p>
+                    <div class="relative w-full overflow-hidden" style="min-height: 470px;">
+                        <img src="{{ asset('images/testimonials/shivajee.jpg') }}" alt="Shivajee Shedain" class="absolute inset-0 w-full h-full object-cover">
                     </div>
                     <div class="p-6 text-center">
                         <p class="text-gray-400 text-sm leading-relaxed mb-5">Edits by DEVIXX understands what it takes to build a brand that actually converts. They handle everything and the quality is always there.</p>
@@ -1012,7 +1002,7 @@
         <div class="border-t border-surface-border py-8" style="background: rgba(0,0,0,0.5);">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <img src="{{ asset('images/logomain.png') }}" alt="Edits by Devixx" class="h-8 w-auto">
+                    <img src="{{ asset('images/logomain.png') }}" alt="edits by DEVIXX" class="h-8 w-auto">
                     <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
                         <a href="#services" class="text-sm text-gray-500 hover:text-white transition-colors">Services</a>
                         <a href="#testimonials" class="text-sm text-gray-500 hover:text-white transition-colors">Testimonials</a>
@@ -1040,7 +1030,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-6 pt-6 border-t border-surface-border">
-                    <p class="text-sm text-gray-600">&copy; {{ date('Y') }} Edits by Devixx. All Rights Reserved.</p>
+                    <p class="text-sm text-gray-600">&copy; {{ date('Y') }} edits by DEVIXX. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

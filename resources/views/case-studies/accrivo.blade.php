@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FinTruction Case Study — edits by DEVIXX</title>
-    <meta name="description" content="How we built a content system for FinTruction — $1K to $16K MRR, 1.4M+ views, 25+ qualified leads in 60 days.">
+    <title>Accrivo Case Study — edits by DEVIXX</title>
+    <meta name="description" content="How we built a faceless content machine for Accrivo — 100K+ views, zero founder on camera, lead magnet running 24/7.">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
@@ -84,7 +84,7 @@
         </div>
     </nav>
 
-    {{-- ========== BACK LINK (absolute, navbar-level, far-left of page) ========== --}}
+    {{-- ========== BACK LINK ========== --}}
     <a href="/#case-studies" onclick="event.preventDefault(); window.location.assign('/#case-studies');" class="fixed top-10 left-6 md:left-10 z-[60] inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         Back to case studies
@@ -95,25 +95,28 @@
         <div id="hero-glow"></div>
 
         <div class="relative max-w-5xl mx-auto px-6 text-center">
-            <div class="h-[32px] mb-6" aria-hidden="true"></div>
+            <div data-hero-anim class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-light"></span>
+                <span class="text-xs font-semibold text-primary-light uppercase tracking-[0.18em]">Faceless Content System</span>
+            </div>
 
             <h1 data-hero-anim class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-                $1K to $16K MRR.
-                <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">60 days.</span>
+                100K+ views.
+                <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">Zero face on camera.</span>
                 <br class="hidden md:block">
-                From two followers.
+                All system.
             </h1>
 
             <p data-hero-anim class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed mb-12">
-                How we built a content system for a contractor-focused bookkeeping firm — from two followers and $1K MRR to a full inbound pipeline in nine weeks.
+                How we built a faceless Instagram lead-gen machine for a small-business bookkeeping firm — no founder content, no talking-head reels, no personal brand required. Just b-roll, hooks, and a funnel that runs itself.
             </p>
 
             <div data-hero-anim class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
                 @foreach ([
-                    ['v' => '1.4M+', 'l' => 'Views'],
-                    ['v' => '$16K',  'l' => 'MRR'],
-                    ['v' => '25+',   'l' => 'Qualified leads'],
-                    ['v' => '60',    'l' => 'Days'],
+                    ['v' => '100K+', 'l' => 'Views'],
+                    ['v' => '0',     'l' => 'Face on camera'],
+                    ['v' => '30',    'l' => 'Days'],
+                    ['v' => '$0',    'l' => 'Ad spend'],
                 ] as $stat)
                     <div class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
                         <span class="text-white font-bold text-sm">{{ $stat['v'] }}</span>
@@ -124,7 +127,7 @@
         </div>
     </section>
 
-    {{-- ========== PROJECT SNAPSHOT ========== --}}
+    {{-- ========== THE CLIENT ========== --}}
     <section class="relative pb-24">
         <div class="max-w-5xl mx-auto px-6">
             <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
@@ -133,9 +136,12 @@
                     {{-- About --}}
                     <div>
                         <div class="text-xs font-semibold text-primary-light uppercase tracking-[0.18em] mb-4">The Client</div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">FinTruction — bookkeeping built for contractors.</h2>
-                        <p class="text-gray-400 leading-relaxed">
-                            Job costing, WIP, cash flow, payroll, and profit-focused reporting for construction businesses. Sharp service. Credible operators. But outside of word of mouth, effectively invisible online.
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">Accrivo — bookkeeping built for small business owners.</h2>
+                        <p class="text-gray-400 leading-relaxed mb-5">
+                            Real bookkeeping and accounting — understanding the business, handling the books, sorting taxes, and delivering CFO-level thinking without CFO-level fees. Good service. Real results.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed italic border-l-2 border-primary/60 pl-4">
+                            Accrivo's founder didn't want to be on camera. Didn't have time for talking-head content. Didn't want to build a personal brand. So we built a system that didn't need any of it.
                         </p>
                     </div>
                     {{-- Meta --}}
@@ -143,11 +149,11 @@
                         <div class="text-xs font-semibold text-primary-light uppercase tracking-[0.18em] mb-4">Snapshot</div>
                         <dl class="space-y-3.5">
                             @foreach ([
-                                ['k' => 'Industry', 'v' => 'Construction Bookkeeping'],
-                                ['k' => 'Engagement', 'v' => 'Content System Build'],
-                                ['k' => 'Channels', 'v' => 'Instagram · Facebook · YouTube'],
-                                ['k' => 'Content Format', 'v' => 'Reels · Carousels · Long-form'],
-                                ['k' => 'Timeline', 'v' => 'January – Present'],
+                                ['k' => 'Industry', 'v' => 'Bookkeeping & Accounting'],
+                                ['k' => 'ICP', 'v' => 'Small Business Owners'],
+                                ['k' => 'Channels', 'v' => 'Instagram'],
+                                ['k' => 'Content Format', 'v' => 'Faceless b-roll + text hooks'],
+                                ['k' => 'Timeline', 'v' => 'February – Present'],
                             ] as $row)
                                 <div class="flex items-baseline justify-between gap-4">
                                     <dt class="text-xs uppercase tracking-wider text-gray-500">{{ $row['k'] }}</dt>
@@ -167,22 +173,25 @@
         <div class="max-w-5xl mx-auto px-6 relative">
             <div class="text-center mb-12">
                 <span class="section-label mb-6 inline-block">The Challenge</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">A great service nobody could find.</h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">Great service. Zero online presence. Founder wouldn't go on camera.</h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    FinTruction came to us with two followers, zero posts, and a growing sense that word of mouth wasn't going to scale them.
+                    Referrals were working — until they weren't. But every "solution" demanded what Accrivo didn't have: time, a camera-ready founder, or a personal brand.
                 </p>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
                 @foreach ([
-                    'No online presence and no brand voice',
-                    'No content strategy or playbook to build one',
-                    'No reliable way to reach the contractor ICP',
-                    'No system for converting attention into leads',
+                    ['t' => 'Referrals capped growth.',                           'b' => "Couldn't predict, couldn't scale, couldn't control."],
+                    ['t' => "Founder wasn't going on camera.",                    'b' => 'Full stop. No talking-head reels, no face-driven content.'],
+                    ['t' => 'No time for a personal brand.',                      'b' => 'Every hour on content was an hour not serving clients.'],
+                    ['t' => 'Every agency pitched the same thing: "become a creator."', 'b' => 'Wrong answer for a bookkeeping firm.'],
                 ] as $pain)
                     <div class="flex items-start gap-3 px-5 py-4 rounded-xl border border-white/10 bg-white/[0.02]">
                         <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-light shrink-0"></span>
-                        <span class="text-gray-300 text-[15px] leading-relaxed">{{ $pain }}</span>
+                        <div>
+                            <div class="text-white text-[15px] font-semibold leading-snug mb-1">{{ $pain['t'] }}</div>
+                            <div class="text-gray-400 text-sm leading-relaxed">{{ $pain['b'] }}</div>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -196,11 +205,11 @@
             <div class="text-center mb-14">
                 <span class="section-label mb-6 inline-block">The Approach</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">
-                    Strategy. Funnel.
-                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Automation.</span>
+                    Hooks. B-roll.
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Funnel.</span>
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    One system, three layers. Each layer fed the next. Skip one and the whole thing breaks.
+                    We built a faceless content machine. Templated production, reused hooks, a lead magnet doing the selling. The founder kept doing what he does best — bookkeeping.
                 </p>
             </div>
 
@@ -209,21 +218,21 @@
                     $pillars = [
                         [
                             'num' => '01',
-                            'title' => 'Strategy & Lead Magnet',
-                            'body' => "We mapped the contractor ICP — what they watch, what they trust, what they buy. Then we built a free self-scoring diagnostic, the Construction Accounting Checklist, designed to surface blind spots that only FinTruction's service could fix.",
-                            'proof' => '100+ checklist requests',
+                            'title' => 'Hook Library',
+                            'body' => 'We built a library of [X] proven hooks targeting small-business accounting pain — tax surprises, messy QuickBooks, missed deductions, 1099 panic. Every reel starts here. No guessing, no blank page.',
+                            'proof' => 'Repeatable virality',
                         ],
                         [
                             'num' => '02',
-                            'title' => 'Full-Funnel Content',
-                            'body' => 'TOFU virality reels for ICP-targeted reach. MOFU carousels and breakdowns for trust and education. BOFU stories and long-form YouTube to close the loop. Every piece routed back to the lead magnet.',
-                            'proof' => '1.4M+ views',
+                            'title' => 'Faceless Production System',
+                            'body' => 'B-roll + bold text + pattern-interrupt editing. One reel produced in under [X] minutes. No studio, no scripts, no founder time. Fully delegatable.',
+                            'proof' => '[X] reels/week, scalable',
                         ],
                         [
                             'num' => '03',
-                            'title' => 'Automation & Handoff',
-                            'body' => 'Instant lead magnet delivery. Follow-up sequences. Clean handoff to the sales team. Manual delivery at scale would have killed conversions — automation kept every lead warm and accountable.',
-                            'proof' => '25+ qualified leads',
+                            'title' => 'Lead Magnet Funnel',
+                            'body' => 'Every reel points to the Business Accounting Health Audit — a free 34-point self-assessment that qualifies leads before they hit a sales call. Viewers become subscribers automatically.',
+                            'proof' => '[X] opt-ins and counting',
                         ],
                     ];
                 @endphp
@@ -245,66 +254,150 @@
         </div>
     </section>
 
-    {{-- ========== THE RESULTS ========== --}}
+    {{-- ========== THE MACHINE (NEW) ========== --}}
+    <section class="relative py-24">
+        <div class="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]"></div>
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="text-center mb-14">
+                <span class="section-label mb-6 inline-block">The Machine</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">
+                    This is the system,
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">not a one-off win.</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Most agencies show results. We show the machine that produced them — because that's the actual product.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                @php
+                    $machine = [
+                        [
+                            'tag'     => '01 · Hook Library',
+                            'title'   => 'Battle-tested hooks, cycled and remixed.',
+                            'caption' => '[X] battle-tested hooks, cycled and remixed.',
+                            'icon'    => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>',
+                        ],
+                        [
+                            'tag'     => '02 · Reel Template',
+                            'title'   => 'One template. Swap footage, swap hook, ship.',
+                            'caption' => 'B-roll + text overlay. Built once, reused forever.',
+                            'icon'    => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>',
+                        ],
+                        [
+                            'tag'     => '03 · Workflow',
+                            'title'   => '[X] minutes from idea to live.',
+                            'caption' => 'Pick Hook → Grab B-roll → Drop Text → Post.',
+                            'icon'    => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>',
+                        ],
+                    ];
+                @endphp
+                @foreach ($machine as $m)
+                    <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
+                        <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                        <div class="relative z-[1] h-full rounded-2xl overflow-hidden flex flex-col" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                            {{-- Visual placeholder --}}
+                            <div class="relative aspect-[4/3] flex items-center justify-center border-b border-white/10" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.12) 0%, transparent 60%);">
+                                <div class="text-gray-500 flex flex-col items-center gap-3">
+                                    {!! $m['icon'] !!}
+                                    <span class="text-[11px] uppercase tracking-[0.2em]">Screenshot</span>
+                                </div>
+                            </div>
+                            {{-- Copy --}}
+                            <div class="p-6 md:p-7 flex flex-col flex-grow">
+                                <div class="text-[11px] font-semibold text-primary-light uppercase tracking-[0.2em] mb-3">{{ $m['tag'] }}</div>
+                                <h3 class="text-lg md:text-xl font-bold text-white mb-2 leading-snug">{{ $m['title'] }}</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">{{ $m['caption'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ========== THE PROOF (NEW) ========== --}}
     <section class="relative py-24">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[150px]"></div>
         <div class="max-w-6xl mx-auto px-6 relative">
             <div class="text-center mb-14">
-                <span class="section-label mb-6 inline-block">The Results</span>
+                <span class="section-label mb-6 inline-block">The Proof</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">
-                    60 days. One system.
-                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Real pipeline.</span>
+                    The reels that
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">did the work.</span>
                 </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Per-reel breakdown. No averaging, no rounding. Exactly what hit.
+                </p>
             </div>
 
-            {{-- Headline stats --}}
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-10">
-                @foreach ([
-                    ['big' => '1.4M+',       'label' => 'Total views',     'delta' => '↑ 19K%'],
-                    ['big' => '$1K → $16K',  'label' => 'Monthly revenue', 'delta' => '↑ 16x'],
-                    ['big' => '25+',         'label' => 'Qualified leads', 'delta' => 'Inbound'],
-                    ['big' => '100+',        'label' => 'Lead magnet opt-ins', 'delta' => 'Automated'],
-                    ['big' => '315K+',       'label' => 'Top reel views',  'delta' => 'Single post'],
-                    ['big' => '800+',        'label' => 'Followers across platforms', 'delta' => '↑ 800'],
-                ] as $r)
+            {{-- Reel grid --}}
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+                @php
+                    $reels = [
+                        ['n' => 'Reel 01', 'hook' => '[Hook text]', 'views' => '[X]K', 'saves' => '[X]', 'shares' => '[X]', 'comments' => '[X]'],
+                        ['n' => 'Reel 02', 'hook' => '[Hook text]', 'views' => '[X]K', 'saves' => '[X]', 'shares' => '[X]', 'comments' => '[X]'],
+                        ['n' => 'Reel 03', 'hook' => '[Hook text]', 'views' => '[X]K', 'saves' => '[X]', 'shares' => '[X]', 'comments' => '[X]'],
+                        ['n' => 'Reel 04', 'hook' => '[Hook text]', 'views' => '[X]K', 'saves' => '[X]', 'shares' => '[X]', 'comments' => '[X]'],
+                    ];
+                @endphp
+                @foreach ($reels as $r)
                     <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
                         <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
-                        <div class="relative z-[1] rounded-2xl p-6 md:p-7" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
-                            <div class="text-3xl md:text-4xl font-bold text-white mb-2 tabular-nums leading-none">{{ $r['big'] }}</div>
-                            <div class="flex items-center justify-between mt-3">
-                                <span class="text-gray-400 text-sm">{{ $r['label'] }}</span>
-                                <span class="text-primary text-[11px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20">{{ $r['delta'] }}</span>
+                        <div class="relative z-[1] h-full rounded-2xl overflow-hidden flex flex-col" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                            {{-- Thumbnail (9:16) --}}
+                            <div class="relative aspect-[9/16] flex items-center justify-center" style="background: radial-gradient(circle at 50% 40%, rgba(147,51,234,0.18) 0%, transparent 65%);">
+                                <div class="text-center px-4">
+                                    <div class="w-14 h-14 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                    <div class="text-[11px] uppercase tracking-[0.2em] text-gray-500">Reel thumbnail</div>
+                                </div>
+                                <span class="absolute top-3 left-3 inline-block px-2.5 py-1 rounded-full border border-white/15 bg-black/40 backdrop-blur-sm text-white text-[10px] font-semibold uppercase tracking-wider">{{ $r['n'] }}</span>
+                            </div>
+                            {{-- Metrics --}}
+                            <div class="p-5">
+                                <p class="text-gray-300 text-sm leading-snug mb-4 line-clamp-2">{{ $r['hook'] }}</p>
+                                <div class="grid grid-cols-4 gap-2 pt-3 border-t border-white/10">
+                                    @foreach ([['l' => 'Views', 'v' => $r['views']], ['l' => 'Saves', 'v' => $r['saves']], ['l' => 'Shares', 'v' => $r['shares']], ['l' => 'Comm.', 'v' => $r['comments']]] as $met)
+                                        <div class="text-center">
+                                            <div class="text-white text-sm font-bold tabular-nums leading-none mb-1">{{ $met['v'] }}</div>
+                                            <div class="text-gray-500 text-[10px] uppercase tracking-wider">{{ $met['l'] }}</div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
 
-            {{-- Audience breakdown --}}
+            {{-- Comments block --}}
             <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
                 <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
                 <div class="relative z-[1] rounded-2xl p-7 md:p-9" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
-                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-7">
-                        <div>
-                            <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Reach landed inside the ICP.</h3>
-                            <p class="text-gray-500 text-sm">Top countries by share of total views — weighted to English-speaking construction markets.</p>
-                        </div>
+                    <div class="mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1">The comments told us it was working.</h3>
+                        <p class="text-gray-500 text-sm">This is what inbound interest looks like in a faceless funnel — it starts in the comments, not the DMs.</p>
                     </div>
 
-                    <div class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-3">
                         @foreach ([
-                            ['name' => 'United States', 'pct' => 81.8],
-                            ['name' => 'Canada',         'pct' => 7.6],
-                            ['name' => 'Australia',      'pct' => 4.7],
-                            ['name' => 'Other',          'pct' => 5.9],
-                        ] as $c)
-                            <div>
-                                <div class="flex items-center justify-between mb-1.5">
-                                    <span class="text-gray-300 text-sm font-medium">{{ $c['name'] }}</span>
-                                    <span class="text-white text-sm tabular-nums font-semibold">{{ $c['pct'] }}%</span>
+                            '"Where do I sign up?"',
+                            '"Is this for US small businesses?"',
+                            '"Send the audit link 🙏"',
+                            '"Literally describing my books rn"',
+                        ] as $comment)
+                            <div class="flex items-start gap-3 p-4 rounded-xl border border-white/10 bg-white/[0.02]">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary/60 to-accent/60 shrink-0 flex items-center justify-center">
+                                    <span class="text-white text-xs font-bold">@</span>
                                 </div>
-                                <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                                    <div class="h-full rounded-full" style="width: {{ $c['pct'] }}%; background: linear-gradient(90deg, #9333EA 0%, #D946EF 100%);"></div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="text-gray-400 text-xs font-medium blur-[3px] select-none">username_hidden</span>
+                                        <span class="text-gray-600 text-[10px]">· 2d</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm leading-snug">{{ $comment }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -314,25 +407,123 @@
         </div>
     </section>
 
+    {{-- ========== THE RESULTS ========== --}}
+    <section class="relative py-24">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[150px]"></div>
+        <div class="max-w-6xl mx-auto px-6 relative">
+            <div class="text-center mb-14">
+                <span class="section-label mb-6 inline-block">The Results</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">
+                    30 days. Faceless.
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Measured.</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+                    Every number here is from Instagram Insights or our lead magnet backend. Nothing averaged. Nothing rounded up.
+                </p>
+            </div>
+
+            {{-- 8-stat grid --}}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                @foreach ([
+                    ['big' => '100K+', 'label' => 'Views (first month)', 'delta' => 'Across [X] reels'],
+                    ['big' => '[X]K+', 'label' => 'Total reach',          'delta' => 'Unique accounts'],
+                    ['big' => '[X]',   'label' => 'Saves',                'delta' => 'Intent signal'],
+                    ['big' => '[X]',   'label' => 'Shares',               'delta' => 'Organic distribution'],
+                    ['big' => '[X]',   'label' => 'Lead magnet opt-ins',  'delta' => 'The actual pipeline'],
+                    ['big' => '$0',    'label' => 'Ad spend',             'delta' => '100% organic'],
+                    ['big' => '+[X]',  'label' => 'Follower growth',      'delta' => 'From ~0'],
+                    ['big' => '0 min', 'label' => 'Founder time on camera', 'delta' => 'Faceless'],
+                ] as $r)
+                    <div class="relative glow-border-card rounded-2xl h-full" style="padding: 1px;">
+                        <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                        <div class="relative z-[1] rounded-2xl p-6 md:p-7 h-full flex flex-col" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="text-3xl md:text-4xl font-bold text-white mb-2 tabular-nums leading-none">{{ $r['big'] }}</div>
+                            <div class="flex items-center justify-between mt-auto pt-3 gap-2">
+                                <span class="text-gray-400 text-sm">{{ $r['label'] }}</span>
+                                <span class="text-primary text-[10px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 whitespace-nowrap">{{ $r['delta'] }}</span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- ========== CLIENT QUOTE ========== --}}
+    <section class="relative py-20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(147,51,234,0.10) 0%, transparent 60%); filter: blur(40px);"></div>
+        <div class="max-w-4xl mx-auto px-6 relative">
+            <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
+                <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                <div class="relative z-[1] rounded-2xl p-8 md:p-12 text-center" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                    <svg class="w-10 h-10 text-primary/60 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+                    <p class="text-lg md:text-2xl text-white leading-relaxed font-medium mb-8">
+                        [His quote here]
+                    </p>
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-sm font-bold">A</div>
+                        <div class="text-left">
+                            <div class="text-white text-sm font-semibold">[Name]</div>
+                            <div class="text-gray-500 text-xs">Founder, Accrivo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ========== WHY FACELESS WORKS FOR YOU (NEW) ========== --}}
+    <section class="relative py-20">
+        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2"></div>
+        <div class="max-w-5xl mx-auto px-6 relative">
+            <div class="text-center mb-12">
+                <span class="section-label mb-6 inline-block">Why Faceless Works</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">
+                    If you don't want to be on camera,
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">this is built for you.</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                @foreach ([
+                    ['t' => 'You run a real business.',           'b' => "You don't have time to become an influencer."],
+                    ['t' => "Your founder shouldn't be the brand.", 'b' => 'The business should be.'],
+                    ['t' => 'Content should sell while you work.',  'b' => 'Not the other way around.'],
+                ] as $why)
+                    <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
+                        <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
+                        <div class="relative z-[1] h-full rounded-2xl p-7" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-4">
+                                <svg class="w-4 h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2 leading-snug">{{ $why['t'] }}</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">{{ $why['b'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     {{-- ========== CLOSING + CTA ========== --}}
     <section class="relative py-32 overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(147,51,234,0.14) 0%, transparent 60%); filter: blur(40px);"></div>
         <div class="relative max-w-3xl mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
-                The difference between
-                <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">posting content</span>
-                and building a system.
+                From zero presence to a
+                <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">faceless system that runs itself.</span>
             </h2>
             <p class="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10">
-                One gets likes. The other gets clients. If you'd rather have the second thing — let's talk.
+                No camera. No personal brand. No scripts. Just a machine that pulls inbound while you run your business.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a href="/#contact" class="btn-primary magnetic text-base px-8 py-4 animate-pulse-glow">
                     Book a Call
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
-                <a href="/#case-studies" class="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 text-white font-semibold rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/30 text-base">
-                    See More Work
+                <a href="#" class="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 text-white font-semibold rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/30 text-base">
+                    See the Audit Tool
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
                 </a>
             </div>
         </div>
@@ -498,37 +689,6 @@
         card.addEventListener('mouseenter', () => card.classList.add('active'));
         card.addEventListener('mouseleave', () => card.classList.remove('active'));
     });
-
-    // Animated bar fills (comparison charts)
-    document.querySelectorAll('.bar-fill').forEach(bar => {
-        const target = parseFloat(bar.dataset.target) || 0;
-        ScrollTrigger.create({
-            trigger: bar,
-            start: 'top 90%',
-            once: true,
-            onEnter: () => {
-                gsap.to(bar, { width: target + '%', duration: 1.4, ease: 'power3.out' });
-            }
-        });
-    });
-
-    // Animated line chart (Part 02)
-    const growthLine = document.getElementById('growth-line');
-    const growthArea = document.getElementById('growth-area');
-    if (growthLine) {
-        const length = growthLine.getTotalLength();
-        growthLine.style.strokeDasharray = length;
-        growthLine.style.strokeDashoffset = length;
-        ScrollTrigger.create({
-            trigger: '#growth-chart',
-            start: 'top 85%',
-            once: true,
-            onEnter: () => {
-                gsap.to(growthLine, { strokeDashoffset: 0, duration: 2, ease: 'power2.out' });
-                gsap.to(growthArea, { opacity: 1, duration: 1.6, delay: 0.3, ease: 'power2.out' });
-            }
-        });
-    }
 
     // Scroll progress bar
     const progressBar = document.createElement('div');

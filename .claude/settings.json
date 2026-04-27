@@ -10,10 +10,22 @@
       "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Block3 Finance.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/block3-finance.png)",
       "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Emerald Wealth Services.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/emerald-wealth-services.png)",
       "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/FinTruction.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/fintruction.png)",
-      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Insured by Phoenix.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/insured-by-phoenix.png)"
+      "Bash(cp \"/c/xampp/htdocs/Devraj's Work/Random/Logos - editsbyDEVIXX site/Insured by Phoenix.png\" c:/xampp/htdocs/editsByDevixx/public/images/logos/insured-by-phoenix.png)",
+      "Bash(grep -v '^$')",
+      "Read(//c/xampp/htdocs/Devraj's Work/01_CEO_Works/**)",
+      "Read(//e/New folder/website/**)",
+      "Bash(mkdir -p \"c:/xampp/htdocs/editsByDevixx/public/images/case-studies\")",
+      "Bash(cp \"E:/New folder/website/\\\\$1K to \\\\$16K In 60 Days.png\" \"c:/xampp/htdocs/editsByDevixx/public/images/case-studies/fintruction-1k-to-16k.png\")",
+      "Bash(cp \"E:/New folder/website/\\\\$1K to \\\\$16K In 60 Days - v3.png\" \"c:/xampp/htdocs/editsByDevixx/public/images/case-studies/fintruction-1k-to-16k.png\")",
+      "Bash(mkdir -p \"c:/xampp/htdocs/editsByDevixx/public/images/testimonials\")",
+      "Bash(cp \"E:/New folder/website/Kevin Ball - photo.jpg\" \"c:/xampp/htdocs/editsByDevixx/public/images/testimonials/kevin.jpg\")",
+      "Bash(cp \"E:/New folder/website/kizzy - photo.png\" \"c:/xampp/htdocs/editsByDevixx/public/images/testimonials/kizzy.png\")",
+      "Bash(cp \"E:/New folder/website/shivajee dai - photo.jpg\" \"c:/xampp/htdocs/editsByDevixx/public/images/testimonials/shivajee.jpg\")",
+      "Bash(cp \"E:/New folder/website/vivian_image_on_top.png\" \"c:/xampp/htdocs/editsByDevixx/public/images/testimonials/vivian.png\")"
     ],
     "additionalDirectories": [
-      "F:\\Devraj's_Personal Clips"
+      "F:\\Devraj's_Personal Clips",
+      "E:\\New folder\\website"
     ]
   }
 }
