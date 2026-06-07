@@ -35,4 +35,16 @@ return [
         ],
     ],
 
+    'anthropic' => [
+        'key' => env('ANTHROPIC_API_KEY'),
+        'version' => env('ANTHROPIC_VERSION', '2023-06-01'),
+        'draft_model' => env('ANTHROPIC_DRAFT_MODEL', 'claude-sonnet-4-6'),
+        'verify_model' => env('ANTHROPIC_VERIFY_MODEL', 'claude-opus-4-8'),
+    ],
+
+    // Internal FuelCFO Content Gate staff tool (/fuelcfo-content-tool)
+    'content_gate' => [
+        'password' => env('CONTENT_GATE_PASSWORD'),
+    ],
+
 ];

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContentToolController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,3 +21,14 @@ Route::get('/ground-zero', function () {
 })->name('lead-magnets.ground-zero');
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+// Internal multi-company Content Tool. Password-gated, noindex, not in the sitemap.
+//   /content-tool            -> login, then company picker
+//   /content-tool/{company}  -> the gate tool for one company (e.g. fuelcfo)
+Route::prefix('content-tool')->group(function () {
+    Route::get('/', [ContentToolController::class, 'index'])->name('content-tool');
+    Route::post('/login', [ContentToolController::class, 'login'])->name('content-tool.login');
+    Route::post('/logout', [ContentToolController::class, 'logout'])->name('content-tool.logout');
+    Route::get('/{company}', [ContentToolController::class, 'company'])->name('content-tool.company');
+    Route::post('/{company}/api', [ContentToolController::class, 'api'])->name('content-tool.api');
+});
