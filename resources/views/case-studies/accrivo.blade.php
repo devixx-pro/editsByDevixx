@@ -273,41 +273,35 @@
                 @php
                     $machine = [
                         [
-                            'tag'     => '01 · Hook Library',
-                            'title'   => 'Battle-tested hooks, cycled and remixed.',
-                            'caption' => '[X] battle-tested hooks, cycled and remixed.',
-                            'icon'    => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>',
+                            'num'     => '01',
+                            'title'   => 'Hook Library',
+                            'body'    => 'A doc of [X] battle-tested hooks targeting small-business accounting pain — cycled and remixed across reels. Every video starts with a proven opener. No guessing, no blank page.',
+                            'outcome' => '[X] hooks, on-tap',
                         ],
                         [
-                            'tag'     => '02 · Reel Template',
-                            'title'   => 'One template. Swap footage, swap hook, ship.',
-                            'caption' => 'B-roll + text overlay. Built once, reused forever.',
-                            'icon'    => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>',
+                            'num'     => '02',
+                            'title'   => 'Reel Template',
+                            'body'    => 'B-roll + bold text overlay built into one repeatable template. Swap the footage, swap the hook, ship. No studio, no scripts, no founder time. Fully delegatable.',
+                            'outcome' => 'One template, infinite reels',
                         ],
                         [
-                            'tag'     => '03 · Workflow',
-                            'title'   => '[X] minutes from idea to live.',
-                            'caption' => 'Pick Hook → Grab B-roll → Drop Text → Post.',
-                            'icon'    => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>',
+                            'num'     => '03',
+                            'title'   => 'Workflow',
+                            'body'    => 'Pick a hook from the library, grab matching b-roll, drop the text, post. Four steps, [X] minutes from idea to live. The system runs whether the founder is on the phone or asleep.',
+                            'outcome' => '[X] mins, idea → live',
                         ],
                     ];
                 @endphp
                 @foreach ($machine as $m)
                     <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
                         <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
-                        <div class="relative z-[1] h-full rounded-2xl overflow-hidden flex flex-col" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
-                            {{-- Visual placeholder --}}
-                            <div class="relative aspect-[4/3] flex items-center justify-center border-b border-white/10" style="background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.12) 0%, transparent 60%);">
-                                <div class="text-gray-500 flex flex-col items-center gap-3">
-                                    {!! $m['icon'] !!}
-                                    <span class="text-[11px] uppercase tracking-[0.2em]">Screenshot</span>
-                                </div>
-                            </div>
-                            {{-- Copy --}}
-                            <div class="p-6 md:p-7 flex flex-col flex-grow">
-                                <div class="text-[11px] font-semibold text-primary-light uppercase tracking-[0.2em] mb-3">{{ $m['tag'] }}</div>
-                                <h3 class="text-lg md:text-xl font-bold text-white mb-2 leading-snug">{{ $m['title'] }}</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">{{ $m['caption'] }}</p>
+                        <div class="relative z-[1] h-full rounded-2xl p-7 md:p-8 flex flex-col" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-5 tabular-nums leading-none">{{ $m['num'] }}</div>
+                            <h3 class="text-xl font-bold text-white mb-3 leading-snug">{{ $m['title'] }}</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">{{ $m['body'] }}</p>
+                            <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                                <span class="text-xs text-gray-500 uppercase tracking-wider">Outcome</span>
+                                <span class="text-primary-light text-sm font-semibold">{{ $m['outcome'] }}</span>
                             </div>
                         </div>
                     </div>
@@ -353,16 +347,21 @@
                                     </div>
                                     <div class="text-[11px] uppercase tracking-[0.2em] text-gray-500">Reel thumbnail</div>
                                 </div>
-                                <span class="absolute top-3 left-3 inline-block px-2.5 py-1 rounded-full border border-white/15 bg-black/40 backdrop-blur-sm text-white text-[10px] font-semibold uppercase tracking-wider">{{ $r['n'] }}</span>
+                                <span class="absolute top-4 left-4 inline-block px-4 py-1.5 rounded-full border border-white/15 bg-black/50 backdrop-blur-sm text-white text-[12px] font-semibold uppercase tracking-wider">{{ $r['n'] }}</span>
                             </div>
                             {{-- Metrics --}}
-                            <div class="p-5">
-                                <p class="text-gray-300 text-sm leading-snug mb-4 line-clamp-2">{{ $r['hook'] }}</p>
-                                <div class="grid grid-cols-4 gap-2 pt-3 border-t border-white/10">
-                                    @foreach ([['l' => 'Views', 'v' => $r['views']], ['l' => 'Saves', 'v' => $r['saves']], ['l' => 'Shares', 'v' => $r['shares']], ['l' => 'Comm.', 'v' => $r['comments']]] as $met)
-                                        <div class="text-center">
-                                            <div class="text-white text-sm font-bold tabular-nums leading-none mb-1">{{ $met['v'] }}</div>
-                                            <div class="text-gray-500 text-[10px] uppercase tracking-wider">{{ $met['l'] }}</div>
+                            <div class="p-6">
+                                <p class="text-gray-300 text-sm leading-snug mb-5 line-clamp-2">{{ $r['hook'] }}</p>
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-white/10">
+                                    @foreach ([
+                                        ['l' => 'Views',    'v' => $r['views']],
+                                        ['l' => 'Saves',    'v' => $r['saves']],
+                                        ['l' => 'Shares',   'v' => $r['shares']],
+                                        ['l' => 'Comments', 'v' => $r['comments']],
+                                    ] as $met)
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="text-white text-base font-bold tabular-nums">{{ $met['v'] }}</span>
+                                            <span class="text-gray-500 text-[11px] uppercase tracking-wider">{{ $met['l'] }}</span>
                                         </div>
                                     @endforeach
                                 </div>
@@ -372,38 +371,6 @@
                 @endforeach
             </div>
 
-            {{-- Comments block --}}
-            <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
-                <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
-                <div class="relative z-[1] rounded-2xl p-7 md:p-9" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
-                    <div class="mb-6">
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1">The comments told us it was working.</h3>
-                        <p class="text-gray-500 text-sm">This is what inbound interest looks like in a faceless funnel — it starts in the comments, not the DMs.</p>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 gap-3">
-                        @foreach ([
-                            '"Where do I sign up?"',
-                            '"Is this for US small businesses?"',
-                            '"Send the audit link 🙏"',
-                            '"Literally describing my books rn"',
-                        ] as $comment)
-                            <div class="flex items-start gap-3 p-4 rounded-xl border border-white/10 bg-white/[0.02]">
-                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary/60 to-accent/60 shrink-0 flex items-center justify-center">
-                                    <span class="text-white text-xs font-bold">@</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="text-gray-400 text-xs font-medium blur-[3px] select-none">username_hidden</span>
-                                        <span class="text-gray-600 text-[10px]">· 2d</span>
-                                    </div>
-                                    <p class="text-gray-300 text-sm leading-snug">{{ $comment }}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -425,13 +392,13 @@
             {{-- 8-stat grid --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 @foreach ([
-                    ['big' => '100K+', 'label' => 'Views (first month)', 'delta' => 'Across [X] reels'],
-                    ['big' => '[X]K+', 'label' => 'Total reach',          'delta' => 'Unique accounts'],
-                    ['big' => '[X]',   'label' => 'Saves',                'delta' => 'Intent signal'],
-                    ['big' => '[X]',   'label' => 'Shares',               'delta' => 'Organic distribution'],
-                    ['big' => '[X]',   'label' => 'Lead magnet opt-ins',  'delta' => 'The actual pipeline'],
-                    ['big' => '$0',    'label' => 'Ad spend',             'delta' => '100% organic'],
-                    ['big' => '+[X]',  'label' => 'Follower growth',      'delta' => 'From ~0'],
+                    ['big' => '187K+', 'label' => 'Views (first month)', 'delta' => 'Across [X] reels'],
+                    ['big' => '103K+', 'label' => 'Total reach',          'delta' => 'Unique accounts'],
+                    ['big' => '222+',  'label' => 'Saves',                'delta' => 'Intent signal'],
+                    ['big' => '81+',   'label' => 'Shares',               'delta' => 'Organic distribution'],
+                    ['big' => '532+',  'label' => 'Likes',                'delta' => 'Engagement'],
+                    ['big' => '33+',   'label' => 'Comments',             'delta' => 'Conversations'],
+                    ['big' => '21+',   'label' => 'Lead magnet opt-ins',  'delta' => 'The actual pipeline'],
                     ['big' => '0 min', 'label' => 'Founder time on camera', 'delta' => 'Faceless'],
                 ] as $r)
                     <div class="relative glow-border-card rounded-2xl h-full" style="padding: 1px;">
@@ -449,28 +416,6 @@
         </div>
     </section>
 
-    {{-- ========== CLIENT QUOTE ========== --}}
-    <section class="relative py-20">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(147,51,234,0.10) 0%, transparent 60%); filter: blur(40px);"></div>
-        <div class="max-w-4xl mx-auto px-6 relative">
-            <div class="relative glow-border-card rounded-2xl" style="padding: 1px;">
-                <div class="glow-border-bg absolute inset-0 rounded-2xl z-0"></div>
-                <div class="relative z-[1] rounded-2xl p-8 md:p-12 text-center" style="background: #000000; border: 1px solid rgba(255,255,255,0.08);">
-                    <svg class="w-10 h-10 text-primary/60 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
-                    <p class="text-lg md:text-2xl text-white leading-relaxed font-medium mb-8">
-                        [His quote here]
-                    </p>
-                    <div class="flex items-center justify-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-sm font-bold">A</div>
-                        <div class="text-left">
-                            <div class="text-white text-sm font-semibold">[Name]</div>
-                            <div class="text-gray-500 text-xs">Founder, Accrivo</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     {{-- ========== WHY FACELESS WORKS FOR YOU (NEW) ========== --}}
     <section class="relative py-20">
@@ -520,10 +465,6 @@
                 <a href="/#contact" class="btn-primary magnetic text-base px-8 py-4 animate-pulse-glow">
                     Book a Call
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-                <a href="#" class="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 text-white font-semibold rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/30 text-base">
-                    See the Audit Tool
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
                 </a>
             </div>
         </div>

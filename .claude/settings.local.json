@@ -30,7 +30,13 @@
       "Bash(php -r \"try { $b = new \\\\Illuminate\\\\View\\\\Compilers\\\\BladeCompiler\\(new \\\\Illuminate\\\\Filesystem\\\\Filesystem\\(\\), sys_get_temp_dir\\(\\)\\); $b->compile\\(''resources/views/welcome.blade.php''\\); echo ''OK''; } catch\\(\\\\Exception $e\\) { echo $e->getMessage\\(\\); }\")",
       "Bash(php -l resources/views/welcome.blade.php)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/editsByDevixx/public/)",
-      "Bash(curl -s http://localhost/editsByDevixx/public/)"
+      "Bash(curl -s http://localhost/editsByDevixx/public/)",
+      "Bash(git restore *)",
+      "Bash(git commit -m ' *)",
+      "Bash(php -r \"echo json_encode\\(getimagesize\\('public/images/mahad_05.jpeg'\\)\\);\")",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Swap Mahad/Shivajee testimonials and update Mahad photo *)",
+      "Bash(git push *)"
     ]
   }
 }
