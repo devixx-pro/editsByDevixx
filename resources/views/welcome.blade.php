@@ -106,7 +106,7 @@
             <h1 data-hero-anim data-split class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
                 Helping Service Businesses Build the
                 <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">Content System</span>
-                That Brings High-Ticket Clients to You
+                That Brings High-Ticket Clients
             </h1>
 
             <p data-hero-anim class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
@@ -671,7 +671,7 @@
 
             @php
             $testimonials = [
-                ['name' => 'Mahad Mohamed', 'role' => 'Tax Partners', 'text' => 'Working with Edits by DEVIXX completely changed how we show up online. The content quality is unlike anything we had before. Highly recommend.', 'initials' => '', 'avatar' => 'images/mahad.jpg'],
+                ['name' => 'Shivajee Shedain', 'role' => 'Accrivo & FinTruction · COO/Director', 'text' => 'Edits by DEVIXX understands what it takes to build a brand that actually converts. They handle everything and the quality is always there.', 'initials' => '', 'avatar' => 'images/testimonials/shivajee.jpg', 'img_style' => 'transform: scale(1.45); transform-origin: center;'],
                 ['name' => 'Kevin Ball', 'role' => 'Block3 Finance', 'text' => 'The team just gets it. They understood our brand from day one and the content they produce consistently brings in the right people.', 'initials' => 'K', 'avatar' => 'images/testimonials/kevin.jpg'],
                 ['name' => 'Vivian Szatmari', 'role' => 'Insured by Phoenix', 'text' => 'We went from having no content strategy to having a full system running without us having to think about it. The results speak for themselves.', 'initials' => 'V', 'avatar' => 'images/testimonials/vivian.png'],
                 ['name' => 'Kizzy Bowen', 'role' => 'Emerald Wealth Services', 'text' => 'Professional, fast, and genuinely invested in our growth. The content they create for us has made a real difference in how clients find us.', 'initials' => 'K', 'avatar' => 'images/testimonials/kizzy.png'],
@@ -693,7 +693,7 @@
                         <div class="flex items-center gap-3 mt-auto">
                             @if(!empty($t['avatar']))
                             <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                                <img src="{{ asset($t['avatar']) }}" alt="{{ $t['name'] }}" class="w-full h-full object-cover object-[center_26%]">
+                                <img src="{{ asset($t['avatar']) }}" alt="{{ $t['name'] }}" class="w-full h-full object-cover object-[center_26%]" @if(!empty($t['img_style'])) style="{{ $t['img_style'] }}" @endif>
                             </div>
                             @else
                             <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
@@ -712,13 +712,12 @@
                 {{-- Center: Large tall video card --}}
                 <div class="testimonial-center-card rounded-2xl overflow-hidden flex flex-col w-full lg:flex-[1.4]" style="background: radial-gradient(circle at 0% 100%, rgba(147,51,234,0.15) 0%, #0a0a0a 60%); border: 1px solid rgba(147,51,234,0.15);">
                     <div class="relative w-full overflow-hidden" style="min-height: 470px;">
-                        <img src="{{ asset('images/testimonials/shivajee.jpg') }}" alt="Shivajee Shedain" class="absolute inset-0 w-full h-full object-cover">
+                        <img src="{{ asset('images/mahad_05.jpeg') }}" alt="Mahad Mohamed" class="absolute inset-0 w-full h-full object-cover" style="object-position: 47% 30%;">
                     </div>
                     <div class="p-6 text-center">
-                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Edits by DEVIXX understands what it takes to build a brand that actually converts. They handle everything and the quality is always there.</p>
-                        <h4 class="text-white font-bold text-2xl mb-1">Shivajee Shedain</h4>
-                        <p class="text-[#9333EA] font-semibold text-[16px] mb-0.5">Accrivo & FinTruction</p>
-                        <p class="text-[#9333EA] text-sm font-medium">COO/Director</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-5">Working with Edits by DEVIXX completely changed how we show up online. The content quality is unlike anything we had before. Highly recommend.</p>
+                        <h4 class="text-white font-bold text-2xl mb-1">Mahad Mohamed</h4>
+                        <p class="text-[#9333EA] font-semibold text-[16px] mb-0.5">Tax Partners</p>
                     </div>
                 </div>
 
@@ -735,7 +734,7 @@
                         <div class="flex items-center gap-3 mt-auto">
                             @if(!empty($t['avatar']))
                             <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                                <img src="{{ asset($t['avatar']) }}" alt="{{ $t['name'] }}" class="w-full h-full object-cover object-[center_26%]">
+                                <img src="{{ asset($t['avatar']) }}" alt="{{ $t['name'] }}" class="w-full h-full object-cover object-[center_26%]" @if(!empty($t['img_style'])) style="{{ $t['img_style'] }}" @endif>
                             </div>
                             @else
                             <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">

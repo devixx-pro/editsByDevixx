@@ -92,7 +92,7 @@
         <div class="relative max-w-5xl mx-auto px-6 text-center">
             <div data-hero-anim class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-primary-light"></span>
-                <span class="text-xs font-semibold text-primary-light uppercase tracking-[0.18em]">Free Playbook · Lead Magnet</span>
+                <span class="text-xs font-semibold text-primary-light uppercase tracking-[0.18em]">Zero Playbook</span>
             </div>
 
             <h1 data-hero-anim class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
@@ -145,19 +145,6 @@
                 </form>
             </div>
 
-            <div data-hero-anim class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-                @foreach ([
-                    ['v' => '9',         'l' => 'Steps'],
-                    ['v' => 'Faceless',  'l' => 'Friendly'],
-                    ['v' => '0 → Live',  'l' => 'From scratch'],
-                    ['v' => 'Free',      'l' => 'No upsell'],
-                ] as $stat)
-                    <div class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03]">
-                        <span class="text-white font-bold text-sm">{{ $stat['v'] }}</span>
-                        <span class="text-gray-500 text-xs uppercase tracking-wider">{{ $stat['l'] }}</span>
-                    </div>
-                @endforeach
-            </div>
         </div>
     </section>
 
@@ -200,7 +187,7 @@
         <div class="absolute top-1/3 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]"></div>
         <div class="max-w-6xl mx-auto px-6 relative">
             <div class="text-center mb-14">
-                <span class="section-label mb-6 inline-block">Inside The Playbook</span>
+                <span class="section-label mb-6 inline-block">The System</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-4 leading-tight">
                     9 steps. Every example.
                     <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Nothing held back.</span>
