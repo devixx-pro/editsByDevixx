@@ -45,6 +45,10 @@
     {{-- Noise Texture Overlay --}}
     <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
 
+    {{-- Page Backdrop --}}
+    <div id="site-bg" aria-hidden="true"></div>
+    <div id="site-veil" aria-hidden="true"></div>
+
     {{-- Background Grid Overlay --}}
     <div id="bg-grid"></div>
 
@@ -103,7 +107,7 @@
                 <span class="text-sm text-primary-light font-medium">Now Accepting New Clients</span>
             </div>
 
-            <h1 data-hero-anim data-split class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+            <h1 data-hero-anim data-split class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[0.95] mb-6 tracking-tighter">
                 Helping Service Businesses Build the
                 <span class="bg-gradient-to-r from-primary via-accent to-primary-light bg-clip-text text-transparent animate-gradient">Content System</span>
                 That Brings High-Ticket Clients

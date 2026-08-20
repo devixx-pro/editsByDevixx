@@ -20,6 +20,10 @@ Route::get('/ground-zero', function () {
     return view('lead-magnets.ground-zero');
 })->name('lead-magnets.ground-zero');
 
+Route::get('/meta-ads-workbook', function () {
+    return view('lead-magnets.meta-ads-workbook');
+})->name('lead-magnets.meta-ads-workbook');
+
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 // Internal multi-company Content Tool. Password-gated, noindex, not in the sitemap.
